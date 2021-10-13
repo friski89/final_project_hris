@@ -62,7 +62,7 @@ use App\Http\Livewire\Dashboard\Home;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
 
 Auth::routes();
