@@ -137,13 +137,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 box-col-12 des-xl-100">
+        <div class="col-xl-4 box-col-12 des-xl-100">
             <div class="row">
                 <div class="col-xl-12 col-50 box-col-6 des-xl-50">
                     <div class="card">
                         <div class="card-header">
                             <div class="header-top d-sm-flex align-items-center">
-                                <h5>Total Employee Per Division </h5>
+                                <h5>WORKING AREA</h5>
 
                             </div>
                         </div>
@@ -156,13 +156,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 box-col-12 des-xl-100">
+        <div class="col-xl-4 box-col-12 des-xl-100">
             <div class="row">
                 <div class="col-xl-12 col-50 box-col-6 des-xl-50">
                     <div class="card">
                         <div class="card-header">
                             <div class="header-top d-sm-flex align-items-center">
-                                <h5>Total Karyawan Tetap Per Division </h5>
+                                <h5>PER DIRECTORATE</h5>
 
                             </div>
                         </div>
@@ -173,13 +173,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 box-col-12 des-xl-100">
+        <div class="col-xl-4 box-col-12 des-xl-100">
             <div class="row">
                 <div class="col-xl-12 col-50 box-col-6 des-xl-50">
                     <div class="card">
                         <div class="card-header">
                             <div class="header-top d-sm-flex align-items-center">
-                                <h5>Total Umur Karyawan Perdivision </h5>
+                                <h5>EMPLOYEEMENT STATUS</h5>
 
                             </div>
                         </div>
@@ -190,13 +190,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 box-col-12 des-xl-100">
+        <div class="col-xl-4 box-col-12 des-xl-100">
             <div class="row">
                 <div class="col-xl-12 col-50 box-col-6 des-xl-50">
                     <div class="card">
                         <div class="card-header">
                             <div class="header-top d-sm-flex align-items-center">
-                                <h5>Total Jenis Kelamin Karyawan Perdivision </h5>
+                                <h5>AGE</h5>
 
                             </div>
                         </div>
@@ -207,7 +207,41 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-12 box-col-12 des-xl-100">
+        <div class="col-xl-4 box-col-12 des-xl-100">
+            <div class="row">
+                <div class="col-xl-12 col-50 box-col-6 des-xl-50">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="header-top d-sm-flex align-items-center">
+                                <h5>LENGTH OF WORK</h5>
+
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div id="chart-dashbord-length-of-work"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 box-col-12 des-xl-100">
+            <div class="row">
+                <div class="col-xl-12 col-50 box-col-6 des-xl-50">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="header-top d-sm-flex align-items-center">
+                                <h5>EDUCATIONAL BACKGROUND</h5>
+
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div id="chart-dashbord-educational-background"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- <div class="col-xl-12 box-col-12 des-xl-100">
             <div class="row">
                 <div class="col-xl-12 box-col-6 des-xl-50">
                     <div class="card">
@@ -226,7 +260,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
 
     </div>
 </div>
@@ -241,12 +275,10 @@
         google.charts.load('current', {packages: ['corechart']});
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work',     15],
-                ['Eat',      2],
-                ['Commute',  11],
-                ['Watch TV', 2],
-                ['Sleep',    7]
+                ['CITY', 'TOTAL'],
+                ['JAKARTA', {{ $grafik_work['JAKARTA'] }}],
+                ['SOLO', {{ $grafik_work['SOLO'] }}],
+                ['KLATEN', {{ $grafik_work['KLATEN'] }}]
             ]);
             var options = {
 
@@ -262,12 +294,16 @@
 
         function drawChartKartapDivision() {
             var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work',     15],
-                ['Eat',      2],
-                ['Commute',  11],
-                ['Watch TV', 2],
-                ['Sleep',    7]
+                ['Directorat', 'TOTAL'],
+                ['BUSINESS SUPPORT', {{ $grafik_direktorat['BUSINESS SUPPORT'] }}],
+                ['CORPORATE', {{ $grafik_direktorat['CORPORATE'] }}],
+                ["MARKETING & BUSINESS", {{ $grafik_direktorat["MARKETING & BUSINESS"] }}],
+                ["OPERATION", {{ $grafik_direktorat["OPERATION"] }}]
+                // ['Work',     15],
+                // ['Eat',      2],
+                // ['Commute',  11],
+                // ['Watch TV', 2],
+                // ['Sleep',    7]
             ]);
             var options = {
 
@@ -280,10 +316,104 @@
             var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-kartap-division'));
             chart.draw(data, options);
         }
+
+        function drawChartEmployeeStatus() {
+            var data = google.visualization.arrayToDataTable([
+                ['EMPLOYEE STATUS', 'TOTAL'],
+                ['TELKOM SUPPORT', {{ $grafik_statusEmployee['TELKOM SUPPORT'] }}],
+                ['KARTAP', {{ $grafik_statusEmployee['KARTAP'] }}],
+                ["PKWT ADMEDIKA", {{ $grafik_statusEmployee["PKWT ADMEDIKA"] }}],
+                ["OUTSOURCE", {{ $grafik_statusEmployee["OUTSOURCE"] }}]
+                // ['Work',     15],
+                // ['Eat',      2],
+                // ['Commute',  11],
+                // ['Watch TV', 2],
+                // ['Sleep',    7]
+            ]);
+            var options = {
+
+                pieHole: 0.4,
+                width:'100%',
+                height: 300,
+                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-umur-division'));
+            chart.draw(data, options);
+        }
+
+        function drawChartEmployeeAge() {
+            var data = google.visualization.arrayToDataTable([
+                ['EMPLOYEE AGE', 'TOTAL'],
+                ['< 30 Years', {{ $grafik_age['< 30 Years'] }}],
+                ['30 - 40 Years', {{ $grafik_age['30 - 40 Years'] }}],
+                ["> 40 Years", {{ $grafik_age["> 40 Years"] }}]
+                // ['Work',     15],
+                // ['Eat',      2],
+                // ['Commute',  11],
+                // ['Watch TV', 2],
+                // ['Sleep',    7]
+            ]);
+            var options = {
+
+                pieHole: 0.4,
+                width:'100%',
+                height: 300,
+                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-jenis-kelamin-division'));
+            chart.draw(data, options);
+        }
+
+        function drawChartEmployeeLengthWork() {
+            var data = google.visualization.arrayToDataTable([
+                ['EMPLOYEE LENGTH OF WORKING', 'TOTAL'],
+                ['< 5 Years', {{ $grafik_lenght_work['< 5 Years'] }}],
+                ['6 - 10 Years', {{ $grafik_lenght_work['6 - 10 Years'] }}],
+                ["11 - 15 Years", {{ $grafik_lenght_work["11 - 15 Years"] }}],
+                ["> 15 Years", {{ $grafik_lenght_work["> 15 Years"] }}]
+            ]);
+            var options = {
+
+                pieHole: 0.4,
+                width:'100%',
+                height: 300,
+                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-length-of-work'));
+            chart.draw(data, options);
+        }
+
+        function drawChartEmployeeEducational() {
+            var data = google.visualization.arrayToDataTable([
+                ['EMPLOYEE EDUCATIONAL BACKGROUND', 'TOTAL'],
+                ['S2', {{ $grafik_edus['S2'] }}],
+                ['S1', {{ $grafik_edus['S1'] }}],
+                ["D1 - D4", {{ $grafik_edus["D1 - D4"] }}],
+                ["SMA / SMU", {{ $grafik_edus["SMA / SMU"] }}]
+            ]);
+            var options = {
+
+                pieHole: 0.4,
+                width:'100%',
+                height: 300,
+                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-educational-background'));
+            chart.draw(data, options);
+        }
         document.addEventListener('turbolinks:load', function () {
             google.charts.setOnLoadCallback(drawChart)
             google.charts.setOnLoadCallback(drawChartKartapDivision)
+            google.charts.setOnLoadCallback(drawChartEmployeeStatus)
+            google.charts.setOnLoadCallback(drawChartEmployeeAge)
+            google.charts.setOnLoadCallback(drawChartEmployeeLengthWork)
+            google.charts.setOnLoadCallback(drawChartEmployeeEducational)
         })
+
 
 
     </script>
