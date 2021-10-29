@@ -1,13 +1,13 @@
 <x-admin-layout>
-@section('title')@lang('crud.achievement_histories.name')
+@section('title')@lang('crud.performance_appraisal_histories.name')
  {{ $title }}
 @endsection
 @component('components.breadcrumb')
     @slot('breadcrumb_title')
-        <h3>@lang('crud.achievement_histories.index_title')</h3>
+        <h3>@lang('crud.performance_appraisal_histories.index_title')</h3>
     @endslot
-    <li class="breadcrumb-item">@lang('crud.achievement_histories.name')</li>
-    <li class="breadcrumb-item active">@lang('crud.achievement_histories.index_title')</li>
+    <li class="breadcrumb-item">@lang('crud.performance_appraisal_histories.name')</li>
+    <li class="breadcrumb-item active">@lang('crud.performance_appraisal_histories.index_title')</li>
 @endcomponent
 <div class="container">
     <div class="card">
@@ -47,7 +47,7 @@
                         @can('create',
                         App\Models\PerformanceAppraisalHistory::class)
                         <a
-                            href="{{ route('performance-appraisal-histories.create') }}"
+                            href="{{ route('hrm.penilaian_kinerja.create') }}"
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
@@ -59,7 +59,7 @@
             </div>
 
             <div class="table-responsive">
-                <table class="table table-borderless table-hover">
+                <table class="table table-borderless table-head-fixed text-nowrap table-hover">
                     <thead>
                         <tr>
                             <th class="text-left">
@@ -82,9 +82,6 @@
                             </th>
                             <th class="text-left">
                                 @lang('crud.performance_appraisal_histories.inputs.behavioral_value')
-                            </th>
-                            <th class="text-left">
-                                @lang('crud.performance_appraisal_histories.inputs.user_id')
                             </th>
                             <th class="text-center">
                                 @lang('crud.common.actions')
@@ -126,11 +123,6 @@
                                 $performanceAppraisalHistory->behavioral_value
                                 ?? '-' }}
                             </td>
-                            <td>
-                                {{
-                                optional($performanceAppraisalHistory->user)->name
-                                ?? '-' }}
-                            </td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"
@@ -139,25 +131,13 @@
                                 >
                                     @can('update', $performanceAppraisalHistory)
                                     <a
-                                        href="{{ route('performance-appraisal-histories.edit', $performanceAppraisalHistory) }}"
+                                        href="{{ route('hrm.penilaian_kinerja.edit', $performanceAppraisalHistory) }}"
                                     >
                                         <button
                                             type="button"
                                             class="btn btn-light"
                                         >
                                             <i class="icon ion-md-create"></i>
-                                        </button>
-                                    </a>
-                                    @endcan @can('view',
-                                    $performanceAppraisalHistory)
-                                    <a
-                                        href="{{ route('performance-appraisal-histories.show', $performanceAppraisalHistory) }}"
-                                    >
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                        >
-                                            <i class="icon ion-md-eye"></i>
                                         </button>
                                     </a>
                                     @endcan @can('delete',

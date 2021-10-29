@@ -17,6 +17,7 @@ class AssignmentHistory extends Model
         'emp_no',
         'employee_name',
         'date',
+        'assignment_name',
         'company_home_id',
         'job_title_id',
         'user_id',
@@ -26,9 +27,9 @@ class AssignmentHistory extends Model
 
     protected $table = 'assignment_histories';
 
-    protected $casts = [
-        'date' => 'date',
-    ];
+    // protected $casts = [
+    //     'date' => 'date',
+    // ];
 
     public function companyHome()
     {

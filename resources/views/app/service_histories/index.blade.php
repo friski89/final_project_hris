@@ -1,14 +1,15 @@
 <x-admin-layout>
-@section('title')@lang('crud.achievement_histories.name')
+@section('title')@lang('crud.service_histories.name')
  {{ $title }}
 @endsection
 @component('components.breadcrumb')
     @slot('breadcrumb_title')
-        <h3>@lang('crud.achievement_histories.index_title')</h3>
+        <h3>@lang('crud.service_histories.index_title')</h3>
     @endslot
-    <li class="breadcrumb-item">@lang('crud.achievement_histories.name')</li>
-    <li class="breadcrumb-item active">@lang('crud.achievement_histories.index_title')</li>
+    <li class="breadcrumb-item">@lang('crud.service_histories.name')</li>
+    <li class="breadcrumb-item active">@lang('crud.service_histories.index_title')</li>
 @endcomponent
+
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -46,7 +47,7 @@
                     <div class="col-md-6 text-right">
                         @can('create', App\Models\ServiceHistory::class)
                         <a
-                            href="{{ route('service-histories.create') }}"
+                            href="{{ route('hrm.riwayat_kedinasan.create') }}"
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
@@ -58,7 +59,7 @@
             </div>
 
             <div class="table-responsive">
-                <table class="table table-borderless table-hover">
+                <table class="table table-borderless table-head-fixed text-nowrap table-hover">
                     <thead>
                         <tr>
                             <th class="text-left">
@@ -69,6 +70,9 @@
                             </th>
                             <th class="text-left">
                                 @lang('crud.service_histories.inputs.start_date')
+                            </th>
+                            <th class="text-left">
+                                @lang('crud.service_histories.inputs.end_date')
                             </th>
                             <th class="text-left">
                                 @lang('crud.service_histories.inputs.type')
@@ -85,9 +89,6 @@
                             <th class="text-left">
                                 @lang('crud.service_histories.inputs.job_title_id')
                             </th>
-                            <th class="text-left">
-                                @lang('crud.service_histories.inputs.user_id')
-                            </th>
                             <th class="text-center">
                                 @lang('crud.common.actions')
                             </th>
@@ -98,7 +99,8 @@
                         <tr>
                             <td>{{ $serviceHistory->emp_no ?? '-' }}</td>
                             <td>{{ $serviceHistory->emoloyee_name ?? '-' }}</td>
-                            <td>{{ $serviceHistory->start_date ?? '-' }}</td>
+                            <td>{{ date('d F Y', strtotime($serviceHistory->start_date)) ?? '-' }}</td>
+                            <td>{{ date('d F Y', strtotime($serviceHistory->end_date)) ?? '-' }}</td>
                             <td>{{ $serviceHistory->type ?? '-' }}</td>
                             <td>
                                 {{ optional($serviceHistory->companyHome)->name
@@ -116,11 +118,7 @@
                                 {{ optional($serviceHistory->jobTitle)->name ??
                                 '-' }}
                             </td>
-                            <td>
-                                {{ optional($serviceHistory->user)->name ?? '-'
-                                }}
-                            </td>
-                            <td class="text-center" style="width: 134px;">
+                            <td class="text-center">
                                 <div
                                     role="group"
                                     aria-label="Row Actions"
@@ -128,26 +126,16 @@
                                 >
                                     @can('update', $serviceHistory)
                                     <a
-                                        href="{{ route('service-histories.edit', $serviceHistory) }}"
+                                        href="{{ route('hrm.riwayat_kedinasan.edit', $serviceHistory) }}"
                                     >
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-light btn-sm"
                                         >
                                             <i class="icon ion-md-create"></i>
                                         </button>
                                     </a>
-                                    @endcan @can('view', $serviceHistory)
-                                    <a
-                                        href="{{ route('service-histories.show', $serviceHistory) }}"
-                                    >
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                        >
-                                            <i class="icon ion-md-eye"></i>
-                                        </button>
-                                    </a>
+
                                     @endcan @can('delete', $serviceHistory)
                                     <form
                                         action="{{ route('service-histories.destroy', $serviceHistory) }}"
@@ -157,7 +145,7 @@
                                         @csrf @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="btn btn-light text-danger"
+                                            class="btn btn-light btn-sm text-danger"
                                         >
                                             <i class="icon ion-md-trash"></i>
                                         </button>

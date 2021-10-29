@@ -46,7 +46,7 @@
                     <div class="col-md-6 text-right">
                         @can('create', App\Models\AssignmentHistory::class)
                         <a
-                            href="{{ route('assignment-histories.create') }}"
+                            href="{{ route('hrm.riwayat_penugasan.create') }}"
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="table-responsive">
-                <table class="table table-borderless table-hover">
+                <table class="table table-borderless table-head-fixed text-nowrap table-hover">
                     <thead>
                         <tr>
                             <th class="text-left">
@@ -77,7 +77,7 @@
                                 @lang('crud.assignment_histories.inputs.job_title_id')
                             </th>
                             <th class="text-left">
-                                @lang('crud.assignment_histories.inputs.user_id')
+                                Assignment Name
                             </th>
                             <th class="text-center">
                                 @lang('crud.common.actions')
@@ -102,8 +102,7 @@
                                 ?? '-' }}
                             </td>
                             <td>
-                                {{ optional($assignmentHistory->user)->name ??
-                                '-' }}
+                                {{ $assignmentHistory->assignment_name ?? '-' }}
                             </td>
                             <td class="text-center" style="width: 134px;">
                                 <div
@@ -113,24 +112,13 @@
                                 >
                                     @can('update', $assignmentHistory)
                                     <a
-                                        href="{{ route('assignment-histories.edit', $assignmentHistory) }}"
+                                        href="{{ route('hrm.riwayat_penugasan.edit', $assignmentHistory) }}"
                                     >
                                         <button
                                             type="button"
-                                            class="btn btn-light"
+                                            class="btn btn-light btn-sm"
                                         >
                                             <i class="icon ion-md-create"></i>
-                                        </button>
-                                    </a>
-                                    @endcan @can('view', $assignmentHistory)
-                                    <a
-                                        href="{{ route('assignment-histories.show', $assignmentHistory) }}"
-                                    >
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                        >
-                                            <i class="icon ion-md-eye"></i>
                                         </button>
                                     </a>
                                     @endcan @can('delete', $assignmentHistory)
@@ -142,7 +130,7 @@
                                         @csrf @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="btn btn-light text-danger"
+                                            class="btn btn-light btn-sm text-danger"
                                         >
                                             <i class="icon ion-md-trash"></i>
                                         </button>

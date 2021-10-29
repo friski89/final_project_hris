@@ -49,6 +49,16 @@ use App\Http\Controllers\EducationalBackgroundController;
 use App\Http\Controllers\Import\EmployeeImportController;
 use App\Http\Controllers\PerformanceAppraisalHistoryController;
 use App\Http\Livewire\Dashboard\Home;
+use App\Http\Livewire\Hris\DataKedinasan\CreateDataKedinasan;
+use App\Http\Livewire\Hris\DataKedinasan\UpdateDataKedinasan;
+use App\Http\Livewire\Hris\DataPenugasan\CreateDataPenugasan;
+use App\Http\Livewire\Hris\DataPenugasan\UpdateDataPenugasan;
+use App\Http\Livewire\Hris\PenilaianKinerja\CreatePenilaianKinerja;
+use App\Http\Livewire\Hris\PenilaianKinerja\UpdatePenilaianKinerja;
+use App\Http\Livewire\Hris\RiwayatPrestasi\CreateRiwayatPrestasi;
+use App\Http\Livewire\Hris\RiwayatPrestasi\UpdateRiwayatPrestasi;
+use App\Http\Livewire\Hris\RiwayatTraining\CreateRiwayatTraining;
+use App\Http\Livewire\Hris\RiwayatTraining\UpdateRiwayatTraining;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,8 +77,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('dashboard', Home::class)->name('dashboard.home');
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::get('dashboard', Home::class)->middleware('auth')->name('dashboard.home');
 
 Route::prefix('import_data')->middleware('auth')->group(function () {
     Route::prefix('employee')->group(function () {
@@ -159,12 +169,29 @@ Route::prefix('erp')
                 ->group(function () {
                     Route::resource('roles', RoleController::class);
                     Route::resource('permissions', PermissionController::class);
+
                     Route::resource('service-histories', ServiceHistoryController::class);
+                    Route::prefix('riwayat_kedinasan')->group(function () {
+                        Route::get('create', CreateDataKedinasan::class)->name('hrm.riwayat_kedinasan.create');
+                        Route::get('{serviceHistory}/edit', UpdateDataKedinasan::class)->name('hrm.riwayat_kedinasan.edit');
+                    });
                     Route::resource(
                         'assignment-histories',
                         AssignmentHistoryController::class
                     );
+                    Route::prefix('riwayat-prestasi')->group(function () {
+                        Route::get('create', CreateRiwayatPrestasi::class)->name('hrm.riwayat_prestasi.create');
+                        Route::get('{achievementHistory}/edit', UpdateRiwayatPrestasi::class)->name('hrm.riwayat_prestasi.edit');
+                    });
+                    Route::prefix('riwayat_penugasan')->group(function () {
+                        Route::get('create', CreateDataPenugasan::class)->name('hrm.riwayat_penugasan.create');
+                        Route::get('{assignmentHistory}/edit', UpdateDataPenugasan::class)->name('hrm.riwayat_penugasan.edit');
+                    });
                     Route::resource('training-histories', TrainingHistoryController::class);
+                    Route::prefix('riwayat_training')->group(function () {
+                        Route::get('create', CreateRiwayatTraining::class)->name('hrm.riwayat_training.create');
+                        Route::get('{trainingHistory}/edit', UpdateRiwayatTraining::class)->name('hrm.riwayat_training.edit');
+                    });
                     Route::resource(
                         'skills-and-professions',
                         SkillsAndProfessionController::class
@@ -221,6 +248,10 @@ Route::prefix('erp')
                         'performance-appraisal-histories',
                         PerformanceAppraisalHistoryController::class
                     );
+                    Route::prefix('penilaian-kinerja')->group(function () {
+                        Route::get('create', CreatePenilaianKinerja::class)->name('hrm.penilaian_kinerja.create');
+                        Route::get('{performanceAppraisalHistory}/edit', UpdatePenilaianKinerja::class)->name('hrm.penilaian_kinerja.edit');
+                    });
                     Route::resource(
                         'achievement-histories',
                         AchievementHistoryController::class

@@ -13,10 +13,12 @@ class ServiceHistory extends Model
     use HasFactory;
     use Searchable;
 
+
     protected $fillable = [
         'emp_no',
         'emoloyee_name',
         'start_date',
+        'end_date',
         'type',
         'company_home_id',
         'company_host_id',
@@ -25,13 +27,15 @@ class ServiceHistory extends Model
         'user_id',
     ];
 
+
     protected $searchableFields = ['*'];
 
     protected $table = 'service_histories';
 
-    protected $casts = [
-        'start_date' => 'date',
-    ];
+    // protected $casts = [
+    //     'start_date' => 'date',
+    //     'end_date' => 'date',
+    // ];
 
     public function companyHome()
     {

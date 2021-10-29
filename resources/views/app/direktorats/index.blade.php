@@ -61,6 +61,9 @@
                 <table class="table table-borderless table-hover">
                     <thead>
                         <tr>
+                            <th class="text-center">
+                                ID
+                            </th>
                             <th class="text-left">
                                 @lang('crud.direktorats.inputs.name')
                             </th>
@@ -72,6 +75,7 @@
                     <tbody>
                         @forelse($direktorats as $direktorat)
                         <tr>
+                            <td>{{ $direktorat->id }}</td>
                             <td>{{ $direktorat->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div

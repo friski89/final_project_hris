@@ -39,10 +39,10 @@ class TrainingHistory extends Model
 
     protected $table = 'training_histories';
 
-    protected $casts = [
-        'start_date' => 'date',
-        'end_date' => 'date',
-    ];
+    // protected $casts = [
+    //     'start_date' => 'date',
+    //     'end_date' => 'date',
+    // ];
 
     public function user()
     {

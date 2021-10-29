@@ -165,16 +165,17 @@ return [
     ],
 
     'service_histories' => [
-        'name' => 'Service Histories',
-        'index_title' => 'ServiceHistories List',
-        'new_title' => 'New Service history',
-        'create_title' => 'Create ServiceHistory',
-        'edit_title' => 'Edit ServiceHistory',
-        'show_title' => 'Show ServiceHistory',
+        'name' => 'Riwayat Data Kedinasan',
+        'index_title' => 'Riwayat Data Kedinasan',
+        'new_title' => 'New Riwayat Kedinasan',
+        'create_title' => 'Create Riwayat Kedinasan',
+        'edit_title' => 'Edit Riwayat Kedinasan',
+        'show_title' => 'Show Riwayat Kedinasan',
         'inputs' => [
             'emp_no' => 'Emp No',
             'emoloyee_name' => 'Emoloyee Name',
             'start_date' => 'Start Date',
+            'end_date' => 'End Date',
             'type' => 'Type',
             'company_home_id' => 'Company Home',
             'company_host_id' => 'Company Host',

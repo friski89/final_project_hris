@@ -20,5 +20,8 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "resolve-url-loader": "^3.1.0"
+    },
+    "dependencies": {
+        "apexcharts": "^3.29.0"
     }
 }

@@ -1,13 +1,13 @@
 <x-admin-layout>
-@section('title')@lang('crud.achievement_histories.name')
+@section('title')@lang('crud.training_histories.name')
  {{ $title }}
 @endsection
 @component('components.breadcrumb')
     @slot('breadcrumb_title')
-        <h3>@lang('crud.achievement_histories.index_title')</h3>
+        <h3>@lang('crud.training_histories.index_title')</h3>
     @endslot
-    <li class="breadcrumb-item">@lang('crud.achievement_histories.name')</li>
-    <li class="breadcrumb-item active">@lang('crud.achievement_histories.index_title')</li>
+    <li class="breadcrumb-item">@lang('crud.training_histories.name')</li>
+    <li class="breadcrumb-item active">@lang('crud.training_histories.index_title')</li>
 @endcomponent
 <div class="container">
     <div class="card">
@@ -46,7 +46,7 @@
                     <div class="col-md-6 text-right">
                         @can('create', App\Models\TrainingHistory::class)
                         <a
-                            href="{{ route('training-histories.create') }}"
+                            href="{{ route('hrm.riwayat_training.create') }}"
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="table-responsive">
-                <table class="table table-borderless table-hover">
+                <table class="table table-borderless table-head-fixed text-nowrap table-hover">
                     <thead>
                         <tr>
                             <th class="text-left">
@@ -102,9 +102,6 @@
                             </th>
                             <th class="text-left">
                                 @lang('crud.training_histories.inputs.trn_flag')
-                            </th>
-                            <th class="text-left">
-                                @lang('crud.training_histories.inputs.user_id')
                             </th>
                             <th class="text-left">
                                 @lang('crud.training_histories.inputs.other_competencies_id')
@@ -157,10 +154,6 @@
                             </td>
                             <td>{{ $trainingHistory->trn_flag ?? '-' }}</td>
                             <td>
-                                {{ optional($trainingHistory->user)->name ?? '-'
-                                }}
-                            </td>
-                            <td>
                                 {{
                                 optional($trainingHistory->otherCompetencies)->name
                                 ?? '-' }}
@@ -188,24 +181,13 @@
                                 >
                                     @can('update', $trainingHistory)
                                     <a
-                                        href="{{ route('training-histories.edit', $trainingHistory) }}"
+                                        href="{{ route('hrm.riwayat_training.edit', $trainingHistory) }}"
                                     >
                                         <button
                                             type="button"
                                             class="btn btn-light"
                                         >
                                             <i class="icon ion-md-create"></i>
-                                        </button>
-                                    </a>
-                                    @endcan @can('view', $trainingHistory)
-                                    <a
-                                        href="{{ route('training-histories.show', $trainingHistory) }}"
-                                    >
-                                        <button
-                                            type="button"
-                                            class="btn btn-light"
-                                        >
-                                            <i class="icon ion-md-eye"></i>
                                         </button>
                                     </a>
                                     @endcan @can('delete', $trainingHistory)

@@ -148,9 +148,9 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <div id="chart-dashbord-total-employee"></div>
-
-						    {{-- <div class="chart-overflow" id="p"></div> --}}
+                            <figure class="highcharts-figure">
+                                <div id="grafWorking"></div>
+                            </figure>
                         </div>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <div id="chart-dashbord-kartap-division"></div>
+                            <div id="grafDirektorat"></div>
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <div id="chart-dashbord-umur-division"></div>
+                            <div id="grafEmployee"></div>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <div id="chart-dashbord-jenis-kelamin-division"></div>
+                            <div id="grafAge"></div>
                         </div>
                     </div>
                 </div>
@@ -218,7 +218,7 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <div id="chart-dashbord-length-of-work"></div>
+                            <div id="grafLength"></div>
                         </div>
                     </div>
                 </div>
@@ -235,190 +235,292 @@
                             </div>
                         </div>
                         <div class="card-body p-0">
-                            <div id="chart-dashbord-educational-background"></div>
+                            <div id="grafEdu"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- <div class="col-xl-12 box-col-12 des-xl-100">
-            <div class="row">
-                <div class="col-xl-12 box-col-6 des-xl-50">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="header-top d-sm-flex align-items-center">
-                                <h5>Graph Employee</h5>
-                                <div class="center-content">
-                                    <p>Yearly Employee Total : 1800</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body p-0">
-                            {{-- <div id="user-activation-dash-2"></div> --}}
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div> --}}
-
     </div>
 </div>
 
 </div>
 @push('scripts')
-	{{-- <script src="{{ asset('assets/js/chart/google/google-chart-loader.js') }}" defer></script> --}}
-    {{-- <script src="{{ asset('assets/js/chart/google/google-chart.js') }}" defer></script> --}}
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
     <script>
-        google.charts.load('current', {packages: ['corechart']});
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['CITY', 'TOTAL'],
-                ['JAKARTA', {{ $grafik_work['JAKARTA'] }}],
-                ['SOLO', {{ $grafik_work['SOLO'] }}],
-                ['KLATEN', {{ $grafik_work['KLATEN'] }}]
-            ]);
-            var options = {
+       Highcharts.chart('grafWorking', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'WORKING AREA'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <br>{point.percentage:.1f} %<br>value: {point.y}'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Direktorat',
+                colorByPoint: true,
+                data: [{
+                    name: 'Jakarta',
+                    y: {{ $grafik_work['JAKARTA'] }}
+                }, {
+                    name: 'SOLO',
+                    y: {{ $grafik_work['SOLO'] }}
+                }, {
+                    name: 'KLATEN',
+                    y: {{ $grafik_work['KLATEN'] }}
+                }]
+            }]
+        });
 
-                pieHole: 0.4,
-                width:'100%',
-                height: 300,
-                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
-            };
+        Highcharts.chart('grafDirektorat', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Direktorat'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <br>{point.percentage:.1f} %<br>value: {point.y}'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Direktorat',
+                colorByPoint: true,
+                data: [{
+                    name: 'BUSINESS SUPPORT',
+                    y: {{ $grafik_direktorat['BUSINESS SUPPORT'] }}
+                }, {
+                    name: 'CORPORATE',
+                    y: {{ $grafik_direktorat['CORPORATE'] }}
+                }, {
+                    name: 'MARKETING & BUSINESS',
+                    y: {{ $grafik_direktorat['MARKETING & BUSINESS'] }}
+                },{
+                    name: 'OPERATION',
+                    y: {{ $grafik_direktorat['OPERATION'] }}
+                }]
+            }]
+        });
 
-            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-total-employee'));
-            chart.draw(data, options);
-        }
-
-        function drawChartKartapDivision() {
-            var data = google.visualization.arrayToDataTable([
-                ['Directorat', 'TOTAL'],
-                ['BUSINESS SUPPORT', {{ $grafik_direktorat['BUSINESS SUPPORT'] }}],
-                ['CORPORATE', {{ $grafik_direktorat['CORPORATE'] }}],
-                ["MARKETING & BUSINESS", {{ $grafik_direktorat["MARKETING & BUSINESS"] }}],
-                ["OPERATION", {{ $grafik_direktorat["OPERATION"] }}]
-                // ['Work',     15],
-                // ['Eat',      2],
-                // ['Commute',  11],
-                // ['Watch TV', 2],
-                // ['Sleep',    7]
-            ]);
-            var options = {
-
-                pieHole: 0.4,
-                width:'100%',
-                height: 300,
-                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-kartap-division'));
-            chart.draw(data, options);
-        }
-
-        function drawChartEmployeeStatus() {
-            var data = google.visualization.arrayToDataTable([
-                ['EMPLOYEE STATUS', 'TOTAL'],
-                ['TELKOM SUPPORT', {{ $grafik_statusEmployee['TELKOM SUPPORT'] }}],
-                ['KARTAP', {{ $grafik_statusEmployee['KARTAP'] }}],
-                ["PKWT ADMEDIKA", {{ $grafik_statusEmployee["PKWT ADMEDIKA"] }}],
-                ["OUTSOURCE", {{ $grafik_statusEmployee["OUTSOURCE"] }}]
-                // ['Work',     15],
-                // ['Eat',      2],
-                // ['Commute',  11],
-                // ['Watch TV', 2],
-                // ['Sleep',    7]
-            ]);
-            var options = {
-
-                pieHole: 0.4,
-                width:'100%',
-                height: 300,
-                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-umur-division'));
-            chart.draw(data, options);
-        }
-
-        function drawChartEmployeeAge() {
-            var data = google.visualization.arrayToDataTable([
-                ['EMPLOYEE AGE', 'TOTAL'],
-                ['< 30 Years', {{ $grafik_age['< 30 Years'] }}],
-                ['30 - 40 Years', {{ $grafik_age['30 - 40 Years'] }}],
-                ["> 40 Years", {{ $grafik_age["> 40 Years"] }}]
-                // ['Work',     15],
-                // ['Eat',      2],
-                // ['Commute',  11],
-                // ['Watch TV', 2],
-                // ['Sleep',    7]
-            ]);
-            var options = {
-
-                pieHole: 0.4,
-                width:'100%',
-                height: 300,
-                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-jenis-kelamin-division'));
-            chart.draw(data, options);
-        }
-
-        function drawChartEmployeeLengthWork() {
-            var data = google.visualization.arrayToDataTable([
-                ['EMPLOYEE LENGTH OF WORKING', 'TOTAL'],
-                ['< 5 Years', {{ $grafik_lenght_work['< 5 Years'] }}],
-                ['6 - 10 Years', {{ $grafik_lenght_work['6 - 10 Years'] }}],
-                ["11 - 15 Years", {{ $grafik_lenght_work["11 - 15 Years"] }}],
-                ["> 15 Years", {{ $grafik_lenght_work["> 15 Years"] }}]
-            ]);
-            var options = {
-
-                pieHole: 0.4,
-                width:'100%',
-                height: 300,
-                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-length-of-work'));
-            chart.draw(data, options);
-        }
-
-        function drawChartEmployeeEducational() {
-            var data = google.visualization.arrayToDataTable([
-                ['EMPLOYEE EDUCATIONAL BACKGROUND', 'TOTAL'],
-                ['S2', {{ $grafik_edus['S2'] }}],
-                ['S1', {{ $grafik_edus['S1'] }}],
-                ["D1 - D4", {{ $grafik_edus["D1 - D4"] }}],
-                ["SMA / SMU", {{ $grafik_edus["SMA / SMU"] }}]
-            ]);
-            var options = {
-
-                pieHole: 0.4,
-                width:'100%',
-                height: 300,
-                colors: [vihoAdminConfig.secondary, vihoAdminConfig.primary, "#222222", "#717171", "#e2c636"]
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('chart-dashbord-educational-background'));
-            chart.draw(data, options);
-        }
-        document.addEventListener('turbolinks:load', function () {
-            google.charts.setOnLoadCallback(drawChart)
-            google.charts.setOnLoadCallback(drawChartKartapDivision)
-            google.charts.setOnLoadCallback(drawChartEmployeeStatus)
-            google.charts.setOnLoadCallback(drawChartEmployeeAge)
-            google.charts.setOnLoadCallback(drawChartEmployeeLengthWork)
-            google.charts.setOnLoadCallback(drawChartEmployeeEducational)
-        })
-
-
+        Highcharts.chart('grafEmployee', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Employeement Status'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <br>{point.percentage:.1f} %<br>value: {point.y}'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Employeement Status',
+                colorByPoint: true,
+                data: [{
+                    name: 'TELKOM SUPPORT',
+                    y: {{ $grafik_statusEmployee['TELKOM SUPPORT'] }}
+                }, {
+                    name: 'KARTAP',
+                    y: {{ $grafik_statusEmployee['KARTAP'] }}
+                }, {
+                    name: 'PKWT ADMEDIKA',
+                    y: {{ $grafik_statusEmployee['PKWT ADMEDIKA'] }}
+                },{
+                    name: 'OUTSOURCE',
+                    y: {{ $grafik_statusEmployee['OUTSOURCE'] }}
+                }]
+            }]
+        });
+        Highcharts.chart('grafAge', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Age'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <br>{point.percentage:.1f} %<br>value: {point.y}'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Employeement Status',
+                colorByPoint: true,
+                data: [{
+                    name: '< 30 Years',
+                    y: {{ $grafik_age['< 30 Years'] }}
+                }, {
+                    name: '30 - 40 Years',
+                    y: {{ $grafik_age['30 - 40 Years'] }}
+                }, {
+                    name: '> 40 Years',
+                    y: {{ $grafik_age['> 40 Years'] }}
+                }]
+            }]
+        });
+        Highcharts.chart('grafLength', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'EMPLOYEE LENGTH OF WORKING'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <br>{point.percentage:.1f} %<br>value: {point.y}'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'EMPLOYEE LENGTH OF WORKING',
+                colorByPoint: true,
+                data: [{
+                    name: '< 5 Years',
+                    y: {{ $grafik_lenght_work['< 5 Years'] }}
+                }, {
+                    name: '6 - 10 Years',
+                    y: {{ $grafik_lenght_work['6 - 10 Years'] }}
+                }, {
+                    name: '11 - 15 Years',
+                    y: {{ $grafik_lenght_work['11 - 15 Years'] }}
+                },{
+                    name: '> 15 Years',
+                    y: {{ $grafik_lenght_work['> 15 Years'] }}
+                }]
+            }]
+        });
+        Highcharts.chart('grafEdu', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'EMPLOYEE EDUCATIONAL BACKGROUND'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <br>{point.percentage:.1f} %<br>value: {point.y}'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'EMPLOYEE EDUCATIONAL BACKGROUND',
+                colorByPoint: true,
+                data: [{
+                    name: 'S2',
+                    y: {{ $grafik_edus['S2'] }}
+                }, {
+                    name: 'S1',
+                    y: {{ $grafik_edus['S1'] }}
+                }, {
+                    name: 'D1 - D4',
+                    y: {{ $grafik_edus['D1 - D4'] }}
+                },{
+                    name: 'SMA / SMU',
+                    y: {{ $grafik_edus['SMA / SMU'] }}
+                }]
+            }]
+        });
 
     </script>
 @endpush
-
-@push('scripts')
 
 

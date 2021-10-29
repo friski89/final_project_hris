@@ -46,7 +46,7 @@
                         <div class="col-md-6 text-right">
                             @can('create', App\Models\AchievementHistory::class)
                             <a
-                                href="{{ route('achievement-histories.create') }}"
+                                href="{{ route('hrm.riwayat_prestasi.create') }}"
                                 class="btn btn-primary"
                             >
                                 <i class="icon ion-md-add"></i>
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table table-borderless table-hover">
+                    <table class="table table-borderless table-head-fixed text-nowrap table-hover">
                         <thead>
                             <tr>
                                 <th class="text-left">
@@ -88,9 +88,6 @@
                                 <th class="text-left">
                                     @lang('crud.achievement_histories.inputs.remarks')
                                 </th>
-                                <th class="text-left">
-                                    @lang('crud.achievement_histories.inputs.user_id')
-                                </th>
                                 <th class="text-center">
                                     @lang('crud.common.actions')
                                 </th>
@@ -118,10 +115,6 @@
                                     {{ $achievementHistory->position_name ?? '-' }}
                                 </td>
                                 <td>{{ $achievementHistory->remarks ?? '-' }}</td>
-                                <td>
-                                    {{ optional($achievementHistory->user)->name ??
-                                    '-' }}
-                                </td>
                                 <td class="text-center" style="width: 134px;">
                                     <div
                                         role="group"
@@ -130,24 +123,13 @@
                                     >
                                         @can('update', $achievementHistory)
                                         <a
-                                            href="{{ route('achievement-histories.edit', $achievementHistory) }}"
+                                            href="{{ route('hrm.riwayat_prestasi.edit', $achievementHistory) }}"
                                         >
                                             <button
                                                 type="button"
                                                 class="btn btn-light"
                                             >
                                                 <i class="icon ion-md-create"></i>
-                                            </button>
-                                        </a>
-                                        @endcan @can('view', $achievementHistory)
-                                        <a
-                                            href="{{ route('achievement-histories.show', $achievementHistory) }}"
-                                        >
-                                            <button
-                                                type="button"
-                                                class="btn btn-light"
-                                            >
-                                                <i class="icon ion-md-eye"></i>
                                             </button>
                                         </a>
                                         @endcan @can('delete', $achievementHistory)

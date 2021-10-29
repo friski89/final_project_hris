@@ -28,7 +28,7 @@
                     <li class="dropdown">
                         <a class="nav-link menu-title {{ prefixActive('erp/hris') }}" href="javascript:void(0)"><i data-feather="home"></i><span>HRIS</span></a>
                         <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('erp/hris') }};">
-                            <li><a href="{{route('users.index')}}" class="{{routeActive('users.index')}}">Data Karyawan</a></li>
+                            <li><a href="{{route('users.index')}}" class="{{routeActive('users*')}}">Data Karyawan</a></li>
                             <li><a href="{{route('service-histories.index')}}" class="{{routeActive('service-histories*')}}">Riwayat Kedinasan</a></li>
                             <li><a href="{{route('assignment-histories.index')}}" class="{{routeActive('assignment-histories*')}}">Riwayat Penugasan Khusus</a></li>
                             <li><a href="{{route('performance-appraisal-histories.index')}}" class="{{routeActive('performance-appraisal-histories*')}}">Riwayat Penilaian Kinerja</a></li>

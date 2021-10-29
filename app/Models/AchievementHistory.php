@@ -30,9 +30,9 @@ class AchievementHistory extends Model
 
     protected $table = 'achievement_histories';
 
-    protected $casts = [
-        'date' => 'date',
-    ];
+    // protected $casts = [
+    //     'date' => 'date',
+    // ];
 
     public function user()
     {
