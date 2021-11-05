@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Dashboard\Home;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EduController;
@@ -36,6 +37,8 @@ use App\Http\Controllers\ServiceHistoryController;
 use App\Http\Controllers\StatusEmployeeController;
 use App\Http\Controllers\ContractHistoryController;
 use App\Http\Controllers\TrainingHistoryController;
+use App\Http\Livewire\Hris\Employee\CreateEmployee;
+use App\Http\Livewire\Hris\Employee\UpdateEmployee;
 use App\Http\Controllers\EmergencyContactController;
 use App\Http\Controllers\OfficeFacilitiesController;
 use App\Http\Controllers\AssignmentHistoryController;
@@ -258,6 +261,10 @@ Route::prefix('erp')
                     Route::resource('contract-histories', ContractHistoryController::class);
                     Route::resource('families', FamilyController::class);
                     Route::resource('users', UserController::class);
+                    Route::prefix('employee')->group(function () {
+                        Route::get('create', CreateEmployee::class)->name('hrm.employee.create');
+                        Route::get('{user}/edit', UpdateEmployee::class)->name('hrm.employee.edit');
+                    });
                     Route::resource(
                         'emergency-contacts',
                         EmergencyContactController::class

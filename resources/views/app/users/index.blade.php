@@ -82,7 +82,7 @@
                             @can('create', App\Models\User::class)
                             <div class="col-md-3">
                                 <a
-                                    href="{{ route('users.create') }}"
+                                    href="{{ route('hrm.employee.create') }}"
                                     class="btn btn-primary"
                                 >
                                     <i class="icon ion-md-add"></i>
@@ -96,7 +96,7 @@
             </div>
 
             <div class="table-responsive">
-                <table class="table table-borderless table-hover">
+                <table class="table table-borderless table-head-fixed text-nowrap table-hover">
                     <thead>
                         <tr>
                             <th class="text-left">
@@ -265,7 +265,7 @@
                                     class="btn-group"
                                 >
                                     @can('update', $user)
-                                    <a href="{{ route('users.edit', $user) }}">
+                                    <a href="{{ route('hrm.employee.edit', $user) }}">
                                         <button
                                             type="button"
                                             class="btn btn-light"

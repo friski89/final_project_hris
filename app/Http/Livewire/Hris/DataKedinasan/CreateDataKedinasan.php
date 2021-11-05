@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 class CreateDataKedinasan extends Component
 {
     public $state = [];
+
     public $emp_no;
 
     public function searchEmploye()
