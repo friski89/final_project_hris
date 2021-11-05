@@ -24,6 +24,16 @@ class Profile extends Model
         'religion_id',
         'address_npwp',
         'nama_ibu',
+        'vaccine1',
+        'vaccine2',
+        'not_vaccine',
+        'remarks_not_vaccine'
+    ];
+
+    protected $casts = [
+        'vaccine1' => 'boolean',
+        'vaccine2' => 'boolean',
+        'not_vaccine' => 'boolean',
     ];
 
     protected $searchableFields = ['*'];

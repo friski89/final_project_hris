@@ -310,20 +310,67 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-sm col-md-6">
+                                <div class="col-sm col-md-3">
                                     <div class="mb-3">
                                         <div class="checkbox">
-                                            <input id="checkbox1" name="vaksin1" type="checkbox">
-                                            <label for="checkbox1">Vaksin 1</label>
+                                            <input id="vaccine1" value="1" {{ Auth::user()->profile->vaccine1 == 1 ? 'checked' : ''  }} name="vaccine1"  type="checkbox">
+                                            <label for="vaccine1">Vaksin 1</label>
+                                            @error('vaccine1')
+                                                @push('notif')
+                                                    <script>
+                                                        const notyf = new Notyf({dismissible: true})
+                                                        notyf.error('{{ $message }}')
+                                                    </script>
+                                                @endpush
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm col-md-6">
+                                <div class="col-sm col-md-3">
                                     <div class="mb-3">
                                         <div class="checkbox">
-                                            <input id="checkbox2" name="vaksin2" type="checkbox">
-                                            <label for="checkbox2">Vaksin 2</label>
+                                            <input id="vaccine2" name="vaccine2" value="1" {{ Auth::user()->profile->vaccine2 == "1" ? 'checked' : '' }} type="checkbox">
+                                            <label for="vaccine2">Vaksin 2</label>
+                                            @error('vaccine2')
+                                                @push('notif')
+                                                    <script>
+                                                        const notyf = new Notyf({dismissible: true})
+                                                        notyf.error('{{ $message }}')
+                                                    </script>
+                                                @endpush
+                                            @enderror
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm col-md-3">
+                                    <div class="mb-3">
+                                        <div class="checkbox">
+                                            <input id="not_vaccine" value="1" name="not_vaccine" {{ Auth::user()->profile->not_vaccine == "1" ? 'checked' : '' }} type="checkbox">
+                                            <label for="not_vaccine">Tidak Vaksin</label>
+                                            @error('not_vaccine')
+                                                @push('notif')
+                                                    <script>
+                                                        const notyf = new Notyf({dismissible: true})
+                                                        notyf.error('{{ $message }}')
+                                                    </script>
+                                                @endpush
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">Alasan Tidak Vaksin</label>
+                                        <textarea class="form-control" name="remarks_not_vaccine" rows="3" placeholder="Alasan Tidak Vaksin">{{ old('remarks_not_vaccine', (optional(Auth::user()->profile)->remarks_not_vaccine ?? '' ))
+                                    }}</textarea>
+                                    @error('remarks_not_vaccine')
+                                        @push('notif')
+                                            <script>
+                                                const notyf = new Notyf({dismissible: true})
+                                                notyf.error('{{ $message }}')
+                                            </script>
+                                        @endpush
+                                    @enderror
                                     </div>
                                 </div>
                                 <input name="user_id" value="{{ Auth::user()->id }}" type="hidden">
