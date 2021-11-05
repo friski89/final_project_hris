@@ -87,6 +87,24 @@ Route::prefix('import_data')->middleware('auth')->group(function () {
     });
 });
 
+Route::prefix('Myprofile')->middleware('auth')->group(function () {
+    // main profile
+    Route::get('', [MyProfileController::class, 'index'])->name('Myprofile');
+    Route::get('/edut_lists', [MyProfileController::class, 'edu_list'])->name('edu_lists');
+    Route::post('', [MyProfileController::class, 'update'])->name('Myprofile.update');
+    Route::post('/change_password', [MyProfileController::class, 'change_password'])->name('Myprofile.change_password');
+    // edu list
+    Route::get('/edu_background_list', [MyProfileController::class, 'educational_background_lists'])->name('edu_background_list');
+    Route::post('/insert_edu_backgrounds', [MyProfileController::class, 'insert_edu_background'])->name('insert_edu_background');
+    Route::post('/update_edu_backgrounds', [MyProfileController::class, 'update_edu_background'])->name('update_edu_background');
+    Route::post('/destroy_edu_backgrounds', [MyProfileController::class, 'destroy_edu_background'])->name('destroy_edu_background');
+    // family
+    Route::get('family_lists', [MyProfileController::class, 'family_list'])->name('family_lists');
+    Route::post('/insert_famlies', [MyProfileController::class, 'insert_family'])->name('insert_famlies');
+    Route::post('/update_families', [MyProfileController::class, 'update_family'])->name('update_families');
+    Route::post('/destroy_families', [MyProfileController::class, 'destroy_family'])->name('destroy_families');
+});
+
 Route::prefix('master_data')
     ->middleware('auth')
     ->group(
@@ -245,23 +263,7 @@ Route::prefix('erp')
                         EmergencyContactController::class
                     );
                     // Route::resource('profiles', ProfileController::class);
-                    Route::prefix('Myprofile')->middleware('auth')->group(function () {
-                        // main profile
-                        Route::get('', [MyProfileController::class, 'index'])->name('Myprofile');
-                        Route::get('/edut_lists', [MyProfileController::class, 'edu_list'])->name('edu_lists');
-                        Route::post('', [MyProfileController::class, 'update'])->name('Myprofile.update');
-                        Route::post('/change_password', [MyProfileController::class, 'change_password'])->name('Myprofile.change_password');
-                        // edu list
-                        Route::get('/edu_background_list', [MyProfileController::class, 'educational_background_lists'])->name('edu_background_list');
-                        Route::post('/insert_edu_backgrounds', [MyProfileController::class, 'insert_edu_background'])->name('insert_edu_background');
-                        Route::post('/update_edu_backgrounds', [MyProfileController::class, 'update_edu_background'])->name('update_edu_background');
-                        Route::post('/destroy_edu_backgrounds', [MyProfileController::class, 'destroy_edu_background'])->name('destroy_edu_background');
-                        // family
-                        Route::get('family_lists', [MyProfileController::class, 'family_list'])->name('family_lists');
-                        Route::post('/insert_famlies', [MyProfileController::class, 'insert_family'])->name('insert_famlies');
-                        Route::post('/update_families', [MyProfileController::class, 'update_family'])->name('update_families');
-                        Route::post('/destroy_families', [MyProfileController::class, 'destroy_family'])->name('destroy_families');
-                    });
+
                     Route::resource(
                         'performance-appraisal-histories',
                         PerformanceAppraisalHistoryController::class
