@@ -1,64 +1,65 @@
 <?php
 
+use App\Http\Livewire\Dashboard\Home;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EduController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\UnitController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UnitController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\DataThpController;
+use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VillageController;
-use App\Http\Controllers\JabatanController;
-use App\Http\Controllers\JobTitleController;
-use App\Http\Controllers\JobGradeController;
+use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\JobGradeController;
+use App\Http\Controllers\JobTitleController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RegencieController;
-use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\ReligionController;
 use App\Http\Controllers\JobFamilyController;
 use App\Http\Controllers\SubStatusController;
 use App\Http\Controllers\DirektoratController;
 use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\CityRecuiteController;
-use App\Http\Controllers\CompanyHostController;
-use App\Http\Controllers\CompanyHomeController;
-use App\Http\Controllers\JobFunctionController;
-use App\Http\Controllers\CashBenefitController;
-use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\AlamatKerjaController;
+use App\Http\Controllers\CashBenefitController;
+use App\Http\Controllers\CityRecuiteController;
+use App\Http\Controllers\CompanyHomeController;
+use App\Http\Controllers\CompanyHostController;
+use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\JobFunctionController;
 use App\Http\Controllers\BandPositionController;
 use App\Http\Controllers\WorkLocationController;
-use App\Http\Controllers\StatusEmployeeController;
 use App\Http\Controllers\ServiceHistoryController;
-use App\Http\Controllers\TrainingHistoryController;
+use App\Http\Controllers\StatusEmployeeController;
 use App\Http\Controllers\ContractHistoryController;
-use App\Http\Controllers\OfficeFacilitiesController;
+use App\Http\Controllers\TrainingHistoryController;
 use App\Http\Controllers\EmergencyContactController;
+use App\Http\Controllers\OfficeFacilitiesController;
 use App\Http\Controllers\AssignmentHistoryController;
 use App\Http\Controllers\InsuranceFacilityController;
 use App\Http\Controllers\OtherCompetenciesController;
+use App\Http\Controllers\profile\MyProfileController;
 use App\Http\Controllers\AchievementHistoryController;
 use App\Http\Controllers\CompetenceCoreValueController;
 use App\Http\Controllers\SkillsAndProfessionController;
-use App\Http\Controllers\CompetenceLeadershipController;
 use App\Http\Controllers\CompetenceFanctionalController;
+use App\Http\Controllers\CompetenceLeadershipController;
 use App\Http\Controllers\EducationalBackgroundController;
 use App\Http\Controllers\Import\EmployeeImportController;
-use App\Http\Controllers\PerformanceAppraisalHistoryController;
-use App\Http\Livewire\Dashboard\Home;
 use App\Http\Livewire\Hris\DataKedinasan\CreateDataKedinasan;
 use App\Http\Livewire\Hris\DataKedinasan\UpdateDataKedinasan;
 use App\Http\Livewire\Hris\DataPenugasan\CreateDataPenugasan;
 use App\Http\Livewire\Hris\DataPenugasan\UpdateDataPenugasan;
-use App\Http\Livewire\Hris\PenilaianKinerja\CreatePenilaianKinerja;
-use App\Http\Livewire\Hris\PenilaianKinerja\UpdatePenilaianKinerja;
+use App\Http\Controllers\PerformanceAppraisalHistoryController;
 use App\Http\Livewire\Hris\RiwayatPrestasi\CreateRiwayatPrestasi;
 use App\Http\Livewire\Hris\RiwayatPrestasi\UpdateRiwayatPrestasi;
 use App\Http\Livewire\Hris\RiwayatTraining\CreateRiwayatTraining;
 use App\Http\Livewire\Hris\RiwayatTraining\UpdateRiwayatTraining;
+use App\Http\Livewire\Hris\PenilaianKinerja\CreatePenilaianKinerja;
+use App\Http\Livewire\Hris\PenilaianKinerja\UpdatePenilaianKinerja;
 
 /*
 |--------------------------------------------------------------------------
@@ -243,7 +244,24 @@ Route::prefix('erp')
                         'emergency-contacts',
                         EmergencyContactController::class
                     );
-                    Route::resource('profiles', ProfileController::class);
+                    // Route::resource('profiles', ProfileController::class);
+                    Route::prefix('Myprofile')->middleware('auth')->group(function () {
+                        // main profile
+                        Route::get('', [MyProfileController::class, 'index'])->name('Myprofile');
+                        Route::get('/edut_lists', [MyProfileController::class, 'edu_list'])->name('edu_lists');
+                        Route::post('', [MyProfileController::class, 'update'])->name('Myprofile.update');
+                        Route::post('/change_password', [MyProfileController::class, 'change_password'])->name('Myprofile.change_password');
+                        // edu list
+                        Route::get('/edu_background_list', [MyProfileController::class, 'educational_background_lists'])->name('edu_background_list');
+                        Route::post('/insert_edu_backgrounds', [MyProfileController::class, 'insert_edu_background'])->name('insert_edu_background');
+                        Route::post('/update_edu_backgrounds', [MyProfileController::class, 'update_edu_background'])->name('update_edu_background');
+                        Route::post('/destroy_edu_backgrounds', [MyProfileController::class, 'destroy_edu_background'])->name('destroy_edu_background');
+                        // family
+                        Route::get('family_lists', [MyProfileController::class, 'family_list'])->name('family_lists');
+                        Route::post('/insert_famlies', [MyProfileController::class, 'insert_family'])->name('insert_famlies');
+                        Route::post('/update_families', [MyProfileController::class, 'update_family'])->name('update_families');
+                        Route::post('/destroy_families', [MyProfileController::class, 'destroy_family'])->name('destroy_families');
+                    });
                     Route::resource(
                         'performance-appraisal-histories',
                         PerformanceAppraisalHistoryController::class

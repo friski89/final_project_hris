@@ -47,8 +47,8 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('edu_id');
             $table->unsignedBigInteger('direktorat_id');
             $table->unsignedBigInteger('departement_id');
-            $table->unsignedBigInteger('jabatan_id');
-            $table->date('tanggal_kartap');
+            $table->string('jabatan')->nullable();
+            $table->date('tanggal_kartap')->nullable();
             $table->string('no_sk_kartap')->unique();
 
             $table->timestamps();

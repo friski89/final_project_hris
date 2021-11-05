@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Profile;
 use App\Models\Scopes\Searchable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -78,6 +79,37 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    public function hasProfile($name)
+    {
+        foreach ($this->profiles as $profile) {
+            if ($profile->name === $name) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Add/Attach a profile to a user.
+     *
+     * @param  Profile $profile
+     */
+    public function assignProfile(Profile $profile)
+    {
+        return $this->profiles()->attach($profile);
+    }
+
+    /**
+     * Remove/Detach a profile to a user.
+     *
+     * @param  Profile $profile
+     */
+    public function removeProfile(Profile $profile)
+    {
+        return $this->profiles()->detach($profile);
     }
 
     public function families()

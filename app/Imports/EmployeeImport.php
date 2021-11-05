@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\ToModel;
@@ -17,8 +18,7 @@ class EmployeeImport implements ToModel, WithHeadingRow, WithValidation
 
     public function model(array $row)
     {
-        // dd($row);
-        return new User([
+        $user = User::create([
             'name' => $row['name'],
             'email' => $row['email'],
             'password' => Hash::make('admedika321'),
@@ -48,6 +48,12 @@ class EmployeeImport implements ToModel, WithHeadingRow, WithValidation
             'tanggal_kartap' => Date::excelToDateTimeObject($row['tanggal_kartap']),
             'no_sk_kartap' => $row['no_sk_kartap'],
             'jabatan' => $row['jabatan'],
+        ]);
+
+        $user->assignRole(3);
+
+        return new Profile([
+            'user_id' => $user->id,
         ]);
     }
 

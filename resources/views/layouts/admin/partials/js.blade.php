@@ -11,4 +11,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="{{asset('assets/js/jsgrid/jsgrid.min.js')}}"></script>
+<script src="{{asset('assets/js/jsgrid/griddata.js')}}"></script>
+<script src="{{asset('assets/js/jsgrid/jsgrid.js')}}"></script>
 @stack('scripts')
