@@ -41,6 +41,10 @@ class Family extends Model
         'alive',
         'urutan',
         'dependent_status',
+        'vaccine1',
+        'vaccine2',
+        'not_vaccine',
+        'remarks_not_vaccine',
         'user_id',
         'edu_id',
     ];
@@ -48,8 +52,9 @@ class Family extends Model
     protected $searchableFields = ['*'];
 
     protected $casts = [
-        'date_of_birth' => 'date',
-        'date_marital' => 'date',
+        'vaccine1' => 'boolean',
+        'vaccine2' => 'boolean',
+        'not_vaccine' => 'boolean'
     ];
 
     public function user()

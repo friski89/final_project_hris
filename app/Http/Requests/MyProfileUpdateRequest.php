@@ -60,6 +60,16 @@ class MyProfileUpdateRequest extends FormRequest
             'user_id' => ['required', 'exists:users,id'],
             'nama_ibu' => ['required', 'max:255', 'string'],
             'religion_id' => ['required', 'exists:religions,id'],
+            'vaccine1' => [
+                'nullable',
+            ],
+            'vaccine2' => [
+                'nullable',
+            ],
+            'not_vaccine' => [
+                'nullable',
+            ],
+            'remarks_not_vaccine' => ['nullable', 'max:255', 'string'],
         ];
     }
 }

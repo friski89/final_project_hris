@@ -93,7 +93,7 @@
         url: "/Myprofile/edut_lists",
         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
+                }
     }).done(function(edu_list) {
         $("#educationalBackgrounds").jsGrid({
             width: "100%",
@@ -338,6 +338,33 @@
                         item.health_status = "0";
                     }
 
+                    if(item.vaccine1 == true) {
+                        item.vaccine1 = 1;
+                    } else {
+                        item.vaccine1 = 0;
+                    }
+
+                    if(item.vaccine2 == true) {
+                        item.vaccine2 = 1;
+                    } else {
+                        item.vaccine2 = 0;
+                    }
+
+                    if(item.not_vaccine == true) {
+                        item.not_vaccine = 1;
+                    } else {
+                        item.not_vaccine = 0;
+                    }
+
+                    if(item.date_of_birth != "") {
+                        item.date_of_birth = item.date_of_birth.replace(/\//g, "-");
+                    }
+
+                    if(item.date_marital != "") {
+                        item.date_marital = item.date_marital.replace(/\//g, "-");
+                    }
+
+
 
                     return $.ajax("/Myprofile/insert_famlies", {
                         headers: {
@@ -458,6 +485,10 @@
                 { name: "postal_code", type: "text",  title: "Postal Code", width: 200},
                 { name: "alive", type: "checkbox", title: "Is Alive" },
                 { name: "health_status", type: "checkbox", title: "Is Health" },
+                { name: "vaccine1", type: "checkbox", title: "Vaccine 1" },
+                { name: "vaccine2", type: "checkbox", title: "Vaccine 2" },
+                { name: "not_vaccine", type: "checkbox", title: "Not Vaccine" },
+                { name: "remarks_not_vaccine", type: "text", title: "Remarks Not Vaccine" },
                 { name: "emp_no", type:"text",title: "Employee No", width: 200, editing: false, css:"hide",
                     insertTemplate: function() {
                         var input = this.__proto__.insertTemplate.call(this);

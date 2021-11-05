@@ -49,12 +49,14 @@ class MyProfileController extends Controller
             }
             $profile['avatar'] = $request->file('avatar')->store('/', 'avatars');
         }
+
+        $validated['vaccine1'] = $request->input('vaccine1') ? true : false;
+        $validated['vaccine2'] = $request->input('vaccine2') ? true : false;
+        $validated['not_vaccine'] = $request->input('not_vaccine') ? true : false;
+
         $profile['email'] = $request->email;
 
-
-
         // check profile
-
         $checkProfile = $user->profile()->count();
 
         if ($checkProfile > 0) {
@@ -197,6 +199,10 @@ class MyProfileController extends Controller
         $this->authorize('update', $family);
 
         $validated = $request->validated();
+
+        $validated['vaccine1'] = $request->input('vaccine1') ? true : false;
+        $validated['vaccine2'] = $request->input('vaccine2') ? true : false;
+        $validated['not_vaccine'] = $request->input('not_vaccine') ? true : false;
 
         // $family->update($validated);
 
