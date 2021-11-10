@@ -37,7 +37,7 @@ class MyProfileUpdateRequest extends FormRequest
                 'max:20',
                 'string',
             ],
-            'blood_group' => ['nullable', 'in:tidak tahu,o,a,b,ab'],
+            'blood_group' => ['nullable', 'in:Tidak Tahu,O,A,B,AB'],
             'no_ktp' => [
                 'nullable',
                 Rule::unique('profiles', 'no_ktp')->ignore($profile),
@@ -52,7 +52,7 @@ class MyProfileUpdateRequest extends FormRequest
             ],
             'status_domisili' => [
                 'nullable',
-                'in:rumah sendiri,rumah sewa,rumah keluarga',
+                'in:Rumah Sendiri,Rumah Sewa,Rumah Keluarga',
             ],
             'address_ktp' => ['required', 'max:255', 'string'],
             'address_domisili' => ['required', 'max:255', 'string'],

@@ -90,7 +90,7 @@
         notyf.success('{{ session('success') }}')
     </script>
     @endif
-
+    @stack('notif')
     <script>
         /* Simple Alpine Image Viewer */
         function imageViewer(src = '') {

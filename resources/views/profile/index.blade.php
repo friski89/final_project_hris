@@ -180,11 +180,11 @@
                                         <select name="blood_group" class="form-control btn-square">
                                             @php $selected = old('blood_group', (optional(Auth::user()->profile)->blood_group ?? '' )) @endphp
                                             <option disabled {{ empty($selected) ? 'selected' : '' }}>Golongan Darah</option>
-                                            <option value="tidak tahu" {{ $selected == 'tidak tahu' ? 'selected' : '' }} >tidak tahu</option>
-                                            <option value="o" {{ $selected == 'o' ? 'selected' : '' }} >o</option>
-                                            <option value="a" {{ $selected == 'a' ? 'selected' : '' }} >a</option>
-                                            <option value="b" {{ $selected == 'b' ? 'selected' : '' }} >b</option>
-                                            <option value="ab" {{ $selected == 'ab' ? 'selected' : '' }} >ab</option>
+                                            <option value="Tidak Tahu" {{ $selected == 'tidak tahu' ? 'selected' : '' }} >tidak tahu</option>
+                                            <option value="O" {{ $selected == 'O' ? 'selected' : '' }} >o</option>
+                                            <option value="A" {{ $selected == 'A' ? 'selected' : '' }} >a</option>
+                                            <option value="B" {{ $selected == 'B' ? 'selected' : '' }} >b</option>
+                                            <option value="AB" {{ $selected == 'AB' ? 'selected' : '' }} >ab</option>
                                         </select>
                                         @error('blood_group')
                                             @push('notif')
@@ -247,9 +247,9 @@
                                         <select name="status_domisili" class="form-control btn-square">
                                             @php $selected = old('status_domisili', (optional(Auth::user()->profile)->status_domisili ?? '' )) @endphp
                                             <option disabled {{ empty($selected) ? 'selected' : '' }}>Domisili Status</option>
-                                            <option value="rumah sendiri" {{ $selected == 'Rumah Sendiri' ? 'selected' : '' }} >Rumah sendiri</option>
-                                            <option value="rumah sewa" {{ $selected == 'Rumah Sewa' ? 'selected' : '' }} >Rumah sewa</option>
-                                            <option value="rumah keluarga" {{ $selected == 'Rumah Keluarga' ? 'selected' : '' }} >Rumah keluarga</option>
+                                            <option value="Rumah Sendiri" {{ $selected == 'Rumah Sendiri' ? 'selected' : '' }} >Rumah sendiri</option>
+                                            <option value="Rumah Sewa" {{ $selected == 'Rumah Sewa' ? 'selected' : '' }} >Rumah sewa</option>
+                                            <option value="Rumah Keluarga" {{ $selected == 'Rumah Keluarga' ? 'selected' : '' }} >Rumah keluarga</option>
                                         </select>
                                         @error('status_domisili')
                                             @push('notif')
@@ -313,7 +313,7 @@
                                 <div class="col-sm col-md-3">
                                     <div class="mb-3">
                                         <div class="checkbox">
-                                            <input id="vaccine1" value="1" {{ Auth::user()->profile->vaccine1 == 1 ? 'checked' : ''  }} name="vaccine1"  type="checkbox">
+                                            <input id="vaccine1" value="1" {{ optional(Auth::user()->profile)->vaccine1 == 1 ? 'checked' : ''  }} name="vaccine1"  type="checkbox">
                                             <label for="vaccine1">Vaksin 1</label>
                                             @error('vaccine1')
                                                 @push('notif')
@@ -329,7 +329,7 @@
                                 <div class="col-sm col-md-3">
                                     <div class="mb-3">
                                         <div class="checkbox">
-                                            <input id="vaccine2" name="vaccine2" value="1" {{ Auth::user()->profile->vaccine2 == "1" ? 'checked' : '' }} type="checkbox">
+                                            <input id="vaccine2" name="vaccine2" value="1" {{ optional(Auth::user()->profile)->vaccine2 == "1" ? 'checked' : '' }} type="checkbox">
                                             <label for="vaccine2">Vaksin 2</label>
                                             @error('vaccine2')
                                                 @push('notif')
@@ -345,7 +345,7 @@
                                 <div class="col-sm col-md-3">
                                     <div class="mb-3">
                                         <div class="checkbox">
-                                            <input id="not_vaccine" value="1" name="not_vaccine" {{ Auth::user()->profile->not_vaccine == "1" ? 'checked' : '' }} type="checkbox">
+                                            <input id="not_vaccine" value="1" name="not_vaccine" {{ optional(Auth::user()->profile)->not_vaccine == "1" ? 'checked' : '' }} type="checkbox">
                                             <label for="not_vaccine">Tidak Vaksin</label>
                                             @error('not_vaccine')
                                                 @push('notif')

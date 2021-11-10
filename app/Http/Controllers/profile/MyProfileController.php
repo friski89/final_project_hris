@@ -34,7 +34,6 @@ class MyProfileController extends Controller
 
     public function update(MyProfileUpdateRequest $request)
     {
-
         $user = User::find(Auth::user()->id);
         $profile = [];
 
@@ -200,18 +199,17 @@ class MyProfileController extends Controller
 
         $validated = $request->validated();
 
-        $validated['vaccine1'] = $request->input('vaccine1') ? true : false;
-        $validated['vaccine2'] = $request->input('vaccine2') ? true : false;
-        $validated['not_vaccine'] = $request->input('not_vaccine') ? true : false;
-
+        $validated['vaccine1'] = $request['vaccine1'] == "true" ? 1 : 0;
+        $validated['vaccine2'] = $request['vaccine2'] == "true" ? 1 : 0;
+        $validated['not_vaccine'] = $request['not_vaccine'] == "true" ? 1 : 0;
+        // dd($validated);
         // $family->update($validated);
 
         // return new FamilyResource($family);
-        $familyData = $family->find($request->id);
+        $familyData = Family::find($request->id);
 
-        $familyData->update($validated);
-
-        return new FamilyResource($family);
+        $x = $familyData->update($validated);
+        return new FamilyResource($familyData);
     }
 
     public function destroy_family(

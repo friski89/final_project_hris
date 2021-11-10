@@ -338,23 +338,23 @@
                         item.health_status = "0";
                     }
 
-                    if(item.vaccine1 == true) {
-                        item.vaccine1 = 1;
-                    } else {
-                        item.vaccine1 = 0;
-                    }
+                    // if(item.vaccine1 == true) {
+                    //     item.vaccine1 = 1;
+                    // } else {
+                    //     item.vaccine1 = 0;
+                    // }
 
-                    if(item.vaccine2 == true) {
-                        item.vaccine2 = 1;
-                    } else {
-                        item.vaccine2 = 0;
-                    }
+                    // if(item.vaccine2 == true) {
+                    //     item.vaccine2 = 1;
+                    // } else {
+                    //     item.vaccine2 = 0;
+                    // }
 
-                    if(item.not_vaccine == true) {
-                        item.not_vaccine = 1;
-                    } else {
-                        item.not_vaccine = 0;
-                    }
+                    // if(item.not_vaccine == true) {
+                    //     item.not_vaccine = 1;
+                    // } else {
+                    //     item.not_vaccine = 0;
+                    // }
 
                     if(item.date_of_birth != "") {
                         item.date_of_birth = item.date_of_birth.replace(/\//g, "-");
