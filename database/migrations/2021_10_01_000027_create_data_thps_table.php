@@ -28,7 +28,6 @@ class CreateDataThpsTable extends Migration
             $table->bigInteger('no_rekening');
             $table->string('nama_bank');
             $table->string('nama_pemilik');
-            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
             $table->softDeletes();

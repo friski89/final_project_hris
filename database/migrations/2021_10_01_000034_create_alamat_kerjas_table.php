@@ -16,7 +16,6 @@ class CreateAlamatKerjasTable extends Migration
         Schema::create('alamat_kerjas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('name');
-            $table->unsignedBigInteger('work_location_id');
 
             $table->timestamps();
             $table->softDeletes();

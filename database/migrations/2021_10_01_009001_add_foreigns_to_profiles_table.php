@@ -20,13 +20,7 @@ class AddForeignsToProfilesTable extends Migration
                 ->on('users')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
-
-            $table
-                ->foreign('religion_id')
-                ->references('id')
-                ->on('religions')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('religion_id')->nullable()->constrained("religions")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

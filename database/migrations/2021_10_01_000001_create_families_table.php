@@ -55,8 +55,11 @@ class CreateFamiliesTable extends Migration
             $table->integer('alive');
             $table->integer('urutan');
             $table->integer('dependent_status');
+            $table->boolean('vaccine1')->nullable();
+            $table->boolean('vaccine2')->nullable();
+            $table->boolean('not_vaccine')->nullable();
+            $table->text('remarks_not_vaccine')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('edu_id');
 
             $table->timestamps();
             $table->softDeletes();

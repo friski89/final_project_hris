@@ -16,7 +16,6 @@ class CreateVillagesTable extends Migration
         Schema::create('villages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedBigInteger('district_id');
             $table->string('kode_pos')->unique();
 
             $table->timestamps();

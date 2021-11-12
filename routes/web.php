@@ -109,7 +109,7 @@ Route::prefix('Myprofile')->middleware('auth')->group(function () {
 });
 
 Route::prefix('master_data')
-    ->middleware('auth')
+    ->middleware('permission:master data')
     ->group(
         function () {
             Route::prefix('hris')->middleware('auth')->group(function () {
@@ -187,7 +187,7 @@ Route::prefix('erp')
     ->group(
         function () {
             Route::prefix('hris')
-                ->middleware('auth')
+                ->middleware('permission:hris')
                 ->group(function () {
                     Route::resource('roles', RoleController::class);
                     Route::resource('permissions', PermissionController::class);
@@ -283,6 +283,13 @@ Route::prefix('erp')
                         'achievement-histories',
                         AchievementHistoryController::class
                     );
+                });
+
+            Route::prefix('hris')
+                ->middleware('role:super-admin')
+                ->group(function () {
+                    Route::resource('roles', RoleController::class);
+                    Route::resource('permissions', PermissionController::class);
                 });
         }
     );

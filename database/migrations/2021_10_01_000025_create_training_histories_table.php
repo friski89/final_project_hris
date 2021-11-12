@@ -29,11 +29,6 @@ class CreateTrainingHistoriesTable extends Migration
             $table->string('trncourse_cost');
             $table->string('trnevent_type');
             $table->string('trn_flag');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('other_competencies_id')->nullable();
-            $table->unsignedBigInteger('competence_fanctional_id')->nullable();
-            $table->unsignedBigInteger('competence_leadership_id')->nullable();
-            $table->unsignedBigInteger('competence_core_value_id')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

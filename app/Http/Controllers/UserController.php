@@ -106,7 +106,7 @@ class UserController extends Controller
         $this->authorize('create', User::class);
 
         $validated = $request->validated();
-
+        $validated['username'] = $request->nik_company;
         $validated['password'] = Hash::make($validated['password']);
 
         if ($request->hasFile('avatar')) {
@@ -197,7 +197,7 @@ class UserController extends Controller
         $this->authorize('update', $user);
 
         $validated = $request->validated();
-
+        $validated['username'] = $request->nik_company;
         if (empty($validated['password'])) {
             unset($validated['password']);
         } else {

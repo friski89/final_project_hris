@@ -14,12 +14,7 @@ class AddForeignsToUnitsTable extends Migration
     public function up()
     {
         Schema::table('units', function (Blueprint $table) {
-            $table
-                ->foreign('departement_id')
-                ->references('id')
-                ->on('departements')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('departement_id')->nullable()->constrained("departements")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

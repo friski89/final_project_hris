@@ -14,12 +14,7 @@ class AddForeignsToOfficeFacilitiesTable extends Migration
     public function up()
     {
         Schema::table('office_facilities', function (Blueprint $table) {
-            $table
-                ->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('user_id')->nullable()->constrained("users")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

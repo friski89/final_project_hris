@@ -14,12 +14,7 @@ class AddForeignsToAlamatKerjasTable extends Migration
     public function up()
     {
         Schema::table('alamat_kerjas', function (Blueprint $table) {
-            $table
-                ->foreign('work_location_id')
-                ->references('id')
-                ->on('work_locations')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('work_location_id')->nullable()->constrained("work_locations")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

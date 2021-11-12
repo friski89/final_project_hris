@@ -16,39 +16,51 @@
                     <li class="dropdown">
                         <a class="nav-link menu-title link-nav {{routeActive('home')}}" href="{{ route('home') }}"><i data-feather="home"></i><span>Home</span></a>
                     </li>
+
+                    @can('hris')
                     <li class="dropdown">
                         <a class="nav-link menu-title link-nav {{routeActive('dashboard.home')}}" href="{{ route('dashboard.home') }}"><i data-feather="home"></i><span>Dashboard</span></a>
                     </li>
-
-                    <li class="sidebar-main-title">
+                        <li class="sidebar-main-title">
                         <div>
                             <h6>ERP</h6>
                         </div>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title {{ prefixActive('erp/hris') }}" href="javascript:void(0)"><i data-feather="home"></i><span>HRIS</span></a>
-                        <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('erp/hris') }};">
-                            <li><a href="{{route('users.index')}}" class="{{routeActive('users*')}}">Data Karyawan</a></li>
-                            <li><a href="{{route('service-histories.index')}}" class="{{routeActive('service-histories*')}}">Riwayat Kedinasan</a></li>
-                            <li><a href="{{route('assignment-histories.index')}}" class="{{routeActive('assignment-histories*')}}">Riwayat Penugasan Khusus</a></li>
-                            <li><a href="{{route('performance-appraisal-histories.index')}}" class="{{routeActive('performance-appraisal-histories*')}}">Riwayat Penilaian Kinerja</a></li>
-                            <li><a href="{{route('achievement-histories.index')}}" class="{{routeActive('achievement-histories*')}}">Riwayat Prestasi</a></li>
-                            <li><a href="{{route('educational-backgrounds.index')}}" class="{{routeActive('educational-backgrounds*')}}">Riwayat Pendidikan</a></li>
-                            <li><a href="{{route('training-histories.index')}}" class="{{routeActive('training-histories*')}}">Riwayat Training</a></li>
-                            <li><a href="{{route('skills-and-professions.index')}}" class="{{routeActive('skills-and-professions*')}}">Keahliaan & Profesi</a></li>
-                            <li><a href="{{route('data-thps.index')}}" class="{{routeActive('data-thps*')}}">THP</a></li>
-                            <li><a href="{{route('all-office-facilities.index')}}" class="{{routeActive('all-office-facilities*')}}">Fasilitas Jabatan</a></li>
-                            <li><a href="{{route('insurance-facilities.index')}}" class="{{routeActive('insurance-facilities*')}}">Fasilitas Asuransi</a></li>
-                            <li><a href="{{route('cash-benefits.index')}}" class="{{routeActive('cash-benefits*')}}">Cash Benefit</a></li>
-                            <li><a href="{{route('families.index')}}" class="{{routeActive('families*')}}">Data Keluarga</a></li>
-                        </ul>
-                    </li>
+                        </li>
+                        <li class="dropdown">
+                            <a class="nav-link menu-title {{ prefixActive('erp/hris') }}" href="javascript:void(0)"><i data-feather="home"></i><span>HRIS</span></a>
+                            <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('erp/hris') }};">
+                                <li><a href="{{route('users.index')}}" class="{{routeActive('users*')}}">Data Karyawan</a></li>
+                                <li><a href="{{route('service-histories.index')}}" class="{{routeActive('service-histories*')}}">Riwayat Kedinasan</a></li>
+                                <li><a href="{{route('assignment-histories.index')}}" class="{{routeActive('assignment-histories*')}}">Riwayat Penugasan Khusus</a></li>
+                                <li><a href="{{route('performance-appraisal-histories.index')}}" class="{{routeActive('performance-appraisal-histories*')}}">Riwayat Penilaian Kinerja</a></li>
+                                <li><a href="{{route('achievement-histories.index')}}" class="{{routeActive('achievement-histories*')}}">Riwayat Prestasi</a></li>
+                                <li><a href="{{route('educational-backgrounds.index')}}" class="{{routeActive('educational-backgrounds*')}}">Riwayat Pendidikan</a></li>
+                                <li><a href="{{route('training-histories.index')}}" class="{{routeActive('training-histories*')}}">Riwayat Training</a></li>
+                                <li><a href="{{route('skills-and-professions.index')}}" class="{{routeActive('skills-and-professions*')}}">Keahliaan & Profesi</a></li>
+                                <li><a href="{{route('data-thps.index')}}" class="{{routeActive('data-thps*')}}">THP</a></li>
+                                <li><a href="{{route('all-office-facilities.index')}}" class="{{routeActive('all-office-facilities*')}}">Fasilitas Jabatan</a></li>
+                                <li><a href="{{route('insurance-facilities.index')}}" class="{{routeActive('insurance-facilities*')}}">Fasilitas Asuransi</a></li>
+                                <li><a href="{{route('cash-benefits.index')}}" class="{{routeActive('cash-benefits*')}}">Cash Benefit</a></li>
+                                <li><a href="{{route('families.index')}}" class="{{routeActive('families*')}}">Data Keluarga</a></li>
+                            </ul>
+                        </li>
+                    @endcan
+                    @can('master data')
+                        <li class="sidebar-main-title">
+                            <div>
+                                <h6>Master Data</h6>
+                            </div>
+                        </li>
+                    @can('roles and permissions')
+                        <li class="dropdown">
+                            <a class="nav-link menu-title {{ prefixActive('master_data/hris') }}" href="javascript:void(0)"><i data-feather="home"></i><span>Role Permissions</span></a>
+                            <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('master_data/hris') }};">
+                                <li><a href="{{route('roles.index')}}" class="{{routeActive('roles*')}}">Roles</a></li>
+                                <li><a href="{{route('permissions.index')}}" class="{{routeActive('permissions*')}}">Permissions</a></li>
+                            </ul>
+                        </li>
+                    @endcan
 
-                    <li class="sidebar-main-title">
-                        <div>
-                            <h6>Master Data</h6>
-                        </div>
-                    </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title {{ prefixActive('master_data/hris') }}" href="javascript:void(0)"><i data-feather="home"></i><span>Data HRIS</span></a>
                         <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('master_data/hris') }};">
@@ -81,6 +93,8 @@
                             <li><a href="{{route('units.index')}}" class="{{routeActive('units*')}}">Unit</a></li>
                         </ul>
                     </li>
+                    @endcan
+
                 </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

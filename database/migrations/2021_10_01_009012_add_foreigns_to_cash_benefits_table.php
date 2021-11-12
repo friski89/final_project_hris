@@ -14,12 +14,7 @@ class AddForeignsToCashBenefitsTable extends Migration
     public function up()
     {
         Schema::table('cash_benefits', function (Blueprint $table) {
-            $table
-                ->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('user_id')->nullable()->constrained("users")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

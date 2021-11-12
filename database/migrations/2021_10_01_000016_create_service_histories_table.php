@@ -19,11 +19,6 @@ class CreateServiceHistoriesTable extends Migration
             $table->string('emoloyee_name');
             $table->date('start_date');
             $table->string('type');
-            $table->unsignedBigInteger('company_home_id');
-            $table->unsignedBigInteger('company_host_id');
-            $table->unsignedBigInteger('band_position_id');
-            $table->unsignedBigInteger('job_title_id');
-            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
             $table->softDeletes();

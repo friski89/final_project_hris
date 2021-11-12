@@ -14,40 +14,11 @@ class AddForeignsToTrainingHistoriesTable extends Migration
     public function up()
     {
         Schema::table('training_histories', function (Blueprint $table) {
-            $table
-                ->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('other_competencies_id')
-                ->references('id')
-                ->on('other_competencies')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('competence_fanctional_id')
-                ->references('id')
-                ->on('competence_fanctionals')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('competence_leadership_id')
-                ->references('id')
-                ->on('competence_leaderships')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('competence_core_value_id')
-                ->references('id')
-                ->on('competence_core_values')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('user_id')->nullable()->constrained("users")->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('other_competencies_id')->nullable()->constrained("other_competencies")->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('competence_fanctional_id')->nullable()->constrained("competence_fanctionals")->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('competence_leadership_id')->nullable()->constrained("competence_leaderships")->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('competence_core_value_id')->nullable()->constrained("competence_core_values")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

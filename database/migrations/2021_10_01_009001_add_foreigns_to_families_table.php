@@ -20,13 +20,7 @@ class AddForeignsToFamiliesTable extends Migration
                 ->on('users')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
-
-            $table
-                ->foreign('edu_id')
-                ->references('id')
-                ->on('edus')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('edu_id')->nullable()->constrained("edus")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

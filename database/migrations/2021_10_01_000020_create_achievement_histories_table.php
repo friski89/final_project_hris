@@ -24,7 +24,6 @@ class CreateAchievementHistoriesTable extends Migration
             $table->string('office_name');
             $table->string('position_name');
             $table->text('remarks')->nullable();
-            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
             $table->softDeletes();

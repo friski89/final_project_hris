@@ -16,12 +16,7 @@ class AddForeignsToPerformanceAppraisalHistoriesTable extends Migration
         Schema::table('performance_appraisal_histories', function (
             Blueprint $table
         ) {
-            $table
-                ->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('user_id')->nullable()->constrained("users")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

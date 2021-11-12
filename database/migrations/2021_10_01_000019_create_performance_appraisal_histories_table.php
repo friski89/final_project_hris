@@ -24,7 +24,6 @@ class CreatePerformanceAppraisalHistoriesTable extends Migration
             $table->string('performance_score');
             $table->string('competency_value');
             $table->string('behavioral_value');
-            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
             $table->softDeletes();

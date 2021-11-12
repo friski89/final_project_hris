@@ -20,6 +20,7 @@ class EmployeeImport implements ToModel, WithHeadingRow, WithValidation
     {
         $user = User::create([
             'name' => $row['name'],
+            'username' => $row['nik_company'],
             'email' => $row['email'],
             'password' => Hash::make('admedika321'),
             'nik_telkom' => $row['nik_telkom'],

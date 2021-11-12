@@ -15,7 +15,6 @@ class CreateOfficeFacilitiesTable extends Migration
     {
         Schema::create('office_facilities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
             $table->string('emp_no');
             $table->string('employee_name');
             $table->string('jenis_fasilitas');

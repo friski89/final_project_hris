@@ -14,6 +14,7 @@ class Jabatan extends Model
     use Searchable;
 
     protected $fillable = ['name'];
+    protected $table = 'jabatans';
 
     protected $searchableFields = ['*'];
 

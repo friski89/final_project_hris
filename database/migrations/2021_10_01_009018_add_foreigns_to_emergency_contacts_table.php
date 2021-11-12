@@ -14,12 +14,7 @@ class AddForeignsToEmergencyContactsTable extends Migration
     public function up()
     {
         Schema::table('emergency_contacts', function (Blueprint $table) {
-            $table
-                ->foreign('profile_id')
-                ->references('id')
-                ->on('profiles')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('profile_id')->nullable()->constrained("profiles")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

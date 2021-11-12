@@ -18,9 +18,6 @@ class CreateAssignmentHistoriesTable extends Migration
             $table->string('emp_no');
             $table->string('employee_name');
             $table->date('date');
-            $table->unsignedBigInteger('company_home_id');
-            $table->unsignedBigInteger('job_title_id');
-            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
             $table->softDeletes();

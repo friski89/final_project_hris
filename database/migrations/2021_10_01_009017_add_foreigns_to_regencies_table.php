@@ -14,12 +14,7 @@ class AddForeignsToRegenciesTable extends Migration
     public function up()
     {
         Schema::table('regencies', function (Blueprint $table) {
-            $table
-                ->foreign('province_id')
-                ->references('id')
-                ->on('provinces')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('province_id')->nullable()->constrained("provinces")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

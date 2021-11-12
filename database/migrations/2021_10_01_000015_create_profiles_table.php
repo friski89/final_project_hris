@@ -41,10 +41,12 @@ class CreateProfilesTable extends Migration
                 ])
                 ->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('religion_id');
             $table->string('address_npwp');
             $table->string('nama_ibu');
-
+            $table->boolean('vaccine1')->nullable();
+            $table->boolean('vaccine2')->nullable();
+            $table->boolean('not_vaccine')->nullable();
+            $table->text('remarks_not_vaccine')->nullable();
             $table->timestamps();
         });
     }

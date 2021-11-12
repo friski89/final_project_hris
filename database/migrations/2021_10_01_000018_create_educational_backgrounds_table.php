@@ -30,8 +30,6 @@ class CreateEducationalBackgroundsTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('country');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('edu_id');
 
             $table->timestamps();
             $table->softDeletes();

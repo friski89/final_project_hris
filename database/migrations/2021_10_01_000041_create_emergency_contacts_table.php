@@ -18,7 +18,6 @@ class CreateEmergencyContactsTable extends Migration
             $table->string('name');
             $table->string('contact');
             $table->string('relation');
-            $table->unsignedBigInteger('profile_id');
 
             $table->timestamps();
             $table->softDeletes();

@@ -34,9 +34,10 @@ class CreateEmployee extends Component
     public $departements = [];
     public $units = [];
     public $avatar;
+
     public function createForm()
     {
-        $validatedData = $this->state;
+        // $validatedData = $this->state;
 
         $validatedData = Validator::make($this->state, [
             'name' => 'required',

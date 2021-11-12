@@ -17,7 +17,6 @@ class CreateContractHistoriesTable extends Migration
             $table->bigIncrements('id');
             $table->date('tanggal');
             $table->string('status');
-            $table->unsignedBigInteger('user_id');
 
             $table->timestamps();
             $table->softDeletes();

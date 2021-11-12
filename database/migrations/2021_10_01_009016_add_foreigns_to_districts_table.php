@@ -14,12 +14,7 @@ class AddForeignsToDistrictsTable extends Migration
     public function up()
     {
         Schema::table('districts', function (Blueprint $table) {
-            $table
-                ->foreign('regencie_id')
-                ->references('id')
-                ->on('regencies')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('regencie_id')->nullable()->constrained("regencies")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

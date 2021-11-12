@@ -18,11 +18,11 @@
                             <h4>Login</h4>
                             <h6>Welcome back! Log in to your account.</h6>
                             <div class="form-group">
-                                <label>Email Address</label>
+                                <label>Username ( NIK ) / Email</label>
                                 <div class="input-group">
-                                    <span class="input-group-text"><i class="icon-email"></i></span>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                    @error('email')
+                                    <span class="input-group-text"><i class="icon-user"></i></span>
+                                    <input id="username" type="test" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                    @error('username')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

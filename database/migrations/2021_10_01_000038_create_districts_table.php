@@ -16,7 +16,6 @@ class CreateDistrictsTable extends Migration
         Schema::create('districts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedBigInteger('regencie_id');
 
             $table->timestamps();
             $table->softDeletes();

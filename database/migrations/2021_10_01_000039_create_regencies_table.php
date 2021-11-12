@@ -16,7 +16,6 @@ class CreateRegenciesTable extends Migration
         Schema::create('regencies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedBigInteger('province_id');
 
             $table->timestamps();
             $table->softDeletes();

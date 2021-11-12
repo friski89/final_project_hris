@@ -14,40 +14,11 @@ class AddForeignsToServiceHistoriesTable extends Migration
     public function up()
     {
         Schema::table('service_histories', function (Blueprint $table) {
-            $table
-                ->foreign('company_home_id')
-                ->references('id')
-                ->on('company_homes')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('company_host_id')
-                ->references('id')
-                ->on('company_hosts')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('band_position_id')
-                ->references('id')
-                ->on('band_positions')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('job_title_id')
-                ->references('id')
-                ->on('job_titles')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
-
-            $table
-                ->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            $table->foreignId('company_home_id')->nullable()->constrained("company_homes")->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('company_host_id')->nullable()->constrained("company_hosts")->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('band_position_id')->nullable()->constrained("band_positions")->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('job_title_id')->nullable()->constrained("job_titles")->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained("users")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 
