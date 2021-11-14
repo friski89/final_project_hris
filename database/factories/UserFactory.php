@@ -54,7 +54,6 @@ class UserFactory extends Factory
             'edu_id' => \App\Models\Edu::factory(),
             'direktorat_id' => \App\Models\Direktorat::factory(),
             'departement_id' => \App\Models\Departement::factory(),
-            'jabatan_id' => \App\Models\Jabatan::factory(),
         ];
     }
 

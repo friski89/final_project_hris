@@ -30,7 +30,6 @@ class AddForeignsToUsersTable extends Migration
             $table->foreignId('edu_id')->nullable()->constrained("edus")->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('direktorat_id')->nullable()->constrained("direktorats")->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('departement_id')->nullable()->constrained("departements")->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('jabatan_id')->nullable()->constrained("jabatans")->cascadeOnUpdate()->nullOnDelete();
         });
     }
 
@@ -58,7 +57,6 @@ class AddForeignsToUsersTable extends Migration
             $table->dropForeign(['edu_id']);
             $table->dropForeign(['direktorat_id']);
             $table->dropForeign(['departement_id']);
-            $table->dropForeign(['jabatan_id']);
         });
     }
 }
