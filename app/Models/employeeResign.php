@@ -10,7 +10,7 @@ class employeeResign extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'user_id', 'note', 'start_date', 'end_date'];
+    protected $fillable = ['name', 'user_id', 'note', 'start_date', 'end_date', 'keterangan', 'information', 'date_information'];
 
     public function user()
     {

@@ -21,6 +21,9 @@ class userResignController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'end_date' => 'required',
+            'keterangan' => 'required',
+            'information' => 'required',
+            'date_information' => 'required',
             'note' => 'required'
 
         ]);

@@ -72,6 +72,12 @@
                                 <th class="text-left">
                                     Keterangan
                                 </th>
+                                <th class="text-left">
+                                    Information
+                                </th>
+                                <th class="text-left">
+                                    date Information
+                                </th>
 
                                 <th class="text-left">
                                     Alasan Resign
@@ -93,10 +99,12 @@
                                 <td>{{ $user->unit->name ?? '-' }}</td>
                                 <td>{{ $user->jobTitle->name ?? '-' }}</td>
                                 <td>{{ $user->date_in ?? '-' }}</td>
-                                <td>masa kerja</td>
+                                <td>{{ date('Y',strtotime($user->employeeResign->end_date)) - date('Y',strtotime($user->date_in))  }}</td>
                                 <td>{{ $user->statusEmployee->name ?? '-' }}</td>
                                 <td>{{ $user->employeeResign->end_date ?? '-' }}</td>
-                                <td>keterangan</td>
+                                <td>{{ $user->employeeResign->keterangan ?? '-' }}</td>
+                                <td>{{ $user->employeeResign->information ?? '-' }}</td>
+                                <td>{{ $user->employeeResign->date_information ?? '-' }}</td>
                                 <td>{{ $user->employeeResign->note ?? '-' }}</td>
                                 <td class="text-center" style="width: 134px;">
                                     <div

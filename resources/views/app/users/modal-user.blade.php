@@ -34,9 +34,40 @@
                         </div>
                         <div class="col-mb-12">
                             <div class="form-group">
-                                <label for="note">Note</label>
+                                <label for="keterangan">Keterangan</label>
+                                <select name="keterangan" class="form-control" id="keterangan">
+                                    <option value="">Pilih Keterangan</option>
+                                    <option value="ONE MONITICE">ONE MONITICE</option>
+                                    <option value="NOT ONE MONITICE">NOT ONE MONITICE</option>
+                                </select>
+                                @error('keterangan')
+                                    <p class="text-danger" role="alert">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-mb-12">
+                            <div class="form-group">
+                                <label for="note">Alasan Resign</label>
                                 <textarea class="form-control" name="note" id="note"></textarea>
                                 @error('note')
+                                    <p class="text-danger" role="alert">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-mb-12">
+                            <div class="form-group">
+                                <label for="information">information</label>
+                                <textarea class="form-control" name="information" id="information"></textarea>
+                                @error('information')
+                                    <p class="text-danger" role="alert">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-mb-12">
+                            <div class="form-group">
+                                <label for="date_information">Tanggal Resign</label>
+                                <input class="form-control" type="date" name="date_information" id="date_information">
+                                @error('date_information')
                                     <p class="text-danger" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
