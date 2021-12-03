@@ -60,6 +60,9 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                    ID
+                                </th>
+                            <th class="text-left">
                                 @lang('crud.divisions.inputs.name')
                             </th>
                             <th class="text-left">
@@ -73,6 +76,7 @@
                     <tbody>
                         @forelse($divisions as $division)
                         <tr>
+                            <td>{{ $division->id ?? '-' }}</td>
                             <td>{{ $division->name ?? '-' }}</td>
                             <td>
                                 {{ optional($division->direktorat)->name ?? '-'

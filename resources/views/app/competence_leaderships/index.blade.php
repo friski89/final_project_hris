@@ -62,6 +62,9 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                    ID
+                                </th>
+                            <th class="text-left">
                                 @lang('crud.competence_leaderships.inputs.name')
                             </th>
                             <th class="text-center">
@@ -74,6 +77,7 @@
                         $competenceLeadership)
                         <tr>
                             <td>{{ $competenceLeadership->name ?? '-' }}</td>
+                            <td>{{ $competenceLeadership->id ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"

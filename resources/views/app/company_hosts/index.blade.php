@@ -62,6 +62,9 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                    ID
+                                </th>
+                            <th class="text-left">
                                 @lang('crud.company_hosts.inputs.name')
                             </th>
                             <th class="text-center">
@@ -73,6 +76,7 @@
                         @forelse($companyHosts as $companyHost)
                         <tr>
                             <td>{{ $companyHost->name ?? '-' }}</td>
+                            <td>{{ $companyHost->id ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div
                                     role="group"

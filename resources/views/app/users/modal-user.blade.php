@@ -37,8 +37,8 @@
                                 <label for="keterangan">Keterangan</label>
                                 <select name="keterangan" class="form-control" id="keterangan">
                                     <option value="">Pilih Keterangan</option>
-                                    <option value="ONE MONITICE">ONE MONITICE</option>
-                                    <option value="NOT ONE MONITICE">NOT ONE MONITICE</option>
+                                    <option value="ONE MONITICE">ONE MONOTICE</option>
+                                    <option value="NOT ONE MONITICE">NOT ONE MONOTICE</option>
                                 </select>
                                 @error('keterangan')
                                     <p class="text-danger" role="alert">{{ $message }}</p>

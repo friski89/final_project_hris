@@ -62,6 +62,9 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                    ID
+                                </th>
+                            <th class="text-left">
                                 @lang('crud.competence_fanctionals.inputs.name')
                             </th>
                             <th class="text-center">
@@ -73,6 +76,7 @@
                         @forelse($competenceFanctionals as
                         $competenceFanctional)
                         <tr>
+                            <td>{{ $competenceFanctional->id ?? '-' }}</td>
                             <td>{{ $competenceFanctional->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div

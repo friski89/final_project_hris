@@ -62,6 +62,9 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                    ID
+                                </th>
+                            <th class="text-left">
                                 @lang('crud.job_families.inputs.name')
                             </th>
                             <th class="text-center">
@@ -72,6 +75,7 @@
                     <tbody>
                         @forelse($jobFamilies as $jobFamily)
                         <tr>
+                            <td>{{ $jobFamily->id ?? '-' }}</td>
                             <td>{{ $jobFamily->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div

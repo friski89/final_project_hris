@@ -62,6 +62,9 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                    ID
+                                </th>
+                            <th class="text-left">
                                 @lang('crud.city_recuites.inputs.name')
                             </th>
                             <th class="text-center">
@@ -72,6 +75,7 @@
                     <tbody>
                         @forelse($cityRecuites as $cityRecuite)
                         <tr>
+                            <td>{{ $cityRecuite->id ?? '-' }}</td>
                             <td>{{ $cityRecuite->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div

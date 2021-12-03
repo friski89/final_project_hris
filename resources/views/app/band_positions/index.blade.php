@@ -62,6 +62,9 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                    ID
+                                </th>
+                            <th class="text-left">
                                 @lang('crud.band_positions.inputs.name')
                             </th>
                             <th class="text-center">
@@ -72,6 +75,7 @@
                     <tbody>
                         @forelse($bandPositions as $bandPosition)
                         <tr>
+                            <td>{{ $bandPosition->id ?? '-' }}</td>
                             <td>{{ $bandPosition->name ?? '-' }}</td>
                             <td class="text-center" style="width: 134px;">
                                 <div

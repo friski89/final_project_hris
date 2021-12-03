@@ -60,6 +60,9 @@
                     <thead>
                         <tr>
                             <th class="text-left">
+                                    ID
+                                </th>
+                            <th class="text-left">
                                 @lang('crud.units.inputs.name')
                             </th>
                             <th class="text-left">
@@ -73,6 +76,7 @@
                     <tbody>
                         @forelse($units as $unit)
                         <tr>
+                            <td>{{ $unit->id ?? '-' }}</td>
                             <td>{{ $unit->name ?? '-' }}</td>
                             <td>
                                 {{ optional($unit->departement)->name ?? '-' }}

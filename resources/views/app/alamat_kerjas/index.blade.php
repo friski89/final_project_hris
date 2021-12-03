@@ -62,6 +62,9 @@
                         <thead>
                             <tr>
                                 <th class="text-left">
+                                    ID
+                                </th>
+                                <th class="text-left">
                                     @lang('crud.alamat_kerjas.inputs.name')
                                 </th>
                                 <th class="text-left">
@@ -75,6 +78,7 @@
                         <tbody>
                             @forelse($alamatKerjas as $alamatKerja)
                             <tr>
+                                <td>{{ $alamatKerja->id ?? '-' }}</td>
                                 <td>{{ $alamatKerja->name ?? '-' }}</td>
                                 <td>
                                     {{ optional($alamatKerja->workLocation)->name ??
