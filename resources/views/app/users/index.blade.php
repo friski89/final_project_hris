@@ -283,6 +283,16 @@
                                         </button>
                                     </a>
                                     @endcan @can('delete', $user)
+                                    <button
+                                            type="button"
+                                            class="btn btn-light"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#usersModal{{ $user->id }}"
+                                        >
+                                            <i class="icon ion-md-exit"></i>
+                                    </button>
+                                    @include('app.users.modal-user')
+
                                     <form
                                         action="{{ route('users.destroy', $user) }}"
                                         method="POST"
@@ -318,6 +328,5 @@
         </div>
     </div>
 </div>
-
 {{-- <livewire:hris.employee.index /> --}}
 </x-admin-layout>

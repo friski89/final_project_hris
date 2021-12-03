@@ -57,6 +57,9 @@ use App\Http\Livewire\Hris\DataKedinasan\UpdateDataKedinasan;
 use App\Http\Livewire\Hris\DataPenugasan\CreateDataPenugasan;
 use App\Http\Livewire\Hris\DataPenugasan\UpdateDataPenugasan;
 use App\Http\Controllers\PerformanceAppraisalHistoryController;
+use App\Http\Controllers\userResignController;
+use App\Http\Livewire\Eproc\PurchaseRequest\PrIndex;
+use App\Http\Livewire\Hris\Employee\Resign;
 use App\Http\Livewire\Hris\RiwayatPrestasi\CreateRiwayatPrestasi;
 use App\Http\Livewire\Hris\RiwayatPrestasi\UpdateRiwayatPrestasi;
 use App\Http\Livewire\Hris\RiwayatTraining\CreateRiwayatTraining;
@@ -261,6 +264,11 @@ Route::prefix('erp')
                     Route::resource('contract-histories', ContractHistoryController::class);
                     Route::resource('families', FamilyController::class);
                     Route::resource('users', UserController::class);
+                    Route::post('users/{user}', [
+                        userResignController::class,
+                        'store',
+                    ])->name('users.exit');
+                    Route::get('resign', Resign::class)->name('resign.index');
                     Route::prefix('employee')->group(function () {
                         Route::get('create', CreateEmployee::class)->name('hrm.employee.create');
                         Route::get('{user}/edit', UpdateEmployee::class)->name('hrm.employee.edit');
@@ -290,6 +298,14 @@ Route::prefix('erp')
                 ->group(function () {
                     Route::resource('roles', RoleController::class);
                     Route::resource('permissions', PermissionController::class);
+                });
+
+            Route::prefix('procurement')
+                ->middleware('role:super-admin')
+                ->group(function () {
+                    Route::prefix('purchase-request')->group(function () {
+                        Route::get('', PrIndex::class)->name('pr.index');
+                    });
                 });
         }
     );

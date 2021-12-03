@@ -14,6 +14,9 @@
                 <div class="col-12">
                     <div class="login-card">
                         <form class="theme-form login-form" method="POST" action="{{ route('login') }}">
+                            <div class="text-center mb-1">
+                                <img src="{{ asset('assets/images/admedika.png') }}" class="rounded" alt="...">
+                            </div>
                             @csrf
                             <h4>Login</h4>
                             <h6>Welcome back! Log in to your account.</h6>

@@ -18,6 +18,7 @@ class EmployeeImport implements ToModel, WithHeadingRow, WithValidation
 
     public function model(array $row)
     {
+        // dd(Date::excelToDateTimeObject($row['date_in']));
         $user = User::create([
             'name' => $row['name'],
             'username' => $row['nik_company'],
@@ -64,9 +65,9 @@ class EmployeeImport implements ToModel, WithHeadingRow, WithValidation
             '*.name' => ['name' => 'required'],
             '*.company_home_id' => ['company_home_id' => 'required', 'numeric'],
             '*.company_host_id' => ['company_host_id' => 'required', 'numeric'],
-            '*.nik_telkom' => ['nik_telkom' => 'required', 'unique:users,nik_telkom'],
+            '*.nik_telkom' => ['nik_telkom' => 'nullable', 'unique:users,nik_telkom'],
             '*.nik_company' => ['nik_company' => 'required', 'unique:users,nik_company'],
-            '*.date_in' => ['date_in' => 'required'],
+            '*.date_in' => ['date_in' => 'nullable'],
             '*.status_employee_id' => ['status_employee_id' => 'required', 'numeric'],
             '*.band_position_id' => ['band_position_id' => 'required', 'numeric'],
             '*.job_grade_id' => ['job_grade_id' => 'nullable', 'numeric'],
@@ -79,10 +80,10 @@ class EmployeeImport implements ToModel, WithHeadingRow, WithValidation
             '*.sub_status_id' => ['sub_status_id' => 'required', 'numeric'],
             '*.unit_id' => ['unit_id' => 'required', 'numeric'],
             '*.edu_id' => ['edu_id' => 'required', 'numeric'],
-            '*.place_of_birth' => ['place_of_birth' => 'required'],
+            '*.place_of_birth' => ['place_of_birth' => 'nullable'],
             '*.date_of_birth' => ['date_of_birth' => 'required'],
             '*.age' => ['age' => 'required'],
-            '*.email' => ['email' => 'required', 'unique:users,email'],
+            '*.email' => ['email' => 'nullable', 'unique:users,email'],
             '*.city_recuite_id' => ['city_recuite_id' => 'required'],
             '*.direktorat_id' => ['direktorat_id' => 'required', 'numeric'],
             '*.departement_id' => ['departement_id' => 'required', 'numeric'],

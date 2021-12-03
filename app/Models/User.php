@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Profile;
+use App\Models\employeeResign;
 use App\Models\Scopes\Searchable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -60,13 +61,13 @@ class User extends Authenticatable
 
     protected $hidden = ['password', 'remember_token'];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'date_in' => 'date',
-        'date_sk' => 'date',
-        'date_of_birth' => 'date',
-        'tanggal_kartap' => 'date',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    //     'date_in' => 'date',
+    //     'date_sk' => 'date',
+    //     'date_of_birth' => 'date',
+    //     'tanggal_kartap' => 'date',
+    // ];
 
     public function getAvatarUrlAttribute()
     {
@@ -80,6 +81,10 @@ class User extends Authenticatable
     public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+    public function employeeResign()
+    {
+        return $this->hasOne(employeeResign::class);
     }
 
     public function hasProfile($name)

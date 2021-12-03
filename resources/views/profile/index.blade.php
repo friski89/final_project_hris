@@ -384,7 +384,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-6">
+                <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header pb-0">
                             <h4 class="card-title mb-0">@lang('crud.educational_backgrounds.name')</h4>
@@ -397,7 +397,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6">
+                <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header pb-0">
                             <h4 class="card-title mb-0">@lang('crud.families.index_title')</h4>
