@@ -20,11 +20,12 @@ class userResignController extends Controller
 
         $validatedData = $request->validate([
             'name' => 'required',
+            'end_date' => 'required',
             'note' => 'required'
+
         ]);
         $validatedData['user_id'] = $user->id;
         $validatedData['start_date'] = $user->date_in;
-        $validatedData['end_date'] = date('Y-m-d');
         employeeResign::create($validatedData);
 
         $user->delete();

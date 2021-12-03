@@ -26,14 +26,57 @@
                         <thead>
                             <tr>
                                 <th class="text-left">
-                                    Employee Name
-                                </th>
-                                <th class="text-left">
                                     Nik
                                 </th>
+
                                 <th class="text-left">
-                                    Note
+                                    Employee Name
                                 </th>
+
+                                <th class="text-left">
+                                    Direktorat
+                                </th>
+
+                                <th class="text-left">
+                                    Divisi
+                                </th>
+
+                                <th class="text-left">
+                                    Departement
+                                </th>
+
+                                <th class="text-left">
+                                    Unit
+                                </th>
+
+                                <th class="text-left">
+                                    Job Title
+                                </th>
+
+                                <th class="text-left">
+                                    Tanggal Masuk
+                                </th>
+
+                                <th class="text-left">
+                                    Masa Kerja
+                                </th>
+
+                                <th class="text-left">
+                                    Status karyawan
+                                </th>
+
+                                <th class="text-left">
+                                    Tanggal Resign
+                                </th>
+
+                                <th class="text-left">
+                                    Keterangan
+                                </th>
+
+                                <th class="text-left">
+                                    Alasan Resign
+                                </th>
+
                                 <th class="text-center">
                                     Action
                                 </th>
@@ -42,8 +85,18 @@
                         <tbody>
                             @forelse($users as $user)
                             <tr>
-                                <td>{{ $user->name ?? '-' }}</td>
                                 <td>{{ $user->nik_company ?? '-' }}</td>
+                                <td>{{ $user->name ?? '-' }}</td>
+                                <td>{{ $user->direktorat->name ?? '-' }}</td>
+                                <td>{{ $user->division->name ?? '-' }}</td>
+                                <td>{{ $user->departement->name ?? '-' }}</td>
+                                <td>{{ $user->unit->name ?? '-' }}</td>
+                                <td>{{ $user->jobTitle->name ?? '-' }}</td>
+                                <td>{{ $user->date_in ?? '-' }}</td>
+                                <td>masa kerja</td>
+                                <td>{{ $user->statusEmployee->name ?? '-' }}</td>
+                                <td>{{ $user->employeeResign->end_date ?? '-' }}</td>
+                                <td>keterangan</td>
                                 <td>{{ $user->employeeResign->note ?? '-' }}</td>
                                 <td class="text-center" style="width: 134px;">
                                     <div

@@ -25,6 +25,15 @@
                         </div>
                         <div class="col-mb-12">
                             <div class="form-group">
+                                <label for="end_date">Tanggal Resign</label>
+                                <input class="form-control" type="date" name="end_date" id="end_date">
+                                @error('end_date')
+                                    <p class="text-danger" role="alert">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-mb-12">
+                            <div class="form-group">
                                 <label for="note">Note</label>
                                 <textarea class="form-control" name="note" id="note"></textarea>
                                 @error('note')
