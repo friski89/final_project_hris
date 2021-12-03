@@ -55,6 +55,7 @@ class User extends Authenticatable
         'jabatan',
         'tanggal_kartap',
         'no_sk_kartap',
+        'end_date',
     ];
 
     protected $searchableFields = ['*'];
