@@ -31,8 +31,11 @@
                                 <th class="text-left">
                                     Nik
                                 </th>
-                                <th class="text-center">
+                                <th class="text-left">
                                     Note
+                                </th>
+                                <th class="text-center">
+                                    Action
                                 </th>
                             </tr>
                         </thead>
@@ -48,14 +51,9 @@
                                         aria-label="Row Actions"
                                         class="btn-group"
                                     >
-                                        <button
-                                                type="button"
-                                                class="btn btn-light"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#usersModal{{ $user->id }}"
-                                            >
-                                                <i class="icon ion-md-exit"></i>
-                                        </button>
+                                        <a href="" class="btn btn-primary" wire:click.prevent="restoreEmployee({{ $user }})">
+                                                    Restore
+                                                </a>
                                     </div>
                                 </td>
                             </tr>
