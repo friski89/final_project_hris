@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-mb-12">
                             <div class="form-group">
-                                <label for="date_information">Tanggal Resign</label>
+                                <label for="date_information">Tanggal Informasi Resign</label>
                                 <input class="form-control" type="date" name="date_information" id="date_information">
                                 @error('date_information')
                                     <p class="text-danger" role="alert">{{ $message }}</p>
