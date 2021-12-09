@@ -58,6 +58,8 @@ use App\Http\Livewire\Hris\DataPenugasan\CreateDataPenugasan;
 use App\Http\Livewire\Hris\DataPenugasan\UpdateDataPenugasan;
 use App\Http\Controllers\PerformanceAppraisalHistoryController;
 use App\Http\Controllers\userResignController;
+use App\Http\Livewire\Dashboard\DashboardEmployee;
+use App\Http\Livewire\Dashboard\DashboardUsers;
 use App\Http\Livewire\Eproc\PurchaseRequest\PrIndex;
 use App\Http\Livewire\Hris\Employee\Resign;
 use App\Http\Livewire\Hris\RiwayatPrestasi\CreateRiwayatPrestasi;
@@ -85,7 +87,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
-Route::get('dashboard', Home::class)->middleware('auth')->name('dashboard.home');
+Route::get('dashboard/employee', DashboardEmployee::class)->middleware('auth')->name('dashboard.employee');
+Route::get('dashboard/users', DashboardUsers::class)->middleware('auth')->name('dashboard.users');
 
 Route::prefix('import_data')->middleware('auth')->group(function () {
     Route::prefix('employee')->group(function () {

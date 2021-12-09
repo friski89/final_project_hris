@@ -19,7 +19,7 @@
 
                     @can('hris')
                     <li class="dropdown">
-                        <a class="nav-link menu-title link-nav {{routeActive('dashboard.home')}}" href="{{ route('dashboard.home') }}"><i data-feather="home"></i><span>Dashboard</span></a>
+                        <a class="nav-link menu-title link-nav {{routeActive('dashboard.employee')}}" href="{{ route('dashboard.employee') }}"><i data-feather="home"></i><span>Dashboard Employee</span></a>
                     </li>
                         <li class="sidebar-main-title">
                         <div>
