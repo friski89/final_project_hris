@@ -50,6 +50,7 @@ class EmployeeImport implements ToModel, WithHeadingRow, WithValidation
             'tanggal_kartap' => Date::excelToDateTimeObject($row['tanggal_kartap']),
             'no_sk_kartap' => $row['no_sk_kartap'],
             'jabatan' => $row['jabatan'],
+            'end_date' => Date::excelToDateTimeObject($row['end_date'])
         ]);
 
         $user->assignRole(3);
@@ -90,6 +91,7 @@ class EmployeeImport implements ToModel, WithHeadingRow, WithValidation
             '*.tanggal_kartap' => ['tanggal_kartap' => 'nullable', 'numeric'],
             '*.no_sk_kartap' => ['no_sk_kartap' => 'nullable', 'numeric'],
             '*.jabatan' => ['jabatan' => 'nullable'],
+            '*.end_date' => ['end_date' => 'nullable'],
         ];
     }
 
