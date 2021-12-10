@@ -86,13 +86,13 @@ class DashboardEmployee extends Component
             ->join('direktorats', 'users.direktorat_id', '=', 'direktorats.id')
             ->join('job_titles', 'users.job_title_id', '=', 'job_titles.id')
             ->join('status_employees', 'users.status_employee_id', '=', 'status_employees.id')
-            ->join('company_homes', 'users.company_home_id', '=', 'company_homes.id')
+            ->join('company_hosts', 'users.company_host_id', '=', 'company_hosts.id')
             ->join('work_locations', 'users.work_location_id', '=', 'work_locations.id')
-            ->select('users.id as users_id', 'users.name as users_name', 'direktorats.name as direktorat_name', 'direktorats.id as direktorat_id', 'job_titles.name as job_title_name', 'status_employees.name as status_employee_name', 'company_homes.name as company_home_name', 'work_locations.name as work_location_name')
+            ->select('users.id as users_id', 'users.name as users_name', 'direktorats.name as direktorat_name', 'direktorats.id as direktorat_id', 'job_titles.name as job_title_name', 'status_employees.name as status_employee_name', 'company_hosts.name as company_host_name', 'work_locations.name as work_location_name')
             ->whereIn('direktorats.name', $this->direktorats)
             ->whereIn('job_titles.name', $this->jobTitle)
             ->whereIn('status_employees.name', $this->statusEmployee)
-            ->whereIn('company_homes.name', $this->companyHome)
+            ->whereIn('company_hosts.name', $this->companyHome)
             ->whereIn('work_locations.name', $this->workLocation)
             ->get();
 
@@ -176,10 +176,10 @@ class DashboardEmployee extends Component
                     ->setAnimated($this->firstRun)
                     ->withOnSliceClickEvent('onStatusClick')
             );
-        $companyChartModel = $employee->groupBy('company_home_name')
+        $companyChartModel = $employee->groupBy('company_host_name')
             ->reduce(
                 function (PieChartModel $companyChartModel, $data) {
-                    $type = $data->first()->company_home_name;
+                    $type = $data->first()->company_host_name;
                     $value = $data->count();
                     return $companyChartModel->addSlice($type, $value, $this->companyColors[$type]);
                 },
