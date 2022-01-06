@@ -8,10 +8,15 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "asantibanez/livewire-charts": "^2.3",
+        "babenkoivan/telegram-notifications": "^1.1",
+        "botman/botman": "^2.1",
+        "botman/driver-telegram": "^1.6",
+        "botman/driver-web": "^1.5",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "laravel-notification-channels/telegram": "^1.0",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.9",
         "laravel/tinker": "^2.5",
@@ -64,7 +69,8 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform-check": false
     },
     "minimum-stability": "dev",
     "prefer-stable": true

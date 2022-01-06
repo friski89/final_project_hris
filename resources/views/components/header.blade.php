@@ -24,9 +24,9 @@
           <div class="notification-box"><i data-feather="bell"></i><span class="dot-animated"></span></div>
           <ul class="notification-dropdown onhover-show-div">
             <li>
-              <p class="f-w-700 mb-0">You have 3 Notifications<span class="pull-right badge badge-primary badge-pill">4</span></p>
+              <p class="f-w-700 mb-0">You have Notifications<span class="pull-right badge badge-primary badge-pill">{{ $employees->count() }}</span></p>
             </li>
-            <li class="noti-primary">
+            {{-- <li class="noti-primary">
               <div class="media">
                 <span class="notification-bg bg-light-primary"><i data-feather="activity"> </i></span>
                 <div class="media-body">
@@ -52,16 +52,23 @@
                   <span>3 hour ago</span>
                 </div>
               </div>
-            </li>
-            <li class="noti-danger">
-              <div class="media">
-                <span class="notification-bg bg-light-danger"><i data-feather="user-check"> </i></span>
-                <div class="media-body">
-                  <p>Delivery Complete</p>
-                  <span>6 hour ago</span>
-                </div>
-              </div>
-            </li>
+            </li> --}}
+            @can('employeeExpired')
+
+                    <li class="noti-danger">
+                        <a href="{{ route('employeeExpired.index') }}">
+                        <div class="media">
+                            <span class="notification-bg bg-light-danger"><i data-feather="user-check"> </i></span>
+                            <div class="media-body">
+                            <p>Karyawan Expired</p>
+                            <span>{{ $employees->count() }}</span>
+                            </div>
+                        </div>
+                        </a>
+                    </li>
+
+            @endcan
+
           </ul>
         </li>
         <li class="onhover-dropdown p-0">

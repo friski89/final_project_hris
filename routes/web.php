@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use App\Http\Livewire\Dashboard\Home;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BotManController;
 use App\Http\Controllers\EduController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
@@ -57,10 +58,12 @@ use App\Http\Livewire\Hris\DataKedinasan\UpdateDataKedinasan;
 use App\Http\Livewire\Hris\DataPenugasan\CreateDataPenugasan;
 use App\Http\Livewire\Hris\DataPenugasan\UpdateDataPenugasan;
 use App\Http\Controllers\PerformanceAppraisalHistoryController;
+use App\Http\Controllers\TelegramEmployeeExpired;
 use App\Http\Controllers\userResignController;
 use App\Http\Livewire\Dashboard\DashboardEmployee;
 use App\Http\Livewire\Dashboard\DashboardUsers;
 use App\Http\Livewire\Eproc\PurchaseRequest\PrIndex;
+use App\Http\Livewire\Hris\Employee\EmployeeExpired;
 use App\Http\Livewire\Hris\Employee\Resign;
 use App\Http\Livewire\Hris\RiwayatPrestasi\CreateRiwayatPrestasi;
 use App\Http\Livewire\Hris\RiwayatPrestasi\UpdateRiwayatPrestasi;
@@ -83,6 +86,14 @@ use App\Http\Livewire\Hris\PenilaianKinerja\UpdatePenilaianKinerja;
 Route::get('/', function () {
     return redirect()->route('home');
 });
+
+Route::get('/telegram', function () {
+    return view('welcome');
+});
+
+Route::get('crown-telegram', [TelegramEmployeeExpired::class, 'index']);
+
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
 
 Auth::routes();
 
@@ -271,6 +282,7 @@ Route::prefix('erp')
                         userResignController::class,
                         'store',
                     ])->name('users.exit');
+                    Route::get('employee-expired', EmployeeExpired::class)->name('employeeExpired.index');
                     Route::get('resign', Resign::class)->name('resign.index');
                     Route::prefix('employee')->group(function () {
                         Route::get('create', CreateEmployee::class)->name('hrm.employee.create');

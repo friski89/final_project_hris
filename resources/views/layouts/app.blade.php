@@ -48,7 +48,7 @@
     </div>
     <div class="page-wrapper" id="pageWrapper">
       <!-- Page Header Start-->
-      @includeIf('layouts.admin.partials.header')
+      <x-header/>
       <!-- Page Header Ends -->
       <!-- Page Body Start-->
       <div class="page-body-wrapper sidebar-icon">
