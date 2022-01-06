@@ -58,7 +58,7 @@ class User extends Authenticatable
         'end_date',
     ];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name', 'nik_company'];
 
     protected $hidden = ['password', 'remember_token'];
 
