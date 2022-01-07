@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    hcis:
+        container_name: hcis
+        image: niklasholtmeyer/laravel
+        ports:
+            - "${port}:8080"
+        volumes:
+            - "../:/var/www/"
