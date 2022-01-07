@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use App\Http\Livewire\Dashboard\Home;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BotManController;
 use App\Http\Controllers\EduController;
@@ -61,6 +60,7 @@ use App\Http\Controllers\PerformanceAppraisalHistoryController;
 use App\Http\Controllers\TelegramEmployeeExpired;
 use App\Http\Controllers\userResignController;
 use App\Http\Livewire\Dashboard\DashboardEmployee;
+use App\Http\Livewire\Dashboard\DashboardProfile;
 use App\Http\Livewire\Dashboard\DashboardUsers;
 use App\Http\Livewire\Eproc\PurchaseRequest\PrIndex;
 use App\Http\Livewire\Hris\Employee\EmployeeExpired;
@@ -97,11 +97,12 @@ Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->middleware('auth')->name('home');
-Route::get('dashboard/employee', DashboardEmployee::class)->middleware('auth')->name('dashboard.employee');
-Route::get('dashboard/users', DashboardUsers::class)->middleware('auth')->name('dashboard.users');
+Route::get('dashboard/employee', DashboardEmployee::class)->middleware('permission:master data')->name('dashboard.employee');
+Route::get('dashboard/users', DashboardUsers::class)->middleware('permission:master data')->name('dashboard.users');
+Route::get('/home', DashboardProfile::class)->middleware('auth')->name('home');
 
-Route::prefix('import_data')->middleware('auth')->group(function () {
+
+Route::prefix('import_data')->middleware('permission:master data')->group(function () {
     Route::prefix('employee')->group(function () {
         Route::post('import', [EmployeeImportController::class, 'store'])->name('import.employee');
     });
