@@ -1,4 +1,4 @@
-FROM php:7.1-fpm-alpine
+FROM php:7.4.0-fpm-alpine
 WORKDIR /var/www/
 COPY start-script.sh /tmp/start-script.sh
 

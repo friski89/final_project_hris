@@ -3,8 +3,11 @@ version: '3'
 services:
     hcis:
         container_name: hcis
-        image: niklasholtmeyer/laravel
+        image: hcis
+        build:
+          context: .
+          dockerfile: Dockerfile
         ports:
-            - "${port}:8080"
+            - "80:80"
         volumes:
             - "../:/var/www/"
