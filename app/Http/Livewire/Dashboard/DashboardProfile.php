@@ -6,8 +6,16 @@ use Livewire\Component;
 
 class DashboardProfile extends Component
 {
+    public $linkID = "my profile";
+
+    public function profileLink($linkID)
+    {
+        $this->linkID = $linkID;
+    }
+    protected $listeners = ['profileLink' => '$refresh'];
     public function render()
     {
-        return view('livewire.dashboard.dashboard-profile');
+        $linkID = $this->linkID;
+        return view('livewire.dashboard.dashboard-profile', compact('linkID'));
     }
 }

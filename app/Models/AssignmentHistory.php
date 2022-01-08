@@ -23,7 +23,7 @@ class AssignmentHistory extends Model
         'user_id',
     ];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['emp_no', 'employee_name'];
 
     protected $table = 'assignment_histories';
 
