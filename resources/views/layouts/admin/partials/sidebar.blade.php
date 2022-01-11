@@ -3,7 +3,7 @@
         <a class="setting-primary" href="javascript:void(0)"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="{{ auth()->user()->avatar_url }}" alt="" />
         <div class="badge-bottom"><span class="badge badge-primary">New</span></div>
         <a href="{{ route('Myprofile') }}"> <h6 class="mt-3 f-14 f-w-600">{{ auth()->user()->name }}</h6></a>
-        <p class="mb-0 font-roboto">Human Resources Department</p>
+        <p class="mb-0 font-roboto">{{ auth()->user()->jabatan }}</p>
     </div>
     <nav class="">
         <div class="main-navbar">

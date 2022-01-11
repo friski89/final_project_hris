@@ -28,7 +28,7 @@ class ServiceHistory extends Model
     ];
 
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['emp_no', 'emoloyee_name'];
 
     protected $table = 'service_histories';
 

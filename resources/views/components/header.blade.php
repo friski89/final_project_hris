@@ -3,7 +3,9 @@
     <div class="main-header-left">
       <div class="logo-wrapper"><a href="{{ route('home') }}"><img class="img-fluid" style="height: 40px;" src="{{asset('assets/images/logo.png')}}" alt=""></a></div>
       <div class="dark-logo-wrapper"><a href="{{ route('home') }}"><img class="img-fluid" style="height: 40px;" src="{{asset('assets/images/logo.png')}}" alt=""></a></div>
-      <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle">    </i></div>
+      @can('roles', 'admin')
+          <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle">    </i></div>
+      @endcan
     </div>
     <div class="left-menu-header col">
       <ul>

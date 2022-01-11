@@ -21988,7 +21988,7 @@ body.dark-sidebar .main-navbar ul.nav-pills {
 .customizer-links {
   position: fixed;
   right: 00px;
-  top: 40%;
+  top: 25%;
   background-color: #fff;
   border-radius: 8px;
   z-index: 3;
@@ -22008,7 +22008,7 @@ body.dark-sidebar .main-navbar ul.nav-pills {
     .customizer-links .nav-link .settings i {
       color: #168eea;
       font-size: 24px;
-      padding: 15px 17px;
+      padding: 10px 12px;
       display: inline-block;
       cursor: pointer;
       margin: 0; }
