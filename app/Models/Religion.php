@@ -15,7 +15,7 @@ class Religion extends Model
 
     protected $fillable = ['name'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     public function profiles()
     {

@@ -15,7 +15,7 @@ class Division extends Model
 
     protected $fillable = ['name', 'direktorat_id'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     public function users()
     {

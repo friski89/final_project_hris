@@ -15,7 +15,7 @@ class AlamatKerja extends Model
 
     protected $fillable = ['name', 'work_location_id'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     protected $table = 'alamat_kerjas';
 

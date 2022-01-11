@@ -15,7 +15,7 @@ class Village extends Model
 
     protected $fillable = ['name', 'district_id'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     public function kodePos()
     {

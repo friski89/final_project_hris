@@ -15,7 +15,7 @@ class ContractHistory extends Model
 
     protected $fillable = ['tanggal', 'status', 'user_id'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     protected $table = 'contract_histories';
 

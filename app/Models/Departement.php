@@ -15,7 +15,7 @@ class Departement extends Model
 
     protected $fillable = ['name', 'division_id'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     public function users()
     {

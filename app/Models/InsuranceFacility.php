@@ -23,7 +23,7 @@ class InsuranceFacility extends Model
         'peserta_manfaat',
     ];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['emp_no', 'employee_name'];
 
     protected $table = 'insurance_facilities';
 

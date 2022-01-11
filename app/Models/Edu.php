@@ -15,7 +15,7 @@ class Edu extends Model
 
     protected $fillable = ['name'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     public function users()
     {

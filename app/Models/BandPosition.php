@@ -15,7 +15,7 @@ class BandPosition extends Model
 
     protected $fillable = ['name'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     protected $table = 'band_positions';
 

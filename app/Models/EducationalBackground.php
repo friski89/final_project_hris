@@ -33,7 +33,7 @@ class EducationalBackground extends Model
         'edu_id',
     ];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['emp_no', 'employee_name'];
 
     protected $table = 'educational_backgrounds';
 

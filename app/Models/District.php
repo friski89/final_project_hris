@@ -15,7 +15,7 @@ class District extends Model
 
     protected $fillable = ['name', 'regencie_id'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     public function regencie()
     {
