@@ -15,7 +15,7 @@ class Regencie extends Model
 
     protected $fillable = ['name', 'province_id'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     public function province()
     {

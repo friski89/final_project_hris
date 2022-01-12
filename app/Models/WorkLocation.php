@@ -15,7 +15,7 @@ class WorkLocation extends Model
 
     protected $fillable = ['name'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     protected $table = 'work_locations';
 

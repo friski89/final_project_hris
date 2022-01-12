@@ -15,7 +15,7 @@ class JobFamily extends Model
 
     protected $fillable = ['name'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     protected $table = 'job_families';
 

@@ -36,6 +36,8 @@ trait Searchable
             foreach ($this->getSearchableFields() as $field) {
                 // $query->orWhere($field, 'like', "%{$search}%");
                 $query->orWhereRaw('LOWER(' . $field . ') like ?', [trim('%' . strtolower($search)) . '%']);
+                // if($search)
+                //     $query->orWhere($field, '~*', "{$search}");
             }
         });
 

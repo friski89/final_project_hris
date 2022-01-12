@@ -49,7 +49,7 @@ class Family extends Model
         'edu_id',
     ];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['emp_no', 'employee_name', 'no_kk', 'nik_id'];
 
     protected $casts = [
         'vaccine1' => 'boolean',

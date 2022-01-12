@@ -15,7 +15,7 @@ class SubStatus extends Model
 
     protected $fillable = ['name'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     protected $table = 'sub_statuses';
 

@@ -30,7 +30,7 @@ class DataThp extends Model
         'user_id',
     ];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['emp_no', 'employee_name'];
 
     protected $table = 'data_thps';
 

@@ -15,7 +15,7 @@ class CompanyHome extends Model
 
     protected $fillable = ['name'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     protected $table = 'company_homes';
 

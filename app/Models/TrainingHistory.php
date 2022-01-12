@@ -35,7 +35,7 @@ class TrainingHistory extends Model
         'competence_core_value_id',
     ];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['emp_no', 'employee_name'];
 
     protected $table = 'training_histories';
 

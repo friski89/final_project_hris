@@ -20,7 +20,7 @@ class CashBenefit extends Model
         'date',
     ];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['emp_no', 'employee_name'];
 
     protected $table = 'cash_benefits';
 

@@ -15,7 +15,7 @@ class Unit extends Model
 
     protected $fillable = ['name', 'departement_id'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     public function users()
     {

@@ -15,7 +15,7 @@ class Province extends Model
 
     protected $fillable = ['name'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     public function regencies()
     {

@@ -15,7 +15,7 @@ class CompetenceLeadership extends Model
 
     protected $fillable = ['name'];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['name'];
 
     protected $table = 'competence_leaderships';
 

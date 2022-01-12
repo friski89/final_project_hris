@@ -26,7 +26,7 @@ class AchievementHistory extends Model
         'user_id',
     ];
 
-    protected $searchableFields = ['*'];
+    protected $searchableFields = ['emp_no', 'employee_name'];
 
     protected $table = 'achievement_histories';
 
