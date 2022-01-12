@@ -2,7 +2,7 @@ version: '3'
 
 services:
     hcis:
-    container_name: hcis
+        container_name: hcis
         image: hcis
         build:
             context: .
