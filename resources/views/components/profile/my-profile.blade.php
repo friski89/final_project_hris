@@ -13,37 +13,37 @@
                         <ul>
                             <li>
                                 <div>
-                                    <p>Fullname</p>
+                                    <p>NAMA LENGKAP</p>
                                     <h5>{{ auth()->user()->name ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>NIK Telkom</p>
+                                    <p>NIK TELKOM</p>
                                     <h5>{{ auth()->user()->nik_telkom ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>NIK Company</p>
+                                    <p>NIK COMPANY</p>
                                     <h5>{{ auth()->user()->nik_company ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Email</p>
+                                    <p>EMAIL</p>
                                     <h5>{{ auth()->user()->email ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Date In</p>
+                                    <p>TANGGAL MASUK</p>
                                     <h5>{{ auth()->user()->date_in ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Status Employee</p>
+                                    <p>STATUS KARYAWAN</p>
                                     <h5>{{ auth()->user()->statusEmployee->name ?? '-' }}</h5>
                                 </div>
                             </li>
@@ -53,37 +53,37 @@
                         <ul>
                             <li>
                                 <div>
-                                    <p>Job Title</p>
+                                    <p>JABATAN</p>
                                     <h5>{{ auth()->user()->jobTitle->name ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Directorate</p>
+                                    <p>DIREKTORAT</p>
                                     <h5>{{ auth()->user()->direktorat->name ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Division</p>
+                                    <p>DIVISI</p>
                                     <h5>{{ auth()->user()->division->name ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Department</p>
+                                    <p>DEPARTEMEN</p>
                                     <h5>{{ auth()->user()->departement->name ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Unit</p>
+                                    <p>UNIT</p>
                                     <h5>{{ auth()->user()->unit->name ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Company Host</p>
+                                    <p>PERUSAHAAN</p>
                                     <h5>{{ auth()->user()->companyHost->name ?? '-' }}</h5>
                                 </div>
                             </li>
@@ -93,19 +93,19 @@
                         <ul>
                             <li>
                                 <div>
-                                    <p>Band Position</p>
+                                    <p>BAND POSISI</p>
                                     <h5>{{ auth()->user()->bandPosition->name ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Job Function</p>
+                                    <p>FUNGSI PEKERJAAN</p>
                                     <h5>{{ auth()->user()->jobFunction->name ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Job Family</p>
+                                    <p>KATEGORI PEKERJAAN</p>
                                     <h5>{{ auth()->user()->jobFamily->name ?? '-' }}</h5>
                                 </div>
                             </li>
@@ -117,13 +117,13 @@
                             </li>
                             <li>
                                 <div>
-                                    <p>Date Of Birth</p>
+                                    <p>TANGGAL LAHIR</p>
                                     <h5>{{ auth()->user()->date_of_birth ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>
                                 <div>
-                                    <p>Phone Number</p>
+                                    <p>NO. HP</p>
                                     <h5>{{ auth()->user()->profile->phone_number ?? '-' }}</h5>
                                 </div>
                             </li>
