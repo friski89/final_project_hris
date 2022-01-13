@@ -47,10 +47,10 @@ class CreateRiwayatTraining extends Component
             'trncourse_cost' => 'required',
             'trnevent_type' => 'required',
             'trn_flag' => 'required',
-            'other_competencies_id' => 'required',
-            'competence_fanctional_id' => 'required',
-            'competence_leadership_id' => 'required',
-            'competence_core_value_id' => 'required'
+            'other_competencies_id' => 'nullable|exists:other_competencies,id',
+            'competence_fanctional_id' => 'nullable|exists:other_competencies,id',
+            'competence_leadership_id' => 'nullable|exists:other_competencies,id',
+            'competence_core_value_id' => 'nullable|exists:other_competencies,id'
         ])->validate();
 
         TrainingHistory::create($validatedData);

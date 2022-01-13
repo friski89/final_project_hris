@@ -42,6 +42,7 @@ class TrainingHistoryController extends Controller
     {
         $this->authorize('create', TrainingHistory::class);
 
+      
         $users = User::pluck('name', 'id');
         $allOtherCompetencies = OtherCompetencies::pluck('name', 'id');
         $competenceFanctionals = CompetenceFanctional::pluck('name', 'id');
@@ -64,8 +65,10 @@ class TrainingHistoryController extends Controller
      * @param \App\Http\Requests\TrainingHistoryStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TrainingHistoryStoreRequest $request)
+    // public function store(TrainingHistoryStoreRequest $request)
+    public function store()
     {
+        dd('test');
         $this->authorize('create', TrainingHistory::class);
 
         $validated = $request->validated();
