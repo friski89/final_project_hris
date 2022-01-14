@@ -62,7 +62,7 @@
                         <div class="media">
                             <span class="notification-bg bg-light-danger"><i data-feather="user-check"> </i></span>
                             <div class="media-body">
-                            <p>Karyawan Expired</p>
+                            <p>Karyawan Habis Kontrak</p>
                             <span>{{ $employees->count() }}</span>
                             </div>
                         </div>

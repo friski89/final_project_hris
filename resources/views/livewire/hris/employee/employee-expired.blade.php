@@ -1,13 +1,13 @@
 <div>
-@section('title')Karyawan Expired
+@section('title')Karyawan Habis Kontrak
  {{ $title }}
 @endsection
 @component('components.breadcrumb')
     @slot('breadcrumb_title')
-        <h3>List Karyawan Expired</h3>
+        <h3>List Karyawan Habis Kontrak</h3>
     @endslot
-    <li class="breadcrumb-item">Karyawan Expired</li>
-    <li class="breadcrumb-item active">List Karyawan Expired</li>
+    <li class="breadcrumb-item">Karyawan Habis Kontrak</li>
+    <li class="breadcrumb-item active">List Karyawan Habis Kontrak</li>
 @endcomponent
 <div class="container">
     @if (isset($errors) && $errors->any())
@@ -24,7 +24,7 @@
     <div class="card">
         <div class="card-body">
             <div style="display: flex; justify-content: space-between;">
-                <h4 class="card-title">List Karyawan Expired</h4>
+                <h4 class="card-title">List Karyawan Habis Kontrak</h4>
             </div>
 
             <div class="searchbar mt-4 mb-5">
