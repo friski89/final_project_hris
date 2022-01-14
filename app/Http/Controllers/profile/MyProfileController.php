@@ -134,7 +134,7 @@ class MyProfileController extends Controller
         EducationalBackgroundUpdateRequest $request,
         EducationalBackground $educationalBackground
     ) {
-        $this->authorize('update', $educationalBackground);
+        // $this->authorize('update', $educationalBackground);
 
         $validated = $request->validated();
 
@@ -151,7 +151,7 @@ class MyProfileController extends Controller
         EducationalBackgroundUpdateRequest $request,
         EducationalBackground $educationalBackground
     ) {
-        $this->authorize('update', $educationalBackground);
+        // $this->authorize('update', $educationalBackground);
 
         $validated = $request->validated();
 
