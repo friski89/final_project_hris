@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
+git fetch -all
 git checkout development
-git pull origin developement
 docker-compose up --build -d
