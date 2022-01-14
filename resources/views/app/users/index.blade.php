@@ -73,7 +73,7 @@
                             <div class="col-md-3">
                                 <a
                                     href="#"
-                                    class="btn btn-success" target="_blank"
+                                    class="btn btn-info" target="_blank"
                                 >
                                     <i class="icon ion-md-add"></i>
                                     Export
@@ -105,10 +105,10 @@
                                         <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="file" id="file">
-                                            <label class="custom-file-label" for="file">Choose file profile</label>
+                                            <!-- <label class="custom-file-label" for="file">Choose file profile</label> -->
                                         </div>
                                         <div class="input-group-append">
-                                            <button type="submit" class="input-group-text bg-red">Upload file profile</button>
+                                            <button type="submit" class="input-group-text bg-red btn-danger"> Upload file profile</button>
                                         </div>
                                         </div>
                                     </div>
