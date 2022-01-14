@@ -15,6 +15,6 @@ class ImportProfileUserController extends Controller
         $import = new ImportProfileUser();
         $import->import($file);
 
-        return redirect()->route('user.index')->withSuccess('Import Data Has Been Successfully');
+        return redirect()->route('users.index')->withSuccess('Import Data Has Been Successfully');
     }
 }
