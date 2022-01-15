@@ -25,7 +25,7 @@
                             </li>
                             <li>
                                 <div>
-                                    <p>NIK COMPANY</p>
+                                    <p>NIK PERUSAHAAN</p>
                                     <h5>{{ auth()->user()->nik_company ?? '-' }}</h5>
                                 </div>
                             </li>
