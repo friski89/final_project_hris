@@ -53,6 +53,7 @@ use App\Http\Controllers\CompetenceLeadershipController;
 use App\Http\Controllers\EducationalBackgroundController;
 use App\Http\Controllers\Import\EmployeeImportController;
 use App\Http\Controllers\Import\ImportProfileUserController;
+use App\Http\Controllers\Import\FamilyImportController;
 use App\Http\Livewire\Hris\DataKedinasan\CreateDataKedinasan;
 use App\Http\Livewire\Hris\DataKedinasan\UpdateDataKedinasan;
 use App\Http\Livewire\Hris\DataPenugasan\CreateDataPenugasan;
@@ -107,6 +108,7 @@ Route::prefix('import_data')->middleware('permission:master data')->group(functi
     Route::prefix('employee')->group(function () {
         Route::post('import', [EmployeeImportController::class, 'store'])->name('import.employee');
         Route::post('import_profile', [ImportProfileUserController::class, 'store'])->name('import.profile');
+        Route::post('import_family', [FamilyImportController::class, 'store'])->name('import.family');
     });
     // Route::prefix('profile')->group(function () {
     //     Route::post('import', [ImportProfileUserController::class, 'store'])->name('import.profile');

@@ -96,7 +96,7 @@
             </div>
             <div class="searchbar mt-4 mb-5">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="row d-flex justify-content-end">
                             <!-- <div class="col-md-6"> -->
                                 <form action="{{ route('import.profile') }}" method="POST" enctype="multipart/form-data">
@@ -109,6 +109,26 @@
                                         </div>
                                         <div class="input-group-append">
                                             <button type="submit" class="input-group-text bg-red btn-danger"> Upload file profile</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row d-flex justify-content-end">
+                            <!-- <div class="col-md-6"> -->
+                                <form action="{{ route('import.family') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="file" id="file">
+                                            <!-- <label class="custom-file-label" for="file">Choose file profile</label> -->
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button type="submit" class="input-group-text bg-red btn-danger"> Upload file family</button>
                                         </div>
                                         </div>
                                     </div>
