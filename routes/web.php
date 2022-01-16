@@ -58,6 +58,8 @@ use App\Http\Livewire\Hris\DataKedinasan\CreateDataKedinasan;
 use App\Http\Livewire\Hris\DataKedinasan\UpdateDataKedinasan;
 use App\Http\Livewire\Hris\DataPenugasan\CreateDataPenugasan;
 use App\Http\Livewire\Hris\DataPenugasan\UpdateDataPenugasan;
+use App\Http\Livewire\Hris\DataKeluarga\CreateDataKeluarga;
+use App\Http\Livewire\Hris\DataKeluarga\UpdateDataKeluarga;
 use App\Http\Controllers\PerformanceAppraisalHistoryController;
 use App\Http\Controllers\TelegramEmployeeExpired;
 use App\Http\Controllers\userResignController;
@@ -240,6 +242,12 @@ Route::prefix('erp')
                         Route::get('create', CreateRiwayatTraining::class)->name('hrm.riwayat_training.create');
                         Route::get('{trainingHistory}/edit', UpdateRiwayatTraining::class)->name('hrm.riwayat_training.edit');
                     });
+
+                    Route::resource('families', FamilyController::class);
+                    Route::prefix('data_keluarga')->group(function () {
+                        Route::get('create', CreateDataKeluarga::class)->name('hrm.data_keluarga.create');
+                        Route::get('{family}/edit', UpdateDataKeluarga::class)->name('hrm.data_keluarga.edit');
+                    });
                     Route::resource(
                         'skills-and-professions',
                         SkillsAndProfessionController::class
@@ -285,7 +293,8 @@ Route::prefix('erp')
                     );
 
                     Route::resource('contract-histories', ContractHistoryController::class);
-                    Route::resource('families', FamilyController::class);
+                    // Route::resource('families', FamilyController::class);
+                    
                     Route::resource('users', UserController::class);
                     Route::post('users/{user}', [
                         userResignController::class,

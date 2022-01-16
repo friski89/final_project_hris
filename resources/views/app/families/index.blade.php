@@ -44,7 +44,7 @@
                     <div class="col-md-6 text-right">
                         @can('create', App\Models\Family::class)
                         <a
-                            href="{{ route('families.create') }}"
+                            href="{{ route('hrm.data_keluarga.create') }}"
                             class="btn btn-primary"
                         >
                             <i class="icon ion-md-add"></i>
@@ -191,7 +191,7 @@
                                 >
                                     @can('update', $family)
                                     <a
-                                        href="{{ route('families.edit', $family) }}"
+                                        href="{{ route('hrm.data_keluarga.edit', $family) }}"
                                     >
                                         <button
                                             type="button"
