@@ -313,7 +313,7 @@ class myProfile extends Component
      */
     public function render()
     {
-
+        
         $my_teams = $this->my_team_mates();
         $sub_ordinates = $this->my_subordinates();
         $my_leaders = $this->my_leader();
