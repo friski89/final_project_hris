@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $project_title = '| AdMedika - HRIS';
+        $project_title = '| AdMedika - HCIS';
         View::share('title', $project_title);
     }
 }
