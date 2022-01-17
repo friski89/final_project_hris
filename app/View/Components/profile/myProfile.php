@@ -11,6 +11,7 @@ class myProfile extends Component
 {
   
     public $data_sub_ordinates;
+    public $mount_data_team_mates;
     public $data_team_mates;
     public $data_leaders;
 
@@ -25,7 +26,7 @@ class myProfile extends Component
         $unit_id = Auth::user()->unit_id;
 
         if($band_position == 1 ) {
-            $this->data_team_mates = DB::table('users')
+            $data_team_mates = DB::table('users')
                                         ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                         ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                         ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -35,7 +36,7 @@ class myProfile extends Component
                                         ->where('users.direktorat_id',$direktorat_id)
                                         ->get();
         } else if($band_position == 2) {
-            $this->data_team_mates = DB::table('users')
+            $data_team_mates = DB::table('users')
                                         ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                         ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                         ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -47,7 +48,7 @@ class myProfile extends Component
                                         ->get();
 
         } else if($band_position == 3) {
-            $this->data_team_mates = DB::table('users')
+            $data_team_mates = DB::table('users')
                                         ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                         ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                         ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -59,7 +60,7 @@ class myProfile extends Component
                                         ->get();
 
         } else if($band_position == 4) {
-            $this->data_team_mates = DB::table('users')
+            $data_team_mates = DB::table('users')
                                         ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                         ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                         ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -71,7 +72,7 @@ class myProfile extends Component
                                         ->get();
 
         } else if($band_position >= 5) {
-            $this->data_team_mates = DB::table('users')
+            $data_team_mates = DB::table('users')
                                         ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                         ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                         ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -85,7 +86,7 @@ class myProfile extends Component
                                         ->get();
         }
      
-        return $this->data_team_mates;
+        return $data_team_mates;
     }
 
     public function my_subordinates() {
@@ -98,7 +99,7 @@ class myProfile extends Component
 
         if($band_position == 1 ) {
 
-            $this->data_sub_ordinates = DB::table('users')
+            $data_sub_ordinates = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -108,7 +109,7 @@ class myProfile extends Component
                                             ->where('users.direktorat_id',$direktorat_id)
                                             ->get();
         } else if($band_position == 2) {
-            $this->data_sub_ordinates = DB::table('users')
+            $data_sub_ordinates = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -120,7 +121,7 @@ class myProfile extends Component
                                             ->get();
 
         } else if($band_position == 3) {
-            $this->data_sub_ordinates = DB::table('users')
+            $data_sub_ordinates = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -132,7 +133,7 @@ class myProfile extends Component
                                             ->get();
 
         } else if($band_position == 4) {
-            $this->data_sub_ordinates = DB::table('users')
+            $data_sub_ordinates = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -143,7 +144,7 @@ class myProfile extends Component
                                             ->where('users.division_id',$division_id)
                                             ->get();
         } else if($band_position >= 5) {
-            $this->data_sub_ordinates = DB::table('users')
+            $data_sub_ordinates = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -170,7 +171,7 @@ class myProfile extends Component
 
         
         if($band_position == 2) {
-            $this->data_leaders = DB::table('users')
+            $data_leaders = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -181,7 +182,7 @@ class myProfile extends Component
                                             ->get();
 
         } else if($band_position == 3) {
-            $this->data_leaders = DB::table('users')
+            $data_leaders = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -192,7 +193,7 @@ class myProfile extends Component
                                             ->where('users.division_id',$division_id)
                                             ->get();
         } else if($band_position == 4) {
-            $this->data_leaders = DB::table('users')
+            $data_leaders = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -203,8 +204,8 @@ class myProfile extends Component
                                             ->where('users.division_id',$division_id)
                                             ->get();
 
-            if($this->data_leaders->count() == 0) {
-                $this->data_leaders = DB::table('users')
+            if($data_leaders->count() == 0) {
+                $data_leaders = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -216,7 +217,7 @@ class myProfile extends Component
                                             ->get();
             }
         } else if($band_position >= 5) {
-            $this->data_leaders = DB::table('users')
+            $data_leaders = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                                             ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -230,17 +231,16 @@ class myProfile extends Component
                                             ->get();
         }
 
-        return $this->data_leaders;
+        return $data_leaders;
     }
 
   
     public function render()
     {
-        dd('test');
-        
+        // dd('test');
         $my_teams = $this->my_team_mates();
         $sub_ordinates = $this->my_subordinates();
         $my_leaders = $this->my_leader();
-        return view('components.profile.my-profile', compact('my_teams','sub_ordinates', 'my_leaders'));
+        return view('components.profile.my-profile', ['my_teams' => $my_teams, 'my_leaders' => $my_leaders, 'sub_ordinates' => $sub_ordinates]);
     }
 }

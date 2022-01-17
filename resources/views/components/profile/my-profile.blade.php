@@ -230,16 +230,15 @@
             <div class="collapse show" id="collapseicon8" aria-labelledby="collapseicon8" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
                 @if(isset($my_leaders))
-                @forelse($my_leaders as $my_leader)
-                    <div class="media">
-                        <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
-                        <div class="media-body">
-                            <span class="d-block">{{$my_leader->name}}</span>
-                            <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
+                    @foreach($my_leaders as $my_leader)
+                        <div class="media">
+                            <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
+                            <div class="media-body">
+                                <span class="d-block">{{$my_leader->name}}</span>
+                                <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
+                            </div>
                         </div>
-                    </div>
-                @empty
-                @endforelse
+                    @endforeach
                 @endif
                 </div>
             </div>
@@ -256,12 +255,11 @@
             <div class="collapse show" id="collapseicon11" aria-labelledby="collapseicon11" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
                 @if(isset($my_leaders))
-                @forelse($my_teams as $my_team)
-                    <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
-                        <div class="media-body"><span class="d-block">{{ $my_team->name }}</span><a href="javascript:void(0)">{{ $my_team->unit_name }}</a></div>
-                    </div>
-                @empty
-                @endforelse
+                    @foreach($my_teams as $my_team)
+                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
+                            <div class="media-body"><span class="d-block">{{ $my_team->name }}</span><a href="javascript:void(0)">{{ $my_team->unit_name }}</a></div>
+                        </div>
+                    @endforeach
                 @endif
                 </div>
             </div>
@@ -278,11 +276,11 @@
             <div class="collapse show" id="collapseicon12" aria-labelledby="collapseicon12" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
                 @if(isset($sub_ordinates))
-                @foreach($sub_ordinates as $sub_ordinate)
-                    <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
-                        <div class="media-body"><span class="d-block">{{ $sub_ordinate->name }}</span><a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a></div>
-                    </div>
-                @endforeach
+                    @foreach($sub_ordinates as $sub_ordinate)
+                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
+                            <div class="media-body"><span class="d-block">{{ $sub_ordinate->name }}</span><a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a></div>
+                        </div>
+                    @endforeach
                 @endif
                 </div>
             </div>
