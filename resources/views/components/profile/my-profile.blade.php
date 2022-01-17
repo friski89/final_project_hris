@@ -134,7 +134,61 @@
             </div>
         </div>
     </div>
-
+    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5 class="p-0">
+                    <button class="btn btn-link ps-0 text-white" data-bs-toggle="collapse" data-bs-target="#collapseicon13" aria-expanded="true" aria-controls="collapseicon13">My Information</button>
+                </h5>
+            </div>
+            <div class="collapse show" id="collapseicon13" aria-labelledby="collapseicon13" data-parent="#accordion">
+                <div class="card-body post-about">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <ul>
+                                <li>
+                                    <div>
+                                        <p>NO KTP</p>
+                                        <h5>{{ auth()->user()->profile->no_ktp ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>ALAMAT KTP</p>
+                                        <h5>{{ auth()->user()->profile->address_ktp ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>ALAMAT DOMISILI</p>
+                                        <h5>{{ auth()->user()->profile->address_domisili ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>DOMISILI STATUS</p>
+                                        <h5>{{ auth()->user()->profile->status_domisili ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>NAMA IBU</p>
+                                        <h5>{{ auth()->user()->profile->mother_name ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>RELIGION</p>
+                                        <h5>{{ auth()->user()->profile->religion->name ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @if(auth()->user()->band_position_id > 1)
     <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
         <div class="card">
