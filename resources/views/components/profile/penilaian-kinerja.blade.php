@@ -19,7 +19,7 @@
                                             <h6>Performance Score</h6>
                                             <h6>Competency Value</h6>
                                             <h6>Behavioral Value</h6>
-                                            <h6>Date</h6>
+                                            <h6>Tahun</h6>
                                         </div>
                                         <div class="col-lg-9">
                                             <h6>: {{ $item->performance_value }}</h6>

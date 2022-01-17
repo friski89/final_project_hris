@@ -48,8 +48,8 @@
                             <x-profile.riwayat-pendidikan/>
                         @elseif ($linkID === 'riwayat training')
                             <x-profile.riwayat-training/>
-                        @elseif ($linkID === 'keahlian & profesi')
-                            <x-profile.keahlian-profesi/>
+                        {{-- @elseif ($linkID === 'keahlian & profesi')
+                            <x-profile.keahlian-profesi/> --}}
                         @elseif ($linkID === 'data keluarga')
                             <x-profile.data-keluarga/>
                         @endif
@@ -90,10 +90,10 @@
                 <div class="settings"><i class="icofont icofont-certificate-alt-1"></i></div>
                 <span>Riwayat Training</span>
             </a>
-            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('keahlian & profesi')">
+            {{-- <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('keahlian & profesi')">
                 <div class="settings"><i class="icofont icofont-instrument"></i></div>
                 <span>Keahlian & Profesi</span>
-            </a>
+            </a> --}}
             <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('data keluarga')">
                 <div class="settings"><i class="icofont icofont-people"></i></div>
                 <span>Data Keluarga</span>
