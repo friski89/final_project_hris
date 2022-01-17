@@ -29,3 +29,5 @@ WORKDIR /var/www/
 COPY . .
 RUN composer install
 RUN npm install
+RUN php artisan storage:link 
+RUN php artisan optimize 

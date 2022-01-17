@@ -134,6 +134,91 @@
             </div>
         </div>
     </div>
+    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5 class="p-0">
+                    <button class="btn btn-link ps-0 text-white" data-bs-toggle="collapse" data-bs-target="#collapseicon13" aria-expanded="true" aria-controls="collapseicon13">My Information</button>
+                </h5>
+            </div>
+            <div class="collapse show" id="collapseicon13" aria-labelledby="collapseicon13" data-parent="#accordion">
+                <div class="card-body post-about">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul>
+                                <li>
+                                    <div>
+                                        <p>NO KTP</p>
+                                        <h5>{{ auth()->user()->profile->no_ktp ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                
+                                <li>
+                                    <div>
+                                        <p>ALAMAT DOMISILI</p>
+                                        <h5>{{ auth()->user()->profile->address_domisili ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>DOMISILI STATUS</p>
+                                        <h5>{{ auth()->user()->profile->status_domisili ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>NAMA ORANG TUA</p>
+                                        <h5>{{ auth()->user()->profile->nama_ibu ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>AGAMA</p>
+                                        <h5>{{ auth()->user()->profile->religion->name ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul>
+                                <li>
+                                    <div>
+                                        <p>NO NPWP</p>
+                                        <h5>{{ auth()->user()->profile->no_npwp ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>ALAMAT KTP</p>
+                                        <h5>{{ auth()->user()->profile->address_ktp ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>STATUS VAKSIN 1</p>
+                                        <h5>{{ auth()->user()->profile->vaccine1 ? 'SUDAH' : 'BELUM' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>STATUS VAKSIN 2</p>
+                                        <h5>{{ auth()->user()->profile->vaccine2 ? 'SUDAH' : 'BELUM' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>ALASAN TIDAK VAKSIN</p>
+                                        <h5>{{ auth()->user()->profile->remarks_not_vaccine ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @if(auth()->user()->band_position_id > 1)
     <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
         <div class="card">
@@ -144,15 +229,17 @@
             </div>
             <div class="collapse show" id="collapseicon8" aria-labelledby="collapseicon8" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
-                @foreach($my_leaders as $my_leader)
-                    <div class="media">
-                        <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
-                        <div class="media-body">
-                            <span class="d-block">{{$my_leader->name}}</span>
-                            <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
+                @if(isset($my_leaders))
+                    @foreach($my_leaders as $my_leader)
+                        <div class="media">
+                            <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
+                            <div class="media-body">
+                                <span class="d-block">{{$my_leader->name}}</span>
+                                <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endif
                 </div>
             </div>
         </div>
@@ -167,12 +254,13 @@
             </div>
             <div class="collapse show" id="collapseicon11" aria-labelledby="collapseicon11" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
-                @forelse($my_teams as $my_team)
-                    <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
-                        <div class="media-body"><span class="d-block">{{ $my_team->name }}</span><a href="javascript:void(0)">{{ $my_team->unit_name }}</a></div>
-                    </div>
-                @empty
-                @endforelse
+                @if(isset($my_leaders))
+                    @foreach($my_teams as $my_team)
+                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
+                            <div class="media-body"><span class="d-block">{{ $my_team->name }}</span><a href="javascript:void(0)">{{ $my_team->unit_name }}</a></div>
+                        </div>
+                    @endforeach
+                @endif
                 </div>
             </div>
         </div>
@@ -187,11 +275,13 @@
             </div>
             <div class="collapse show" id="collapseicon12" aria-labelledby="collapseicon12" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
-                @foreach($sub_ordinates as $sub_ordinate)
-                    <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
-                        <div class="media-body"><span class="d-block">{{ $sub_ordinate->name }}</span><a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a></div>
-                    </div>
-                @endforeach
+                @if(isset($sub_ordinates))
+                    @foreach($sub_ordinates as $sub_ordinate)
+                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
+                            <div class="media-body"><span class="d-block">{{ $sub_ordinate->name }}</span><a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a></div>
+                        </div>
+                    @endforeach
+                @endif
                 </div>
             </div>
         </div>
