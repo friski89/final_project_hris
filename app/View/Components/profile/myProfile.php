@@ -9,21 +9,12 @@ use App\Models\User;
 
 class myProfile extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-
-    // public $band_position;
+  
     public $data_sub_ordinates;
     public $data_team_mates;
     public $data_leaders;
 
-    public function __construct()
-    {
-        //
-    }
+  
 
     public function getAvatarUrlAttribute()
     {
@@ -306,11 +297,7 @@ class myProfile extends Component
         return $this->data_leaders;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
+  
     public function render()
     {
         
