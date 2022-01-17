@@ -144,7 +144,7 @@
             </div>
             <div class="collapse show" id="collapseicon8" aria-labelledby="collapseicon8" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
-                
+                @if($my_leaders)
                 @forelse($my_leaders as $my_leader)
                     <div class="media">
                         <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
@@ -155,6 +155,7 @@
                     </div>
                 @empty
                 @endforelse
+                @endif
                 </div>
             </div>
         </div>
