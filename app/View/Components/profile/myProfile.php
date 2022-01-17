@@ -73,8 +73,8 @@ class myProfile extends Component
                                         ->lefTJoin('units', 'users.unit_id','=','units.id')
                                         ->where('users.band_position_id', $band_position)
                                         ->where('users.direktorat_id',$direktorat_id)
-                                        ->where('users.division_id',$division_id)
-                                        ->where('users.departement_id',$departement_id)
+                                       ->where('users.division_id',$division_id)
+                                        //->where('users.departement_id',$departement_id)
                                         ->get();
 
         } else if($band_position == 4) {
@@ -186,7 +186,7 @@ class myProfile extends Component
                                             ->where('users.band_position_id', '>=', 5)
                                             ->where('users.direktorat_id',$direktorat_id)
                                             ->where('users.division_id',$division_id)
-                                            ->where('users.departement_id',$departement_id)
+                                           // ->where('users.departement_id',$departement_id)
                                             ->get();
             // $this->data_sub_ordinates = DB::table('users')
             //                                 ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
@@ -272,7 +272,7 @@ class myProfile extends Component
                                             ->where('users.band_position_id', 3)
                                             ->where('users.direktorat_id',$direktorat_id)
                                             ->where('users.division_id',$division_id)
-                                            ->where('users.departement_id',$departement_id)
+                                            //->where('users.departement_id',$departement_id)
                                             ->get();
 
             if($this->data_leaders->count() == 0) {
