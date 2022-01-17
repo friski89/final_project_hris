@@ -28,18 +28,23 @@ class FamilyImport implements  ToModel, WithHeadingRow, WithValidation
         $religion = "";
         if($user !== null) {
             $profile = Profile::where('user_id', $user->id)->first();
-            $religion = Religion::where('id', $profile->religion_id)->first();
-            if($religion === null) {
+            if($profile == null) {
                 $nameReligion = "Islam";
             } else {
-                if(strtoupper($religion->name) == "PROTESTAN") {
-                    $nameReligion = "Kristen";
-                } else if(strtoupper($religion->name) == "KATOLIK") {
-                    $nameReligion = "Kristen";
+                $religion = Religion::where('id', $profile->religion_id)->first();
+                if($religion === null) {
+                    $nameReligion = "Islam";
                 } else {
-                    $nameReligion = ucfirst(strtolower($religion->name));
+                    if(strtoupper($religion->name) == "PROTESTAN") {
+                        $nameReligion = "Kristen";
+                    } else if(strtoupper($religion->name) == "KATOLIK") {
+                        $nameReligion = "Kristen";
+                    } else {
+                        $nameReligion = ucfirst(strtolower($religion->name));
+                    }
                 }
             }
+            
             
             
         } else {
