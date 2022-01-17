@@ -114,7 +114,7 @@ class myProfile extends Component
             //                             ->get();
             // }
 
-        } else if($band_position > 5) {
+        } else if($band_position >= 5) {
             $this->data_team_mates = DB::table('users')
                                         ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                         ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
@@ -213,7 +213,7 @@ class myProfile extends Component
             //                                 ->where('users.departement_id',$departement_id)
             //                                 ->get();
             // }
-        } else if($band_position > 5) {
+        } else if($band_position >= 5) {
             $this->data_sub_ordinates = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
@@ -287,7 +287,7 @@ class myProfile extends Component
                                             ->where('users.division_id',$division_id)
                                             ->get();
             }
-        } else if($band_position > 5) {
+        } else if($band_position >= 5) {
             $this->data_leaders = DB::table('users')
                                             ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar')
                                             ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
@@ -300,6 +300,7 @@ class myProfile extends Component
                                             ->where('users.departement_id',$departement_id)
                                             ->where('users.unit_id',$unit_id)
                                             ->get();
+                                            // dd('test');
         }
 
         return $this->data_leaders;
