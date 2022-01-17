@@ -236,7 +236,7 @@ class myProfile extends Component
   
     public function render()
     {
-        // dd('test');
+        dd('test');
         
         $my_teams = $this->my_team_mates();
         $sub_ordinates = $this->my_subordinates();
