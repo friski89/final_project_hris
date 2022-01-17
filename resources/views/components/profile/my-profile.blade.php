@@ -144,7 +144,7 @@
             <div class="collapse show" id="collapseicon13" aria-labelledby="collapseicon13" data-parent="#accordion">
                 <div class="card-body post-about">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <ul>
                                 <li>
                                     <div>
@@ -152,12 +152,7 @@
                                         <h5>{{ auth()->user()->profile->no_ktp ?? '-' }}</h5>
                                     </div>
                                 </li>
-                                <li>
-                                    <div>
-                                        <p>ALAMAT KTP</p>
-                                        <h5>{{ auth()->user()->profile->address_ktp ?? '-' }}</h5>
-                                    </div>
-                                </li>
+                                
                                 <li>
                                     <div>
                                         <p>ALAMAT DOMISILI</p>
@@ -173,15 +168,44 @@
                                 <li>
                                     <div>
                                         <p>NAMA IBU</p>
-                                        <h5>{{ auth()->user()->profile->mother_name ?? '-' }}</h5>
+                                        <h5>{{ auth()->user()->profile->nama_ibu ?? '-' }}</h5>
                                     </div>
                                 </li>
                                 <li>
                                     <div>
-                                        <p>RELIGION</p>
+                                        <p>AGAMA</p>
                                         <h5>{{ auth()->user()->profile->religion->name ?? '-' }}</h5>
                                     </div>
                                 </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul>
+                                <li>
+                                    <div>
+                                        <p>ALAMAT KTP</p>
+                                        <h5>{{ auth()->user()->profile->address_ktp ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>STATUS VAKSIN 1</p>
+                                        <h5>{{ auth()->user()->profile->vaccine1 ? 'SUDAH' : 'BELUM' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>SSTATUS VAKSIN 2</p>
+                                        <h5>{{ auth()->user()->profile->vaccine2 ? 'SUDAH' : 'BELUM' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>ALASAN TIDAK VAKSIN</p>
+                                        <h5>{{ auth()->user()->profile->remarks_not_vaccine ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                
                             </ul>
                         </div>
                     </div>
