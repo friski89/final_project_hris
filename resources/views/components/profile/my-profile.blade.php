@@ -167,7 +167,7 @@
                                 </li>
                                 <li>
                                     <div>
-                                        <p>NAMA IBU</p>
+                                        <p>NAMA ORANG TUA</p>
                                         <h5>{{ auth()->user()->profile->nama_ibu ?? '-' }}</h5>
                                     </div>
                                 </li>
@@ -183,6 +183,12 @@
                             <ul>
                                 <li>
                                     <div>
+                                        <p>NO NPWP</p>
+                                        <h5>{{ auth()->user()->profile->no_npwp ?? '-' }}</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
                                         <p>ALAMAT KTP</p>
                                         <h5>{{ auth()->user()->profile->address_ktp ?? '-' }}</h5>
                                     </div>
@@ -195,7 +201,7 @@
                                 </li>
                                 <li>
                                     <div>
-                                        <p>SSTATUS VAKSIN 2</p>
+                                        <p>STATUS VAKSIN 2</p>
                                         <h5>{{ auth()->user()->profile->vaccine2 ? 'SUDAH' : 'BELUM' }}</h5>
                                     </div>
                                 </li>

@@ -302,6 +302,7 @@ class myProfile extends Component
     {
         
         $my_teams = $this->my_team_mates();
+        dd($my_teams);
         $sub_ordinates = $this->my_subordinates();
         $my_leaders = $this->my_leader();
         return view('components.profile.my-profile', compact('my_teams','sub_ordinates', 'my_leaders'));
