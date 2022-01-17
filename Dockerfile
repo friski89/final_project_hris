@@ -30,4 +30,5 @@ COPY . .
 RUN composer install
 RUN npm install
 RUN php artisan storage:link 
-RUN php artisan optimize
+RUN php artisan optimize && php artisan config:cache \
+    && php artisan view:cache && php artisan view:clear
