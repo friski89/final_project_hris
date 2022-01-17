@@ -134,7 +134,71 @@
             </div>
         </div>
     </div>
-   
+    @if(auth()->user()->band_position_id > 1)
+    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5 class="p-0">
+                    <button class="btn btn-link ps-0 text-white" data-bs-toggle="collapse" data-bs-target="#collapseicon8" aria-expanded="true" aria-controls="collapseicon8">My Leader</button>
+                </h5>
+            </div>
+            <div class="collapse show" id="collapseicon8" aria-labelledby="collapseicon8" data-parent="#accordion">
+                <div class="card-body social-list filter-cards-view">
+                
+                @forelse($my_leaders as $my_leader)
+                    <div class="media">
+                        <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
+                        <div class="media-body">
+                            <span class="d-block">{{$my_leader->name}}</span>
+                            <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
+                        </div>
+                    </div>
+                @empty
+                @endforelse
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5 class="p-0">
+                    <button class="btn btn-link ps-0 text-white" data-bs-toggle="collapse" data-bs-target="#collapseicon11" aria-expanded="true" aria-controls="collapseicon11">My Team Mates</button>
+                </h5>
+            </div>
+            <div class="collapse show" id="collapseicon11" aria-labelledby="collapseicon11" data-parent="#accordion">
+                <div class="card-body social-list filter-cards-view">
+                @forelse($my_teams as $my_team)
+                    <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
+                        <div class="media-body"><span class="d-block">{{ $my_team->name }}</span><a href="javascript:void(0)">{{ $my_team->unit_name }}</a></div>
+                    </div>
+                @empty
+                @endforelse
+                </div>
+            </div>
+        </div>
+    </div>
+    @if(Auth()->user()->band_position_id < 5) 
+    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5 class="p-0">
+                    <button class="btn btn-link ps-0 text-white" data-bs-toggle="collapse" data-bs-target="#collapseicon12" aria-expanded="true" aria-controls="collapseicon12">My Team Subordinates</button>
+                </h5>
+            </div>
+            <div class="collapse show" id="collapseicon12" aria-labelledby="collapseicon12" data-parent="#accordion">
+                <div class="card-body social-list filter-cards-view">
+                @foreach($sub_ordinates as $sub_ordinate)
+                    <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
+                        <div class="media-body"><span class="d-block">{{ $sub_ordinate->name }}</span><a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a></div>
+                    </div>
+                @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
     <!-- <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
     <div class="card">
         <div class="card-header">
