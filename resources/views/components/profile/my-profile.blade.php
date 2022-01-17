@@ -1,9 +1,9 @@
 
     <div class="col-xl-9">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header bg-primary">
             <h5 class="p-0">
-                <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2">My Profile</button>
+                <button class="btn btn-link ps-0 text-white" data-bs-toggle="collapse" data-bs-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2">My Profile</button>
             </h5>
             </div>
             <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
@@ -134,102 +134,70 @@
             </div>
         </div>
     </div>
+    @if(auth()->user()->band_position_id > 1)
+    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5 class="p-0">
+                    <button class="btn btn-link ps-0 text-white" data-bs-toggle="collapse" data-bs-target="#collapseicon8" aria-expanded="true" aria-controls="collapseicon8">My Leader</button>
+                </h5>
+            </div>
+            <div class="collapse show" id="collapseicon8" aria-labelledby="collapseicon8" data-parent="#accordion">
+                <div class="card-body social-list filter-cards-view">
+                @foreach($my_leaders as $my_leader)
+                    <div class="media">
+                        <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
+                        <div class="media-body">
+                            <span class="d-block">{{$my_leader->name}}</span>
+                            <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5 class="p-0">
+                    <button class="btn btn-link ps-0 text-white" data-bs-toggle="collapse" data-bs-target="#collapseicon11" aria-expanded="true" aria-controls="collapseicon11">My Team Mates</button>
+                </h5>
+            </div>
+            <div class="collapse show" id="collapseicon11" aria-labelledby="collapseicon11" data-parent="#accordion">
+                <div class="card-body social-list filter-cards-view">
+                @forelse($my_teams as $my_team)
+                    <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
+                        <div class="media-body"><span class="d-block">{{ $my_team->name }}</span><a href="javascript:void(0)">{{ $my_team->unit_name }}</a></div>
+                    </div>
+                @empty
+                @endforelse
+                </div>
+            </div>
+        </div>
+    </div>
+    @if(Auth()->user()->band_position_id < 5) 
+    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h5 class="p-0">
+                    <button class="btn btn-link ps-0 text-white" data-bs-toggle="collapse" data-bs-target="#collapseicon12" aria-expanded="true" aria-controls="collapseicon12">My Team Subordinates</button>
+                </h5>
+            </div>
+            <div class="collapse show" id="collapseicon12" aria-labelledby="collapseicon12" data-parent="#accordion">
+                <div class="card-body social-list filter-cards-view">
+                @foreach($sub_ordinates as $sub_ordinate)
+                    <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
+                        <div class="media-body"><span class="d-block">{{ $sub_ordinate->name }}</span><a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a></div>
+                    </div>
+                @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
     <!-- <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
-    <div class="card">
-        <div class="card-header">
-        <h5 class="p-0">
-            <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon8" aria-expanded="true" aria-controls="collapseicon8">My Leader</button>
-        </h5>
-        </div>
-        <div class="collapse show" id="collapseicon8" aria-labelledby="collapseicon8" data-parent="#accordion">
-        <div class="card-body social-list filter-cards-view">
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/2.png">
-            <div class="media-body"><span class="d-block">Bucky Barnes</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/3.png">
-            <div class="media-body"><span class="d-block">Sarah Loren</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/3.jpg">
-            <div class="media-body"><span class="d-block">Jason Borne</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/10.jpg">
-            <div class="media-body"><span class="d-block">Comeren Diaz</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/11.png">
-            <div class="media-body"><span class="d-block">Andew Jon</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
-    <div class="card">
-        <div class="card-header">
-        <h5 class="p-0">
-            <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon11" aria-expanded="true" aria-controls="collapseicon11">Followings</button>
-        </h5>
-        </div>
-        <div class="collapse show" id="collapseicon11" aria-labelledby="collapseicon11" data-parent="#accordion">
-        <div class="card-body social-list filter-cards-view">
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/3.png">
-            <div class="media-body"><span class="d-block">Sarah Loren</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/2.png">
-            <div class="media-body"><span class="d-block">Bucky Barnes</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/10.jpg">
-            <div class="media-body"><span class="d-block">Comeren Diaz</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/3.jpg">
-            <div class="media-body"><span class="d-block">Jason Borne</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-            <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="../assets/images/user/11.png">
-            <div class="media-body"><span class="d-block">Andew Jon</span><a href="javascript:void(0)">Add Friend</a></div>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
-    <div class="card">
-        <div class="card-header">
-        <h5 class="p-0">
-            <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon4" aria-expanded="true" aria-controls="collapseicon4">Latest Photos</button>
-        </h5>
-        </div>
-        <div class="collapse show" id="collapseicon4" data-parent="#accordion" aria-labelledby="collapseicon4">
-        <div class="card-body photos filter-cards-view">
-            <ul>
-            <li>
-                <div class="latest-post"><img class="img-fluid" alt="" src="../assets/images/social-app/post-1.png"></div>
-            </li>
-            <li>
-                <div class="latest-post"><img class="img-fluid" alt="" src="../assets/images/social-app/post-2.png"></div>
-            </li>
-            <li>
-                <div class="latest-post"><img class="img-fluid" alt="" src="../assets/images/social-app/post-3.png"></div>
-            </li>
-            <li>
-                <div class="latest-post"><img class="img-fluid" alt="" src="../assets/images/social-app/post-4.png"></div>
-            </li>
-            <li>
-                <div class="latest-post"><img class="img-fluid" alt="" src="../assets/images/social-app/post-5.png"></div>
-            </li>
-            <li>
-                <div class="latest-post"><img class="img-fluid" alt="" src="../assets/images/social-app/post-6.png"></div>
-            </li>
-            <li>
-                <div class="latest-post"><img class="img-fluid" alt="" src="../assets/images/social-app/post-7.png"></div>
-            </li>
-            <li>
-                <div class="latest-post"><img class="img-fluid" alt="" src="../assets/images/social-app/post-8.png"></div>
-            </li>
-            </ul>
-        </div>
-        </div>
-    </div>
-    </div>
-    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
     <div class="card">
         <div class="card-header">
         <h5 class="p-0">
