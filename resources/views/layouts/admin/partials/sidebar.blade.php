@@ -1,4 +1,5 @@
 <header class="main-nav">
+    a
     <div class="sidebar-user text-center">
         <a class="setting-primary" href="javascript:void(0)"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="{{ auth()->user()->avatar_url }}" alt="" />
         <div class="badge-bottom"><span class="badge badge-primary">New</span></div>
@@ -38,11 +39,11 @@
                                 <li><a href="{{route('achievement-histories.index')}}" class="{{routeActive('achievement-histories*')}}">Riwayat Prestasi</a></li>
                                 <li><a href="{{route('educational-backgrounds.index')}}" class="{{routeActive('educational-backgrounds*')}}">Riwayat Pendidikan</a></li>
                                 <li><a href="{{route('training-histories.index')}}" class="{{routeActive('training-histories*')}}">Riwayat Training</a></li>
-                                <li><a href="{{route('skills-and-professions.index')}}" class="{{routeActive('skills-and-professions*')}}">Keahliaan & Profesi</a></li>
+                                {{-- <li><a href="{{route('skills-and-professions.index')}}" class="{{routeActive('skills-and-professions*')}}">Keahliaan & Profesi</a></li>
                                 <li><a href="{{route('data-thps.index')}}" class="{{routeActive('data-thps*')}}">THP</a></li>
                                 <li><a href="{{route('all-office-facilities.index')}}" class="{{routeActive('all-office-facilities*')}}">Fasilitas Jabatan</a></li>
                                 <li><a href="{{route('insurance-facilities.index')}}" class="{{routeActive('insurance-facilities*')}}">Fasilitas Asuransi</a></li>
-                                <li><a href="{{route('cash-benefits.index')}}" class="{{routeActive('cash-benefits*')}}">Cash Benefit</a></li>
+                                <li><a href="{{route('cash-benefits.index')}}" class="{{routeActive('cash-benefits*')}}">Cash Benefit</a></li> --}}
                                 <li><a href="{{route('families.index')}}" class="{{routeActive('families*')}}">Data Keluarga</a></li>
                             </ul>
                         </li>
