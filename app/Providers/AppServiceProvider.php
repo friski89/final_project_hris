@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL; 
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if(env('REDIRECT_HTTPS'))
         {
-            $url->forceSchema('https');
+            URL::forceScheme('https');
         }
         $project_title = '| AdMedika - HCIS';
         View::share('title', $project_title);
