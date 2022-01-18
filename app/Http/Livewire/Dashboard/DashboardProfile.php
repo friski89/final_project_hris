@@ -157,7 +157,7 @@ class DashboardProfile extends Component
                                             ->get();
         }
 
-        return $this->data_sub_ordinates;
+        return $data_sub_ordinates;
     }
 
     public function my_leader() {
