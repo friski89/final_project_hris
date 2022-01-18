@@ -210,13 +210,8 @@
                                 <li>
                                      @if(auth()->user()->profile != null )
                                     <div>
-<<<<<<< HEAD
                                         <p>STATUS VAKSIN 1</p>
                                         <h5>{{ auth()->user()->profile->vaccine2 ? 'SUDAH' : 'BELUM' }}</h5>
-=======
-                                        <p>STATUS VAKSIN 2</p>
-                                        <h5>{{ auth()->user()->profile->vaccine2 ? "SUDAH" : "BELUM" }}</h5>
->>>>>>> 1acfa2cbc3b7812465d45239d59b2ce25453a94a
                                     </div>
                                     @else
                                     <div>
@@ -245,10 +240,6 @@
                                         <h5>{{ auth()->user()->profile->remarks_not_vaccine ?? '-' }}</h5>
                                     </div>
                                 </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> 1acfa2cbc3b7812465d45239d59b2ce25453a94a
                             </ul>
                         </div>
                     </div>
