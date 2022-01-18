@@ -249,6 +249,8 @@
                             <div class="media-body">
                                 <span class="d-block">{{$my_leader->name}}</span>
                                 <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
+                                <br/>
+                                <a href="javascript:void(0)">{{$my_leader->job_title_name}}</a>
                             </div>
                         </div>
                     @endforeach
@@ -269,7 +271,12 @@
                 
                     @foreach($this->my_team_mates() as $my_team)
                         <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
-                            <div class="media-body"><span class="d-block">{{ $my_team->name }}</span><a href="javascript:void(0)">{{ $my_team->unit_name }}</a></div>
+                            <div class="media-body">
+                                <span class="d-block">{{ $my_team->name }}</span>
+                                <a href="javascript:void(0)">{{ $my_team->unit_name }}</a>
+                                <br/>
+                                <a href="javascript:void(0)">{{$my_team->job_title_name}}</a>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -288,7 +295,12 @@
                 <div class="card-body social-list filter-cards-view">
                     @foreach($this->my_subordinates() as $sub_ordinate)
                         <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
-                            <div class="media-body"><span class="d-block">{{ $sub_ordinate->name }}</span><a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a></div>
+                            <div class="media-body">
+                                <span class="d-block">{{ $sub_ordinate->name }}</span>
+                                <a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a>
+                                <br/>
+                                <a href="javascript:void(0)">{{$sub_ordinate->job_title_name}}</a>
+                            </div>
                         </div>
                     @endforeach
                 </div>
