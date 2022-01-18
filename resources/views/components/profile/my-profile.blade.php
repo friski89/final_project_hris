@@ -54,7 +54,7 @@
                             <li>
                                 <div>
                                     <p>JABATAN</p>
-                                    <h5>{{ auth()->user()->jobTitle->name ?? '-' }}</h5>
+                                    <h5>{{ auth()->user()->jabatan ?? '-' }}</h5>
                                 </div>
                             </li>
                             <li>

@@ -18,7 +18,6 @@ class DashboardProfile extends Component
 
     public function my_team_mates() {
         $band_position = Auth::user()->band_position_id;
-        $band_position = Auth::user()->band_position_id;
         $direktorat_id = Auth::user()->direktorat_id;
         $division_id = Auth::user()->division_id;
         $departement_id = Auth::user()->departement_id;
