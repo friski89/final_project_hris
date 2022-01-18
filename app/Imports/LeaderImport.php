@@ -33,7 +33,7 @@ class LeaderImport implements ToModel, WithHeadingRow, WithValidation
     public function rules(): array
     {
         return [
-            '*.nik' => ['nik' => 'required'],
+            '*.nik' => ['nik' => 'required', 'unique:leaders,nik'],
             '*.nik_atasan1' => ['nik_atasan1' => 'nullable'],
             '*.atasan1' => ['atasan1' => 'nullable'],
             '*.jabatan1' => ['jabatan1' => 'nullable'],
