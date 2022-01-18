@@ -271,7 +271,7 @@
                 </h5>
             </div>
             <div class="collapse show" id="collapseicon12" aria-labelledby="collapseicon12" data-parent="#accordion">
-                <div class="card-body social-list filter-cards-view">)
+                <div class="card-body social-list filter-cards-view">
                     @foreach($this->my_subordinates() as $sub_ordinate)
                         <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
                             <div class="media-body"><span class="d-block">{{ $sub_ordinate->name }}</span><a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a></div>
