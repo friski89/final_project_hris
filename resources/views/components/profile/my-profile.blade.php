@@ -111,7 +111,7 @@
                             </li>
                             <li>
                                 <div>
-                                    <p>Edu</p>
+                                    <p>PENDIDIKAN</p>
                                     <h5>{{ auth()->user()->edu->name ?? '-' }}</h5>
                                 </div>
                             </li>
@@ -193,6 +193,7 @@
                                         <h5>{{ auth()->user()->profile->address_ktp ?? '-' }}</h5>
                                     </div>
                                 </li>
+                                @if(auth()->user()->profile != null)
                                 <li>
                                     <div>
                                         <p>STATUS VAKSIN 1</p>
@@ -202,16 +203,29 @@
                                 <li>
                                     <div>
                                         <p>STATUS VAKSIN 2</p>
-                                        <h5>{{ auth()->user()->profile->vaccine2 ? 'SUDAH' : 'BELUM' }}</h5>
+                                        <h5>{{ auth()->user()->profile->vaccine2 ? "SUDAH" : "BELUM" }}</h5>
                                     </div>
                                 </li>
+                                @else
+                                <li>
+                                    <div>
+                                        <p>STATUS VAKSIN 1</p>
+                                        <h5>BELUM</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>STATUS VAKSIN 2</p>
+                                        <h5>BELUM</h5>
+                                    </div>
+                                </li>
+                                @endif
                                 <li>
                                     <div>
                                         <p>ALASAN TIDAK VAKSIN</p>
                                         <h5>{{ auth()->user()->profile->remarks_not_vaccine ?? '-' }}</h5>
                                     </div>
                                 </li>
-                                
                             </ul>
                         </div>
                     </div>
