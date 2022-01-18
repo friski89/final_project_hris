@@ -33,3 +33,6 @@ RUN php artisan storage:link
 RUN php artisan optimize 
 RUN php artisan config:clear
 RUN php artisan route:clear
+RUN php artisan vendor:publish --tag=livewire-powergrid-config
+RUN php artisan vendor:publish --tag=livewire-powergrid-views
+RUN php artisan vendor:publish --tag=livewire-powergrid-lang
