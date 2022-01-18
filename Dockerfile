@@ -1,4 +1,4 @@
-FROM php:7.4.0-fpm-alpine
+FROM php:8.0.0-fpm-alpine
 
 RUN apk add --update npm
 
@@ -31,3 +31,8 @@ RUN composer install
 RUN npm install
 RUN php artisan storage:link 
 RUN php artisan optimize 
+RUN php artisan config:clear
+RUN php artisan route:clear
+RUN php artisan vendor:publish --tag=livewire-powergrid-config
+RUN php artisan vendor:publish --tag=livewire-powergrid-views
+RUN php artisan vendor:publish --tag=livewire-powergrid-lang

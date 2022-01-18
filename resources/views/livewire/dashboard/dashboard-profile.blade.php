@@ -21,12 +21,14 @@
                                             <div class="userpro-box">
                                                 <div class="img-wrraper">
                                                 <div class="avatar"><img class="img-fluid" alt="" src="{{ auth()->user()->avatar_url }}"></div>
-                                                    <a class="icon-wrapper" href="{{ route('Myprofile') }}"><i class="icofont icofont-pencil-alt-5"></i></a>
+                                                    <a class="icon-wrapper" href="{{ route('Myprofile') }}">
+                                                        <i class="icofont icofont-pencil-alt-5"></i>
+                                                </a>
                                                 </div>
                                                 <div class="user-designation">
                                                     <div class="title"><a target="_blank" href="">
                                                         <h4>{{ auth()->user()->name }}</h4>
-                                                        <h6>{{ auth()->user()->unit->name }}</h6></a>
+                                                        <h6>{{ auth()->user()->jobTitle->name }}</h6></a>
                                                     </div>
                                                 </div>
                                             </div>
