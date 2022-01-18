@@ -247,7 +247,7 @@
             </div>
         </div>
     </div>
-    @if(auth()->user()->band_position_id > 1)
+    @if(count($this->my_leader()) != 0)
     <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
         <div class="card">
             <div class="card-header bg-primary">
@@ -258,15 +258,17 @@
             <div class="collapse show" id="collapseicon8" aria-labelledby="collapseicon8" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
                     @foreach($this->my_leader() as $my_leader)
+                        @if($my_leader->atasan1 != null)
                         <div class="media">
                             <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
                             <div class="media-body">
-                                <span class="d-block">{{$my_leader->name}}</span>
+                                <span class="d-block">{{$my_leader->atasan1}}</span>
                                 <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
                                 <br/>
-                                <a href="javascript:void(0)">{{$my_leader->job_title_name}}</a>
+                                <a href="javascript:void(0)">{{$my_leader->jabatan1}}</a>
                             </div>
                         </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -289,7 +291,7 @@
                                 <span class="d-block">{{ $my_team->name }}</span>
                                 <a href="javascript:void(0)">{{ $my_team->unit_name }}</a>
                                 <br/>
-                                <a href="javascript:void(0)">{{$my_team->job_title_name}}</a>
+                                <a href="javascript:void(0)">{{$my_team->jabatan}}</a>
                             </div>
                         </div>
                     @endforeach
@@ -313,7 +315,7 @@
                                 <span class="d-block">{{ $sub_ordinate->name }}</span>
                                 <a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a>
                                 <br/>
-                                <a href="javascript:void(0)">{{$sub_ordinate->job_title_name}}</a>
+                                <a href="javascript:void(0)">{{$sub_ordinate->jabatan}}</a>
                             </div>
                         </div>
                     @endforeach
@@ -322,6 +324,7 @@
         </div>
     </div>
     @endif
+    
     <!-- <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
     <div class="card">
         <div class="card-header">
