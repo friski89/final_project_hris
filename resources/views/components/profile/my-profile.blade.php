@@ -111,7 +111,7 @@
                             </li>
                             <li>
                                 <div>
-                                    <p>Edu</p>
+                                    <p>PENDIDIKAN</p>
                                     <h5>{{ auth()->user()->edu->name ?? '-' }}</h5>
                                 </div>
                             </li>
@@ -193,6 +193,7 @@
                                         <h5>{{ auth()->user()->profile->address_ktp ?? '-' }}</h5>
                                     </div>
                                 </li>
+                                @if(auth()->user()->profile != null)
                                 <li>
                                     @if(auth()->user()->profile != null )
                                     <div>
@@ -209,8 +210,13 @@
                                 <li>
                                      @if(auth()->user()->profile != null )
                                     <div>
+<<<<<<< HEAD
                                         <p>STATUS VAKSIN 1</p>
                                         <h5>{{ auth()->user()->profile->vaccine2 ? 'SUDAH' : 'BELUM' }}</h5>
+=======
+                                        <p>STATUS VAKSIN 2</p>
+                                        <h5>{{ auth()->user()->profile->vaccine2 ? "SUDAH" : "BELUM" }}</h5>
+>>>>>>> 1acfa2cbc3b7812465d45239d59b2ce25453a94a
                                     </div>
                                     @else
                                     <div>
@@ -219,13 +225,30 @@
                                     </div>
                                     @endif
                                 </li>
+                                @else
+                                <li>
+                                    <div>
+                                        <p>STATUS VAKSIN 1</p>
+                                        <h5>BELUM</h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>STATUS VAKSIN 2</p>
+                                        <h5>BELUM</h5>
+                                    </div>
+                                </li>
+                                @endif
                                 <li>
                                     <div>
                                         <p>ALASAN TIDAK VAKSIN</p>
                                         <h5>{{ auth()->user()->profile->remarks_not_vaccine ?? '-' }}</h5>
                                     </div>
                                 </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1acfa2cbc3b7812465d45239d59b2ce25453a94a
                             </ul>
                         </div>
                     </div>

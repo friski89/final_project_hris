@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\FamilyController;
+use App\Http\Controllers\Api\MyTeamsController;
 use App\Http\Controllers\Api\DataThpController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\VillageController;
@@ -127,6 +128,9 @@ Route::name('api.')
         Route::apiResource('roles', RoleController::class);
         Route::apiResource('permissions', PermissionController::class);
 
+        Route::get('my-teams', [MyTeamsController::class, 'get_team'])->name('my-teams.get_team');
+
+        
         Route::apiResource('city-recuites', CityRecuiteController::class);
 
         // CityRecuite Users
