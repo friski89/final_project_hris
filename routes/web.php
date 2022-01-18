@@ -46,6 +46,7 @@ use App\Http\Controllers\InsuranceFacilityController;
 use App\Http\Controllers\OtherCompetenciesController;
 use App\Http\Controllers\profile\MyProfileController;
 use App\Http\Controllers\AchievementHistoryController;
+use App\Http\Controllers\AsignedUserController;
 use App\Http\Controllers\CompetenceCoreValueController;
 use App\Http\Controllers\SkillsAndProfessionController;
 use App\Http\Controllers\CompetenceFanctionalController;
@@ -217,8 +218,9 @@ Route::prefix('erp')
             Route::prefix('hris')
                 ->middleware('permission:hris')
                 ->group(function () {
-                    Route::resource('roles', RoleController::class);
-                    Route::resource('permissions', PermissionController::class);
+                    Route::resource('roles', RoleController::class)->middleware('permission:roles and permissions');
+                    Route::resource('permissions', PermissionController::class)->middleware('permission:roles and permissions');
+                    route::get('assign-user', [AsignedUserController::class, 'list'])->middleware('permission:roles and permissions')->name('assign.list');
 
                     Route::resource('service-histories', ServiceHistoryController::class);
                     Route::prefix('riwayat_kedinasan')->group(function () {
@@ -294,7 +296,7 @@ Route::prefix('erp')
 
                     Route::resource('contract-histories', ContractHistoryController::class);
                     // Route::resource('families', FamilyController::class);
-                    
+
                     Route::resource('users', UserController::class);
                     Route::post('users/{user}', [
                         userResignController::class,

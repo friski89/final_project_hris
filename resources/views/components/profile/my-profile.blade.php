@@ -152,7 +152,7 @@
                                         <h5>{{ auth()->user()->profile->no_ktp ?? '-' }}</h5>
                                     </div>
                                 </li>
-                                
+
                                 <li>
                                     <div>
                                         <p>ALAMAT DOMISILI</p>
@@ -195,16 +195,30 @@
                                 </li>
                                 @if(auth()->user()->profile != null)
                                 <li>
+                                    @if(auth()->user()->profile != null )
                                     <div>
                                         <p>STATUS VAKSIN 1</p>
                                         <h5>{{ auth()->user()->profile->vaccine1 ? 'SUDAH' : 'BELUM' }}</h5>
                                     </div>
+                                    @else
+                                    <div>
+                                        <p>STATUS VAKSIN 1</p>
+                                        <h5></h5>
+                                    </div>
+                                    @endif
                                 </li>
                                 <li>
+                                     @if(auth()->user()->profile != null )
                                     <div>
-                                        <p>STATUS VAKSIN 2</p>
-                                        <h5>{{ auth()->user()->profile->vaccine2 ? "SUDAH" : "BELUM" }}</h5>
+                                        <p>STATUS VAKSIN 1</p>
+                                        <h5>{{ auth()->user()->profile->vaccine2 ? 'SUDAH' : 'BELUM' }}</h5>
                                     </div>
+                                    @else
+                                    <div>
+                                        <p>STATUS VAKSIN 1</p>
+                                        <h5></h5>
+                                    </div>
+                                    @endif
                                 </li>
                                 @else
                                 <li>
@@ -268,7 +282,7 @@
             </div>
             <div class="collapse show" id="collapseicon11" aria-labelledby="collapseicon11" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
-                
+
                     @foreach($this->my_team_mates() as $my_team)
                         <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
                             <div class="media-body">
@@ -283,7 +297,7 @@
             </div>
         </div>
     </div>
-    @if(Auth()->user()->band_position_id < 5) 
+    @if(Auth()->user()->band_position_id < 5)
     <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
         <div class="card">
             <div class="card-header bg-primary">
