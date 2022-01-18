@@ -29,6 +29,9 @@ WORKDIR /var/www/
 COPY . .
 RUN composer install
 RUN npm install
+RUN php artisan vendor:publish --tag=livewire-powergrid-config
+RUN php artisan vendor:publish --tag=livewire-powergrid-views
+RUN php artisan vendor:publish --tag=livewire-powergrid-lang
 RUN php artisan storage:link 
 RUN php artisan optimize 
 RUN php artisan config:cache
