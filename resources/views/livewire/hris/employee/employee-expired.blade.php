@@ -55,7 +55,26 @@
                                 NIK
                             </th>
                             <th class="text-left">
-                                DATE
+                                DIREKTORAT
+                            </th>
+                            <th class="text-left">
+                                DIVISI
+                            </th>
+                            <th class="text-left">
+                                DEPARTEMENT
+                            </th>
+                            <th class="text-left">
+                                UNIT
+                            </th>
+                            <th class="text-left">
+                                JABATAN
+                            </th>
+                            <th class="text-left">
+                                ATASAN
+                            </th>
+
+                            <th class="text-left">
+                                HABIS KONTRAK
                             </th>
                         </tr>
                     </thead>
@@ -64,6 +83,12 @@
                         <tr>
                             <td>{{ $employee->name }}</td>
                             <td>{{ $employee->nik_company }}</td>
+                            <td>{{ $employee->direktorat->name }}</td>
+                            <td>{{ $employee->division->name }}</td>
+                            <td>{{ $employee->departement->name }}</td>
+                            <td>{{ $employee->unit->name }}</td>
+                            <td>{{ $employee->jabatan }}</td>
+                            <td></td>
                             <td>{{ $employee->end_date }}</td>
                         </tr>
                         @empty

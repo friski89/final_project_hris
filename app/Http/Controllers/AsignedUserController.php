@@ -10,4 +10,9 @@ class AsignedUserController extends Controller
     {
         return view('assign.list');
     }
+
+    public function sync($id)
+    {
+        dd($id);
+    }
 }

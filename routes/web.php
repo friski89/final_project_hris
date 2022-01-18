@@ -55,6 +55,7 @@ use App\Http\Controllers\EducationalBackgroundController;
 use App\Http\Controllers\Import\EmployeeImportController;
 use App\Http\Controllers\Import\ImportProfileUserController;
 use App\Http\Controllers\Import\FamilyImportController;
+use App\Http\Controllers\LeaderController;
 use App\Http\Livewire\Hris\DataKedinasan\CreateDataKedinasan;
 use App\Http\Livewire\Hris\DataKedinasan\UpdateDataKedinasan;
 use App\Http\Livewire\Hris\DataPenugasan\CreateDataPenugasan;
@@ -112,6 +113,8 @@ Route::prefix('import_data')->middleware('permission:master data')->group(functi
         Route::post('import', [EmployeeImportController::class, 'store'])->name('import.employee');
         Route::post('import_profile', [ImportProfileUserController::class, 'store'])->name('import.profile');
         Route::post('import_family', [FamilyImportController::class, 'store'])->name('import.family');
+        Route::get('import_leader', [LeaderController::class, 'index'])->name('leader.index');
+        Route::post('import_leader', [LeaderController::class, 'store'])->name('leader.store');
     });
     // Route::prefix('profile')->group(function () {
     //     Route::post('import', [ImportProfileUserController::class, 'store'])->name('import.profile');
@@ -221,6 +224,7 @@ Route::prefix('erp')
                     Route::resource('roles', RoleController::class)->middleware('permission:roles and permissions');
                     Route::resource('permissions', PermissionController::class)->middleware('permission:roles and permissions');
                     route::get('assign-user', [AsignedUserController::class, 'list'])->middleware('permission:roles and permissions')->name('assign.list');
+                    route::get('assign-user/{user:id}', [AsignedUserController::class, 'sync'])->middleware('permission:roles and permissions')->name('assign.sync');
 
                     Route::resource('service-histories', ServiceHistoryController::class);
                     Route::prefix('riwayat_kedinasan')->group(function () {

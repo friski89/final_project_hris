@@ -78,8 +78,6 @@ final class UserTable extends PowerGridComponent
         return PowerGrid::eloquent()
             ->addColumn('id')
             ->addColumn('name')
-            ->addColumn('username')
-            ->addColumn('email')
             ->addColumn('nik_telkom')
             ->addColumn('nik_company')
             ->addColumn('jabatan');
@@ -110,20 +108,6 @@ final class UserTable extends PowerGridComponent
             Column::add()
                 ->title('NAME')
                 ->field('name')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
-
-            Column::add()
-                ->title('USERNAME')
-                ->field('username')
-                ->sortable()
-                ->searchable()
-                ->makeInputText(),
-
-            Column::add()
-                ->title('EMAIL')
-                ->field('email')
                 ->sortable()
                 ->searchable()
                 ->makeInputText(),
@@ -166,20 +150,20 @@ final class UserTable extends PowerGridComponent
      * @return array<int, \PowerComponents\LivewirePowerGrid\Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::add('edit')
-               ->caption('Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('user.edit', ['user' => 'id']),
+        return [
+            Button::add('edit')
+                ->caption('Edit')
+                ->class('btn btn-info btn-sm')
+                ->route('assign.sync', ['user' => 'id']),
 
-           Button::add('destroy')
-               ->caption('Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('user.destroy', ['user' => 'id'])
-               ->method('delete')
+            //    Button::add('destroy')
+            //        ->caption('Delete')
+            //        ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+            //        ->route('user.destroy', ['user' => 'id'])
+            //        ->method('delete')
         ];
     }
 

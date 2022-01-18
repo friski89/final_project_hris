@@ -66,6 +66,7 @@
                                 <li><a href="{{route('roles.index')}}" class="{{routeActive('roles*')}}">Roles</a></li>
                                 <li><a href="{{route('permissions.index')}}" class="{{routeActive('permissions*')}}">Permissions</a></li>
                                 <li><a href="{{route('assign.list')}}" class="{{routeActive('assign*')}}">Assigned User</a></li>
+                                <li><a href="{{route('leader.index')}}" class="{{routeActive('leader*')}}">List Leader</a></li>
                             </ul>
                         </li>
                     @endcan
