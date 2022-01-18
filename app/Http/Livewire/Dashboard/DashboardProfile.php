@@ -245,8 +245,11 @@ class DashboardProfile extends Component
                                 ->where('users.unit_id',$unit_id)
                                 ->get();
 
+            
+
+            
             if($data_leaders->count() == 0) {
-                DB::table('users')
+                $data_leaders = DB::table('users')
                     ->select('users.name as name', 'direktorats.name as direktorat_name', 'users.direktorat_id as direktorat_id', 'divisions.name as division_name', 'users.division_id as division_id' , 'departements.name as departemen_name', 'users.departement_id as department_id', 'units.name as unit_name', 'users.unit_id as unit_id', 'users.avatar as avatar', 'job_titles.name as job_title_name')
                     ->leftJoin('direktorats', 'users.direktorat_id','=','direktorats.id')
                     ->leftJoin('divisions', 'users.division_id','=','divisions.id')
@@ -256,8 +259,12 @@ class DashboardProfile extends Component
                     ->where('users.band_position_id', 4)
                     ->where('users.direktorat_id',$direktorat_id)
                     ->where('users.division_id',$division_id)
+                    ->where('users.departement_id',$departement_id)
                     ->get();
             }
+
+            
+
         }
 
         return $data_leaders;
