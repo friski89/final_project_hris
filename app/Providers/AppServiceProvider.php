@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if(env('REDIRECT_HTTPS')){
             URL::forceScheme('https');
+            \URL::forceRootUrl(config('app.url'));       
         }
         $project_title = '| AdMedika - HCIS';
         View::share('title', $project_title);
