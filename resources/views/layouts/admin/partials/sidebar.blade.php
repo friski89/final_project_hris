@@ -1,5 +1,4 @@
 <header class="main-nav">
-    a
     <div class="sidebar-user text-center">
         <a class="setting-primary" href="javascript:void(0)"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="{{ auth()->user()->avatar_url }}" alt="" />
         <div class="badge-bottom"><span class="badge badge-primary">New</span></div>
@@ -66,6 +65,7 @@
                             <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('master_data/hris') }};">
                                 <li><a href="{{route('roles.index')}}" class="{{routeActive('roles*')}}">Roles</a></li>
                                 <li><a href="{{route('permissions.index')}}" class="{{routeActive('permissions*')}}">Permissions</a></li>
+                                <li><a href="{{route('assign.list')}}" class="{{routeActive('assign*')}}">Assigned User</a></li>
                             </ul>
                         </li>
                     @endcan
