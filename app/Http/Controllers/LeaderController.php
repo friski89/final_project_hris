@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\LeaderImport;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Imports\LeaderImport;
 
 class LeaderController extends Controller
 {
@@ -19,4 +20,11 @@ class LeaderController extends Controller
 
         return redirect()->route('leader.index')->withSuccess('Import Data Has Been Successfully');
     }
+
+    // public function view($nik)
+    // {
+    //     $user = User::where('nik_company', $nik)->first();
+    //     $linkID = 'my profile';
+    //     return view('profile.leader_view', compact('user', 'linkID'));
+    // }
 }

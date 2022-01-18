@@ -10,7 +10,7 @@
             <div class="card-body post-about">
                 <div class="row">
 
-                    @forelse (auth()->user()->families as $item)
+                    @forelse ($user->families as $item)
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">

@@ -1,15 +1,21 @@
 <?php
 
-namespace App\Http\Livewire\Dashboard;
+namespace App\Http\Livewire\Hris\Leader;
 
+use App\Models\User;
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class DashboardProfile extends Component
+class ViewUser extends Component
 {
+    public $user;
     public $linkID = "my profile";
 
+
+    public function mount($id)
+    {
+        $this->user = User::where('nik_company', $id)->first();
+    }
 
     public function profileLink($linkID)
     {
@@ -18,7 +24,7 @@ class DashboardProfile extends Component
 
     public function my_team_mates()
     {
-        $username = Auth::user()->username;
+        $username = $this->user->nik_company;
 
         $atasan = DB::table('leaders')
             ->select('nik_atasan1')
@@ -44,7 +50,7 @@ class DashboardProfile extends Component
     public function my_subordinates()
     {
 
-        $username = Auth::user()->username;
+        $username = $this->user->nik_company;
 
 
         $data_sub_ordinates = DB::table('leaders')
@@ -59,7 +65,7 @@ class DashboardProfile extends Component
 
     public function my_leader()
     {
-        $username = Auth::user()->username;
+        $username = $this->user->nik_company;
 
 
         $data_leaders = DB::table('leaders')
@@ -71,13 +77,12 @@ class DashboardProfile extends Component
         return $data_leaders;
     }
 
-
-
     protected $listeners = ['profileLink' => '$refresh'];
+
     public function render()
     {
         $linkID = $this->linkID;
-        $user = auth()->user();
-        return view('livewire.dashboard.dashboard-profile', compact('linkID', 'user'));
+        $user = $this->user;
+        return view('livewire.hris.leader.view-user', compact('linkID', 'user'));
     }
 }

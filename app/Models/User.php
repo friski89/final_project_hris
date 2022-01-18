@@ -259,6 +259,11 @@ class User extends Authenticatable
         return $this->belongsTo(Departement::class);
     }
 
+    public function leader()
+    {
+        return $this->belongsTo(Leader::class, 'nik_company', 'nik');
+    }
+
     // public function jabatan()
     // {
     //     return $this->belongsTo(Jabatan::class);

@@ -9,7 +9,7 @@
             <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
             <div class="card-body post-about">
                 <div class="row">
-                    @forelse (auth()->user()->serviceHistories as $item)
+                    @forelse ($user->serviceHistories as $item)
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
@@ -27,7 +27,7 @@
                                             <h6>: {{ date('d F Y',strtotime($item->end_date)) }}</h6>
                                             <h6>: {{ date('d F Y',strtotime($item->start_date)) }}</h6>
                                             <h6>: {{ $item->companyHome->name }}</h6>
-                                            <h6>: {{ auth()->user()->division->name }}</h6>
+                                            <h6>: {{ $user->division->name }}</h6>
                                             <h6>: {{ $item->type }}</h6>
                                         </div>
                                     </div>

@@ -88,7 +88,7 @@
                             <td>{{ $employee->departement->name }}</td>
                             <td>{{ $employee->unit->name }}</td>
                             <td>{{ $employee->jabatan }}</td>
-                            <td></td>
+                            <td>{{ $employee->leader->atasan1 ?? $employee->leader->atasan2 }}</td>
                             <td>{{ $employee->end_date }}</td>
                         </tr>
                         @empty

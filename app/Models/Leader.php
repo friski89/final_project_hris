@@ -21,4 +21,9 @@ class Leader extends Model
         'nik_atasan3',
         'jabatan3',
     ];
+
+    public function users()
+    {
+        return $this->hasMany(User::class, 'nik', 'nik_company');
+    }
 }

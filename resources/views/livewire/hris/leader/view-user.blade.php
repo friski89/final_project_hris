@@ -21,9 +21,9 @@
                                             <div class="userpro-box">
                                                 <div class="img-wrraper">
                                                 <div class="avatar"><img class="img-fluid" alt="" src="{{ $user->avatar_url }}"></div>
-                                                    <a class="icon-wrapper" href="{{ route('Myprofile') }}">
+                                                    {{-- <a class="icon-wrapper" href="{{ route('Myprofile') }}">
                                                         <i class="icofont icofont-pencil-alt-5"></i>
-                                                </a>
+                                                </a> --}}
                                                 </div>
                                                 <div class="user-designation">
                                                     <div class="title"><a target="_blank" href="">

@@ -9,7 +9,7 @@
             <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
             <div class="card-body post-about">
                 <div class="row">
-                    @forelse (auth()->user()->trainingHistories as $item)
+                    @forelse ($user->trainingHistories as $item)
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">

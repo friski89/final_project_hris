@@ -15,6 +15,7 @@ class EmployeeExpired extends Component
 
     public function render()
     {
+        $user = User::find(1);
         $dateS = Carbon::now()->startOfMonth();
         $dateE = Carbon::now()->startOfMonth()->subMonth(-2);
 
@@ -24,6 +25,8 @@ class EmployeeExpired extends Component
             ->whereBetween('end_date', [$dateS, $dateE])
             ->latest()
             ->paginate(10);
+
+
 
         return view('livewire.hris.employee.employee-expired', compact('employees'));
     }

@@ -71,12 +71,14 @@ use App\Http\Livewire\Dashboard\DashboardUsers;
 use App\Http\Livewire\Eproc\PurchaseRequest\PrIndex;
 use App\Http\Livewire\Hris\Employee\EmployeeExpired;
 use App\Http\Livewire\Hris\Employee\Resign;
+use App\Http\Livewire\Hris\Leader\ViewUser;
 use App\Http\Livewire\Hris\RiwayatPrestasi\CreateRiwayatPrestasi;
 use App\Http\Livewire\Hris\RiwayatPrestasi\UpdateRiwayatPrestasi;
 use App\Http\Livewire\Hris\RiwayatTraining\CreateRiwayatTraining;
 use App\Http\Livewire\Hris\RiwayatTraining\UpdateRiwayatTraining;
 use App\Http\Livewire\Hris\PenilaianKinerja\CreatePenilaianKinerja;
 use App\Http\Livewire\Hris\PenilaianKinerja\UpdatePenilaianKinerja;
+use App\Models\Leader;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,6 +127,8 @@ Route::prefix('import_data')->middleware('permission:master data')->group(functi
 Route::prefix('Myprofile')->middleware('auth')->group(function () {
     // main profile
     Route::get('', [MyProfileController::class, 'index'])->name('Myprofile');
+    Route::get('leader/view/{id}', ViewUser::class)->name('leader.view');
+
     Route::get('/edut_lists', [MyProfileController::class, 'edu_list'])->name('edu_lists');
     Route::post('', [MyProfileController::class, 'update'])->name('Myprofile.update');
     Route::post('/change_password', [MyProfileController::class, 'change_password'])->name('Myprofile.change_password');
