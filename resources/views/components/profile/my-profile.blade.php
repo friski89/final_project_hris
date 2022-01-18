@@ -229,6 +229,7 @@
             </div>
             <div class="collapse show" id="collapseicon8" aria-labelledby="collapseicon8" data-parent="#accordion">
                 <div class="card-body social-list filter-cards-view">
+                {{dd($my_leaders)}}
                 @if(isset($my_leaders))
                     @foreach($my_leaders as $my_leader)
                         <div class="media">
