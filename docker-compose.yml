@@ -7,6 +7,6 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        command: 'php artisan serve --port 8080 --host erp.admedika.co.id'
+        command: 'php artisan serve --port 8080 --host 0.0.0.0'
         ports:
             - "8080:8080"
