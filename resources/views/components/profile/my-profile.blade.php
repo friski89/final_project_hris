@@ -259,26 +259,16 @@
                 <div class="card-body social-list filter-cards-view">
                     <div class="row">
                     @foreach($this->my_leader() as $my_leader)
-<<<<<<< HEAD
                         @if($my_leader->atasan1 != null)
-                        <div class="media">
-                            <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
-                            <div class="media-body">
-                                <span class="d-block">{{$my_leader->atasan1}}</span>
-                                <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
-                                <br/>
-                                <a href="javascript:void(0)">{{$my_leader->jabatan1}}</a>
-=======
                         <div class="col-md-3">
                             <div class="media">
                                 <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : 'assets/images/dashboard/1.png' }}">
                                 <div class="media-body">
-                                    <span class="d-block">{{$my_leader->name}}</span>
+                                    <span class="d-block">{{$my_leader->atasan1}}</span>
                                     <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
                                     <br/>
-                                    <a href="javascript:void(0)">{{$my_leader->job_title_name}}</a>
+                                    <a href="javascript:void(0)">{{$my_leader->jabatan}}</a>
                                 </div>
->>>>>>> 3cab386e8c935e3081a75706a3da78f0533a0c08
                             </div>
                         </div>
                         @endif
@@ -300,23 +290,14 @@
                 <div class="card-body social-list filter-cards-view">
                     <div class="row">
                     @foreach($this->my_team_mates() as $my_team)
-<<<<<<< HEAD
-                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
-                            <div class="media-body">
-                                <span class="d-block">{{ $my_team->name }}</span>
-                                <a href="javascript:void(0)">{{ $my_team->unit_name }}</a>
-                                <br/>
-                                <a href="javascript:void(0)">{{$my_team->jabatan}}</a>
-=======
                         <div class="col-md-3">
                             <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_team->avatar != null ? url('storage/avatars/'.$my_team->avatar) : 'assets/images/dashboard/1.png' }}">
                                 <div class="media-body">
                                     <span class="d-block">{{ $my_team->name }}</span>
                                     <a href="javascript:void(0)">{{ $my_team->unit_name }}</a>
                                     <br/>
-                                    <a href="javascript:void(0)">{{$my_team->job_title_name}}</a>
+                                    <a href="javascript:void(0)">{{$my_team->jabatan}}</a>
                                 </div>
->>>>>>> 3cab386e8c935e3081a75706a3da78f0533a0c08
                             </div>
                         </div>
                     @endforeach
@@ -337,24 +318,15 @@
                 <div class="card-body social-list filter-cards-view">
                     <div class="row">
                     @foreach($this->my_subordinates() as $sub_ordinate)
-<<<<<<< HEAD
-                        <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
-                            <div class="media-body">
-                                <span class="d-block">{{ $sub_ordinate->name }}</span>
-                                <a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a>
-                                <br/>
-                                <a href="javascript:void(0)">{{$sub_ordinate->jabatan}}</a>
-=======
                             <div class="col-md-3">
                                 <div class="media"><img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $sub_ordinate->avatar != null ? url('storage/avatars/'.$sub_ordinate->avatar) : 'assets/images/dashboard/1.png' }}">
                                     <div class="media-body">
                                         <span class="d-block">{{ $sub_ordinate->name }}</span>
                                         <a href="javascript:void(0)">{{ $sub_ordinate->unit_name }}</a>
                                         <br/>
-                                        <a href="javascript:void(0)">{{$sub_ordinate->job_title_name}}</a>
+                                        <a href="javascript:void(0)">{{$sub_ordinate->jabatan}}</a>
                                     </div>
                                 </div>
->>>>>>> 3cab386e8c935e3081a75706a3da78f0533a0c08
                             </div>
                     @endforeach
                     </div>
