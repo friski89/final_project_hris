@@ -256,7 +256,6 @@ class DashboardProfile extends Component
                     ->where('users.band_position_id', 4)
                     ->where('users.direktorat_id',$direktorat_id)
                     ->where('users.division_id',$division_id)
-                    ->where('users.departement_id',$departement_id)
                     ->get();
             }
         }
