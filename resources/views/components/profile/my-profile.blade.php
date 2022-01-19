@@ -267,7 +267,7 @@
                                     <span class="d-block">{{$my_leader->atasan1}}</span>
                                     {{-- <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>
                                     <br/> --}}
-                                    <a href="{{ route('leader.view',$my_leader->nik_atasan1) }}">{{$my_leader->jabatan}}</a>
+                                    <a href="{{ route('leader.view',$my_leader->nik_atasan1) }}">{{$my_leader->jabatan1}}</a>
                                 </div>
                             </div>
                         </div>

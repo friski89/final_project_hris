@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Hris\Leader;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,11 @@ class ViewUser extends Component
 
     public function mount($id)
     {
-        $this->user = User::where('nik_company', $id)->first();
+        if ($id) {
+            $this->user = User::where('nik_company', $id)->first();
+        } else {
+            $this->user = Auth()->user()->nik_company;
+        }
     }
 
     public function profileLink($linkID)
