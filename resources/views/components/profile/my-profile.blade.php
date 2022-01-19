@@ -262,7 +262,7 @@
                         @if($my_leader->atasan1 != null)
                         <div class="col-md-3">
                             <div class="media">
-                                <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar) : asset('assets/images/dashboard/1.png') }}">
+                                <img class="img-50 img-fluid m-r-20 rounded-circle" alt="" src="{{ $my_leader->avatar != null ? url('storage/avatars/'.$my_leader->avatar_atasan1) : asset('assets/images/dashboard/1.png') }}">
                                 <div class="media-body">
                                     <span class="d-block">{{$my_leader->atasan1}}</span>
                                     {{-- <a href="javascript:void(0)">{{$my_leader->unit_name}}</a>

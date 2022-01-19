@@ -62,12 +62,22 @@ class DashboardProfile extends Component
         $username = Auth::user()->username;
 
 
-        $data_leaders = DB::table('leaders')
-            ->select('leaders.nik', 'leaders.atasan1', 'leaders.nik_atasan1', 'leaders.jabatan1', 'leaders.atasan2', 'leaders.nik_atasan2', 'leaders.jabatan2', 'leaders.atasan3', 'leaders.nik_atasan3', 'leaders.jabatan3', 'users.avatar', 'users.jabatan', 'units.name as unit_name')
-            ->leftJoin('users', 'leaders.nik', '=', 'users.username')
-            ->leftJoin('units', 'users.unit_id', '=', 'units.id')
-            ->where('leaders.nik', '=', $username)
-            ->get();
+        // $data_leaders = DB::table('leaders')
+        //     ->select('leaders.nik', 'leaders.atasan1', 'leaders.nik_atasan1', 'leaders.jabatan1', 'leaders.atasan2', 'leaders.nik_atasan2', 'leaders.jabatan2', 'leaders.atasan3', 'leaders.nik_atasan3', 'leaders.jabatan3', 'users.avatar', 'users.jabatan', 'units.name as unit_name')
+        //     ->leftJoin('users', 'leaders.nik', '=', 'users.username')
+        //     ->leftJoin('units', 'users.unit_id', '=', 'units.id')
+        //     ->where('leaders.nik', '=', $username)
+        //     ->get();
+
+        $data_leaders = DB::select(DB::raw("select leaders.nik, leaders.atasan1, leaders.nik_atasan1, leaders.jabatan1, (select users.avatar from users where users.username = leaders.nik_atasan1) as avatar_atasan1, 
+        leaders.atasan2, leaders.nik_atasan2, leaders.jabatan2, (select users.avatar from users where users.username = leaders.nik_atasan2) as avatar_atasan2, 
+        leaders.atasan3, leaders.nik_atasan3, leaders.jabatan3, (select users.avatar from users where users.username = leaders.nik_atasan3) as avatar_atasan3, 
+        users.avatar, users.jabatan, units.name as unit_name, users.name 
+        from users 
+        left join leaders on leaders.nik = users.username 
+        left join units on units.id = users.unit_id 
+        where leaders.nik = '$username'"));
+        // $data_leaders = $data_leaders->toArray();
         return $data_leaders;
     }
 
