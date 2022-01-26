@@ -62,46 +62,77 @@
     </div>
 </div>
 
-    <div class="customizer-links">
-        <div class="nav flex-column nac-pills" id="c-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click.prevent="profileLink('my profile')">
-                <div class="settings"><i class="icofont icofont-ui-home"></i></div>
-                <span>My Profile</span>
-            </a>
-            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click.prevent="profileLink('riwayat kedinasan')">
-                <div class="settings"><i class="icofont icofont-briefcase-alt-2"></i></div>
-                <span>Riwayat Kedinasan</span>
-            </a>
-            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat penugasan khusus')">
-                <div class="settings"><i class="icofont icofont-building-alt"></i></div>
-                <span>Riwayat Penugasan Khusus</span>
-            </a>
-            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat penilaian kinerja')">
-                <div class="settings"><i class="icofont icofont-chart-histogram"></i></div>
-                <span>Riwayat Penilaian Kinerja</span>
-            </a>
-            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat prestasi')">
-                <div class="settings"><i class="icofont icofont-award"></i></div>
-                <span>Riwayat Prestasi</span>
-            </a>
-            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat pendidikan')">
-                <div class="settings"><i class="icofont icofont-university"></i></div>
-                <span>Riwayat Pendidikan</span>
-            </a>
-            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat training')">
-                <div class="settings"><i class="icofont icofont-certificate-alt-1"></i></div>
-                <span>Riwayat Training</span>
-            </a>
-            {{-- <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('keahlian & profesi')">
-                <div class="settings"><i class="icofont icofont-instrument"></i></div>
-                <span>Keahlian & Profesi</span>
-            </a> --}}
-            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('data keluarga')">
-                <div class="settings"><i class="icofont icofont-people"></i></div>
-                <span>Data Keluarga</span>
-            </a>
+<div class="customizer-links">
+    <div class="nav flex-column nac-pills" id="c-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click.prevent="profileLink('my profile')">
+            <div class="settings"><i class="icofont icofont-ui-home"></i></div>
+            <span>My Profile</span>
+        </a>
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click.prevent="profileLink('riwayat kedinasan')">
+            <div class="settings"><i class="icofont icofont-briefcase-alt-2"></i></div>
+            <span>Riwayat Kedinasan</span>
+        </a>
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat penugasan khusus')">
+            <div class="settings"><i class="icofont icofont-building-alt"></i></div>
+            <span>Riwayat Penugasan Khusus</span>
+        </a>
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat penilaian kinerja')">
+            <div class="settings"><i class="icofont icofont-chart-histogram"></i></div>
+            <span>Riwayat Penilaian Kinerja</span>
+        </a>
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat prestasi')">
+            <div class="settings"><i class="icofont icofont-award"></i></div>
+            <span>Riwayat Prestasi</span>
+        </a>
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat pendidikan')">
+            <div class="settings"><i class="icofont icofont-university"></i></div>
+            <span>Riwayat Pendidikan</span>
+        </a>
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('riwayat training')">
+            <div class="settings"><i class="icofont icofont-certificate-alt-1"></i></div>
+            <span>Riwayat Training</span>
+        </a>
+        {{-- <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('keahlian & profesi')">
+            <div class="settings"><i class="icofont icofont-instrument"></i></div>
+            <span>Keahlian & Profesi</span>
+        </a> --}}
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('data keluarga')">
+            <div class="settings"><i class="icofont icofont-people"></i></div>
+            <span>Data Keluarga</span>
+        </a>
+    </div>
+</div>
+{{-- <div class="modal fade bd-example-modal-lg" id="add-data-keluarga" tabindex="-1" role="dialog" aria-labelledby="add-data-keluarga-title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="add-data-keluarga-title">Modal title</h5>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form>
+            <div class="modal-body">
+                <p><i>if you don't know whats you must input, please fill with "-"</i></p>
+                <div class="row">
+                    <div class="mb-3">
+                        <label class="col-form-label" for="recipient-name">Employee Name:</label>
+                        <input class="form-control" type="text" value="{{Auth()->user->name}}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-form-label" for="message-text">Message:</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-sm btn-primary" type="button">Save changes</button>
+            </div>
+
+            </form>
         </div>
     </div>
+</div> --}}
 @push('scripts')
     <script>
         document.addEventListener('livewire:load', function () {

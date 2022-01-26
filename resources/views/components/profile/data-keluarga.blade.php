@@ -1,15 +1,23 @@
-    <div class="col-xl-9">
-        <div class="card">
-            <div class="card-header">
+<div class="col-xl-9">
+    <div class="card">
+        <div class="card-header">
             <h5 class="p-0">
                 <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2">Data Keluarga
                 </button>
             </h5>
+        </div>
+        <div class="row p-2">
+            <div class="d-flex justify-content-between">
+                <div></div>
+                <div>
+                    <a href="{{route('hrm.data_keluarga_user.create', $user->username)}}" class="btn btn-primary">Tambah Data Keluarga</a>   
+                </div>
             </div>
-            <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
+        </div>
+        <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
             <div class="card-body post-about">
+                
                 <div class="row">
-
                     @forelse ($user->families as $item)
                         <div class="col-lg-12">
                             <div class="card">
@@ -32,6 +40,13 @@
                                             <h6>: {{ $item->handphone_number }}</h6>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <a href="{{route('hrm.data_keluarga_user.edit', $item)}}" class="btn btn-primary">Edit Data Keluarga</a> 
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +61,9 @@
                     @endforelse
                 </div>
             </div>
-
-            </div>
         </div>
     </div>
+    
+</div>
+
+

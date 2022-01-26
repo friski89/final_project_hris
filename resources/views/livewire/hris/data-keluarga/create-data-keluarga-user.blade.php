@@ -1,13 +1,13 @@
 <div>
-    @section('title')@lang('crud.families.name')
+    @section('title')@lang('crud.families.create_title')
     {{ $title }}
     @endsection
     @component('components.breadcrumb')
         @slot('breadcrumb_title')
-            <h3>@lang('crud.families.index_title')</h3>
+            <h3>@lang('crud.families.create_title')</h3>
         @endslot
         <li class="breadcrumb-item">@lang('crud.families.name')</li>
-        <li class="breadcrumb-item active">@lang('crud.families.edit_title')</li>
+        <li class="breadcrumb-item active">@lang('crud.families.create_title')</li>
     @endcomponent
     <div class="container">
         <div class="container">
@@ -20,7 +20,7 @@
                         @lang('crud.families.create_title')
                     </h4>
                 </div>
-                <form autocomplete="off" wire:submit.prevent="updateForm">
+                <form autocomplete="off" wire:submit.prevent="createForm">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -29,7 +29,6 @@
                                         <label for="emp_no">Employe Number</label>
                                         <input readonly type="text" wire:model="state.emp_no" class="form-control @error('emp_no') is-invalid @enderror" id="emp_no" placeholder="Employee Number">
                                         <input type="hidden" wire:model="state.user_id" class="form-control">
-                                        <input type="hidden" wire:model="state.id" class="form-control">
                                         @error('emp_no')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -150,14 +149,14 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="religion">Educational</label>
+                                    <label for="edu_id">Educational</label>
                                     <select wire:model="state.edu_id" class="form-control @error('edu_id') is-invalid @enderror" id="edu_id" >
                                         <option value="">-- Select Educational --</option>
                                         @foreach($edus as $value => $label)
                                         <option value="{{ $value }}" >{{ $label }}</option>
                                         @endforeach
                                     </select>
-                                    @error('religion')
+                                    @error('edu_id')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -211,7 +210,7 @@
                                     <label for="health_status"></label>
                                     <div class="mt-1">
                                         <label class="inline-flex items-center">
-                                            <input type="checkbox"  wire::model="state.health_status" wire:click="$toggle('state.health_status')" {{ $state['health_status'] === true ? "checked" : "" }}  id="health_status" class="form-checkbox h-6 w-6 text-green-500">
+                                            <input type="checkbox"  wire.model="state.health_status" wire:click="$toggle('state.health_status')" id="health_status" class="form-checkbox h-6 w-6 text-green-500">
                                             <span><label for="health_status">Health Status</label></span>
                                         </label>
                                     </div>
@@ -349,11 +348,72 @@
                                     <label for="alive"></label>
                                     <div class="mt-1">
                                         <label class="inline-flex items-center">
-                                            <input type="checkbox" wire.model="state.alive" wire:click="$toggle('state.alive')"  {{ $state['alive'] === true ? "checked" : "" }}  id="alive" class="form-checkbox h-6 w-6 text-green-500">
+                                            <input type="checkbox" wire.model="state.alive" wire:click="$toggle('state.alive')" id="alive" class="form-checkbox h-6 w-6 text-green-500">
                                             <span><label for="alive">Alive</label></span>
                                         </label>
                                     </div>
                                     @error('alive')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="alive"></label>
+                                    <div class="mt-1">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" wire.model="state.vaccine1" wire:click="$toggle('state.vaccine1')" id="vaccine1" class="form-checkbox h-6 w-6 text-green-500">
+                                            <span><label for="vaccine1">Vaccine 1</label></span>
+                                        </label>
+                                    </div>
+                                    @error('vaccine1')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="alive"></label>
+                                    <div class="mt-1">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" wire.model="state.vaccine2" wire:click="$toggle('state.vaccine2')" id="vaccine2" class="form-checkbox h-6 w-6 text-green-500">
+                                            <span><label for="vaccine2">Vaccine 2</label></span>
+                                        </label>
+                                    </div>
+                                    @error('vaccine2')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="alive"></label>
+                                    <div class="mt-1">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" wire:model="state.not_vaccine" wire:click="$toggle('state.not_vaccine')" id="not_vaccine" class="form-checkbox h-6 w-6 text-green-500">
+                                            <span><label for="not_vaccine">Not Vaccine</label></span>
+                                        </label>
+                                    </div>
+                                    @error('not_vaccine')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="remarks_not_vaccine">Remarks Not Vaccine</label>
+                                    <textarea class="form-control  @error('remarks_not_vaccine') is-invalid @enderror" id="remarks_not_vaccine" wire:model="state.remarks_not_vaccine" rows="3"></textarea>
+                                    @error('remarks_not_vaccine')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

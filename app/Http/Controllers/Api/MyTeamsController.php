@@ -143,7 +143,7 @@ class MyTeamsController extends Controller
 
         $data_leaders = DB::select(DB::raw("select leaders.nik, leaders.atasan1, leaders.nik_atasan1, leaders.jabatan1, leaders.atasan2, leaders.nik_atasan2, 
                                             leaders.jabatan2, leaders.atasan3, leaders.nik_atasan3, leaders.jabatan3, users.avatar, users.jabatan, 
-                                            units.name as unit_name, users.username as nik_karyawan, users.id, band_positions.name as band_position_name, 
+                                            units.name as unit_name,users.name, users.username as nik_karyawan, users.id, band_positions.name as band_position_name, 
                                             users.nik_telkom, direktorats.name as direktorat_name, job_functions.name as job_function_name, users.email, 
                                             profiles.phone_number, users.email, departements.name as department_name, edus.name as edu_name, users.date_in, 
                                             users.date_of_birth, status_employees.name as status_employee_name, company_homes.name as company_name , profiles.gender ,

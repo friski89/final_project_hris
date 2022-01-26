@@ -62,6 +62,10 @@ use App\Http\Livewire\Hris\DataPenugasan\CreateDataPenugasan;
 use App\Http\Livewire\Hris\DataPenugasan\UpdateDataPenugasan;
 use App\Http\Livewire\Hris\DataKeluarga\CreateDataKeluarga;
 use App\Http\Livewire\Hris\DataKeluarga\UpdateDataKeluarga;
+use App\Http\Livewire\Hris\DataKeluarga\CreateDataKeluargaUser;
+use App\Http\Livewire\Hris\DataKeluarga\UpdateDataKeluargaUser;
+use App\Http\Livewire\Hris\DataRiwayatPendidikan\CreateDataRiwayatPendidikan;
+use App\Http\Livewire\Hris\DataRiwayatPendidikan\UpdateDataRiwayatPendidikan;
 use App\Http\Controllers\PerformanceAppraisalHistoryController;
 use App\Http\Controllers\TelegramEmployeeExpired;
 use App\Http\Controllers\userResignController;
@@ -258,6 +262,10 @@ Route::prefix('erp')
                         Route::get('create', CreateDataKeluarga::class)->name('hrm.data_keluarga.create');
                         Route::get('{family}/edit', UpdateDataKeluarga::class)->name('hrm.data_keluarga.edit');
                     });
+                    Route::prefix('data_keluarga_user')->group(function () {
+                        Route::get('create/{nik}', CreateDataKeluargaUser::class)->name('hrm.data_keluarga_user.create');
+                        Route::get('{family}/edit', UpdateDataKeluargaUser::class)->name('hrm.data_keluarga_user.edit');
+                    });
                     Route::resource(
                         'skills-and-professions',
                         SkillsAndProfessionController::class
@@ -301,6 +309,10 @@ Route::prefix('erp')
                         'educational-backgrounds',
                         EducationalBackgroundController::class
                     );
+                    Route::prefix('educational-backgrounds')->group(function () {
+                        Route::get('create/{nik}', CreateDataRiwayatPendidikan::class)->name('hrm.educational-backgrounds.create');
+                        Route::get('{educational_background}/edit', UpdateDataRiwayatPendidikan::class)->name('hrm.educational-backgrounds.edit');
+                    });
 
                     Route::resource('contract-histories', ContractHistoryController::class);
                     // Route::resource('families', FamilyController::class);

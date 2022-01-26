@@ -1,12 +1,20 @@
-    <div class="col-xl-9">
-        <div class="card">
-            <div class="card-header">
+<div class="col-xl-9">
+    <div class="card">
+        <div class="card-header">
             <h5 class="p-0">
                 <button class="btn btn-link ps-0" data-bs-toggle="collapse" data-bs-target="#collapseicon2" aria-expanded="true" aria-controls="collapseicon2">Riwayat Pendidikan
                 </button>
             </h5>
+        </div>
+        <div class="row p-2">
+            <div class="d-flex justify-content-between">
+                <div></div>
+                <div>
+                    <a href="{{route('hrm.educational-backgrounds.create', $user->username)}}" class="btn btn-primary">Tambah Riwayat Pendidikan</a>   
+                </div>
             </div>
-            <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
+        </div>
+        <div class="collapse show" id="collapseicon2" aria-labelledby="collapseicon2" data-parent="#accordion">
             <div class="card-body post-about">
                 <div class="row">
                     @forelse ($user->educationalBackgrounds as $item)
@@ -27,6 +35,14 @@
                                             <h6>: {{ $item->city . ' - ' . $item->country }}</h6>
                                         </div>
                                     </div>
+                                    <div class="row p-2">
+                                        <div class="d-flex justify-content-between">
+                                            <div></div>
+                                            <div>
+                                                <a href="{{route('hrm.educational-backgrounds.edit', $item)}}" class="btn btn-primary">Edit Riwayat Pendidikan</a>   
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +57,6 @@
                     @endforelse
                 </div>
             </div>
-
-            </div>
         </div>
     </div>
+</div>
