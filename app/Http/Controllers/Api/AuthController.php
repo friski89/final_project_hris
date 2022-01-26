@@ -32,7 +32,9 @@ class AuthController extends Controller
         }
 
         $user = User::where('username',$request->username)->firstOrFail();
-
+        $user->profile->gender;
+        
+       
         $token = $user->createToken('auth-token')->plainTextToken;
 
         return response()->json([
