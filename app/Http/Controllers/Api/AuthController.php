@@ -61,6 +61,8 @@ class AuthController extends Controller
         $data['job_title'] = $user->JobTitle->name;
         $data['gender'] = $user->Profile->gender;
         $data['religion'] = $user->Profile->Religion->name;
+        $data['email'] = $user->email;
+        $data['phone_number'] = $user->Profile->phone_number;
         //end here
 
         //list data family
