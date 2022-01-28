@@ -68,7 +68,7 @@ class AuthController extends Controller
         //list data family
         foreach($fams as $family) {
             $dataFamily = [];
-            $dataFamily['family_name'] = $family->name;
+            $dataFamily['family_name'] = $family->family_name;
             $dataFamily['user_id'] = $family->user_id;
             $dataFamily['place_of_birth'] = $family->place_of_birth;
             $dataFamily['data_of_birth'] = $family->date_of_birth;
