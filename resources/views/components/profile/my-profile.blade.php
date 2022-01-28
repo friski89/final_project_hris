@@ -202,7 +202,7 @@
                                     </div>
                                     @else
                                     <div>
-                                        <p>STATUS VAKSIN 1</p>
+                                        <p>STATUS VAKSIN 2</p>
                                         <h5></h5>
                                     </div>
                                     @endif
@@ -215,7 +215,7 @@
                                     </div>
                                     @else
                                     <div>
-                                        <p>STATUS VAKSIN 1</p>
+                                        <p>STATUS VAKSIN 2</p>
                                         <h5></h5>
                                     </div>
                                     @endif
