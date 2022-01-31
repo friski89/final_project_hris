@@ -106,7 +106,7 @@ class DashboardEmployee extends Component
         }
         $dataDirektoratID = $yb ?? [];
 
-        $division = DB::table('divisions')->whereIn('direktorat_id', $dataDirektoratID)->get();
+        $division = DB::table('divisions')->whereIn('direktorat_id', $dataDirektoratID)->whereNull('deleted_at')->get();
 
         $dataDivisionID = [];
 
@@ -119,7 +119,7 @@ class DashboardEmployee extends Component
         $dataDivisionID = $yx ?? [];
 
 
-        $departement =  DB::table('departements')->whereIn('division_id', $dataDivisionID)->get();
+        $departement =  DB::table('departements')->whereIn('division_id', $dataDivisionID)->whereNull('deleted_at')->get();
         $dataDepartementID = [];
 
         foreach ($departement as $item) {
@@ -129,7 +129,7 @@ class DashboardEmployee extends Component
         }
 
         $dataDepartementID = $ab ?? [];
-        $unit = DB::table('units')->whereIn('departement_id', $dataDepartementID)->get();
+        $unit = DB::table('units')->whereIn('departement_id', $dataDepartementID)->whereNull('deleted_at')->get();
 
         $dataDirektorat = Direktorat::get();
         $dataJobTitle = JobTitle::get();
