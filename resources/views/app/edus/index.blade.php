@@ -127,7 +127,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2">{!! $edus->links() !!}</td>
+                            <td colspan="2">{!! $edus->render() !!}</td>
                         </tr>
                     </tfoot>
                 </table>
