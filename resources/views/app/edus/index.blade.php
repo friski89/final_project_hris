@@ -126,7 +126,7 @@
                         @endforelse
                     </tbody>
                     <tfoot>
-                        <tr>{{ dd($edus->render()) }}
+                        <tr>
                             <td colspan="2">{!! $edus->render() !!}</td>
                         </tr>
                     </tfoot>
