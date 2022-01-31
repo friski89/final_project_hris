@@ -22,7 +22,7 @@ class DirektoratController extends Controller
         $direktorats = Direktorat::search($search)
             ->latest()
             ->paginate(5);
-
+        $direktorats->setPath('');
         return view('app.direktorats.index', compact('direktorats', 'search'));
     }
 

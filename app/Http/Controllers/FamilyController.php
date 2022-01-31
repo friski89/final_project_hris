@@ -24,7 +24,7 @@ class FamilyController extends Controller
         $families = Family::search($search)
             ->latest()
             ->paginate(5);
-
+        $families->setPath('');
         return view('app.families.index', compact('families', 'search'));
     }
 

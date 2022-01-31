@@ -43,6 +43,7 @@ class UserController extends Controller
             ->latest()
             ->paginate(5);
 
+        $users->setPath('');
         return view('app.users.index', compact('users', 'search'));
     }
 

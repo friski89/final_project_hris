@@ -23,6 +23,7 @@ class AchievementHistoryController extends Controller
         $achievementHistories = AchievementHistory::search($search)
             ->latest()
             ->paginate(5);
+        $achievementHistories->setPath('');
 
         return view(
             'app.achievement_histories.index',

@@ -23,6 +23,7 @@ class CompetenceCoreValueController extends Controller
             ->latest()
             ->paginate(5);
 
+        $competenceCoreValues->setPath('');
         return view(
             'app.competence_core_values.index',
             compact('competenceCoreValues', 'search')

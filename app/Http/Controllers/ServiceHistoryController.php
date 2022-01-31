@@ -27,7 +27,7 @@ class ServiceHistoryController extends Controller
         $serviceHistories = ServiceHistory::search($search)
             ->latest()
             ->paginate(5);
-
+        $serviceHistories->setPath('');
         return view(
             'app.service_histories.index',
             compact('serviceHistories', 'search')

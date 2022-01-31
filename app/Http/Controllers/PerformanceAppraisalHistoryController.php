@@ -25,7 +25,7 @@ class PerformanceAppraisalHistoryController extends Controller
         )
             ->latest()
             ->paginate(5);
-
+        $performanceAppraisalHistories->setPath('');
         return view(
             'app.performance_appraisal_histories.index',
             compact('performanceAppraisalHistories', 'search')

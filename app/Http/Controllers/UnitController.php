@@ -23,7 +23,7 @@ class UnitController extends Controller
         $units = Unit::search($search)
             ->latest()
             ->paginate(5);
-
+        $units->setPath('');
         return view('app.units.index', compact('units', 'search'));
     }
 

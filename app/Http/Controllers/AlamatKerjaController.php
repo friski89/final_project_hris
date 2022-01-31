@@ -23,6 +23,8 @@ class AlamatKerjaController extends Controller
         $alamatKerjas = AlamatKerja::search($search)
             ->latest()
             ->paginate(5);
+        
+        $alamatKerjas->setPath('');
 
         return view(
             'app.alamat_kerjas.index',

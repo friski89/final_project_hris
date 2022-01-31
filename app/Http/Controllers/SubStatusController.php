@@ -22,7 +22,7 @@ class SubStatusController extends Controller
         $subStatuses = SubStatus::search($search)
             ->latest()
             ->paginate(5);
-
+        $subStatuses->setPath('');
         return view('app.sub_statuses.index', compact('subStatuses', 'search'));
     }
 

@@ -22,7 +22,7 @@ class CompetenceFanctionalController extends Controller
         $competenceFanctionals = CompetenceFanctional::search($search)
             ->latest()
             ->paginate(5);
-
+        $competenceFanctionals->setPath('');
         return view(
             'app.competence_fanctionals.index',
             compact('competenceFanctionals', 'search')

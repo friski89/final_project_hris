@@ -22,7 +22,7 @@ class JobFunctionController extends Controller
         $jobFunctions = JobFunction::search($search)
             ->latest()
             ->paginate(5);
-
+        $jobFunctions->setPath('');
         return view(
             'app.job_functions.index',
             compact('jobFunctions', 'search')

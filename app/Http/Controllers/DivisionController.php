@@ -23,7 +23,7 @@ class DivisionController extends Controller
         $divisions = Division::search($search)
             ->latest()
             ->paginate(5);
-
+        $divisions->setPath('');
         return view('app.divisions.index', compact('divisions', 'search'));
     }
 

@@ -22,7 +22,7 @@ class ReligionController extends Controller
         $religions = Religion::search($search)
             ->latest()
             ->paginate(5);
-
+        $religions->setPath('');
         return view('app.religions.index', compact('religions', 'search'));
     }
 

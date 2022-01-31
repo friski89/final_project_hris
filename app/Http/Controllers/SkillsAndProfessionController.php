@@ -27,7 +27,7 @@ class SkillsAndProfessionController extends Controller
         $skillsAndProfessions = SkillsAndProfession::search($search)
             ->latest()
             ->paginate(5);
-
+        $skillsAndProfessions->setPath('');
         return view(
             'app.skills_and_professions.index',
             compact('skillsAndProfessions', 'search')

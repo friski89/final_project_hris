@@ -22,7 +22,7 @@ class OtherCompetenciesController extends Controller
         $allOtherCompetencies = OtherCompetencies::search($search)
             ->latest()
             ->paginate(5);
-
+        $allOtherCompetencies->setPath('');
         return view(
             'app.all_other_competencies.index',
             compact('allOtherCompetencies', 'search')

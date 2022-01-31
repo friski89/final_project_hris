@@ -23,6 +23,7 @@ class CompanyHostController extends Controller
             ->latest()
             ->paginate(5);
 
+        $companyHosts->setPath('');
         return view(
             'app.company_hosts.index',
             compact('companyHosts', 'search')

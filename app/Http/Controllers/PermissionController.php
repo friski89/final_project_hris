@@ -19,7 +19,7 @@ class PermissionController extends Controller
 
         $search = $request->get('search', '');
         $permissions = Permission::where('name', 'like', "%{$search}%")->paginate(10);
-
+        $permissions->setPath('');
         return view('app.permissions.index')
             ->with('permissions', $permissions)
             ->with('search', $search);

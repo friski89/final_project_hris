@@ -23,7 +23,7 @@ class VillageController extends Controller
         $villages = Village::search($search)
             ->latest()
             ->paginate(5);
-
+        $villages->setPath('');
         return view('app.villages.index', compact('villages', 'search'));
     }
 

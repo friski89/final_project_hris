@@ -23,7 +23,7 @@ class RegencieController extends Controller
         $regencies = Regencie::search($search)
             ->latest()
             ->paginate(5);
-
+        $regencies->setPath('');
         return view('app.regencies.index', compact('regencies', 'search'));
     }
 

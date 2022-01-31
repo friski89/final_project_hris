@@ -25,6 +25,8 @@ class AssignmentHistoryController extends Controller
         $assignmentHistories = AssignmentHistory::search($search)
             ->latest()
             ->paginate(5);
+        
+            $assignmentHistories->setPath('');
 
         return view(
             'app.assignment_histories.index',

@@ -24,6 +24,9 @@ class CashBenefitController extends Controller
             ->latest()
             ->paginate(5);
 
+
+        $cashBenefits->setPath('');
+
         return view(
             'app.cash_benefits.index',
             compact('cashBenefits', 'search')

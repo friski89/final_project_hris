@@ -23,7 +23,7 @@ class DistrictController extends Controller
         $districts = District::search($search)
             ->latest()
             ->paginate(5);
-
+        $districts->setPath('');
         return view('app.districts.index', compact('districts', 'search'));
     }
 

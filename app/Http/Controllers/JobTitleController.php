@@ -22,7 +22,7 @@ class JobTitleController extends Controller
         $jobTitles = JobTitle::search($search)
             ->latest()
             ->paginate(5);
-
+        $jobTitles->setPath('');
         return view('app.job_titles.index', compact('jobTitles', 'search'));
     }
 

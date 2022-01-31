@@ -27,7 +27,7 @@ class TrainingHistoryController extends Controller
         $trainingHistories = TrainingHistory::search($search)
             ->latest()
             ->paginate(5);
-
+        $trainingHistories->setPath('');
         return view(
             'app.training_histories.index',
             compact('trainingHistories', 'search')
@@ -66,9 +66,9 @@ class TrainingHistoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function store(TrainingHistoryStoreRequest $request)
-    public function store()
+    public function store(Request $request)
     {
-        dd('test');
+    
         $this->authorize('create', TrainingHistory::class);
 
         $validated = $request->validated();

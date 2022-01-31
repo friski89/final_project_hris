@@ -24,7 +24,7 @@ class EducationalBackgroundController extends Controller
         $educationalBackgrounds = EducationalBackground::search($search)
             ->latest()
             ->paginate(5);
-
+        $educationalBackgrounds->setPath('');
         return view(
             'app.educational_backgrounds.index',
             compact('educationalBackgrounds', 'search')

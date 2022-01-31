@@ -23,7 +23,7 @@ class InsuranceFacilityController extends Controller
         $insuranceFacilities = InsuranceFacility::search($search)
             ->latest()
             ->paginate(5);
-
+        $insuranceFacilities->setPath('');
         return view(
             'app.insurance_facilities.index',
             compact('insuranceFacilities', 'search')

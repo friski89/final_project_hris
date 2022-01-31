@@ -23,7 +23,7 @@ class DepartementController extends Controller
         $departements = Departement::search($search)
             ->latest()
             ->paginate(5);
-
+        $departements->setPath('');
         return view(
             'app.departements.index',
             compact('departements', 'search')

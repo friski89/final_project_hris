@@ -22,7 +22,7 @@ class StatusEmployeeController extends Controller
         $statusEmployees = StatusEmployee::search($search)
             ->latest()
             ->paginate(5);
-
+        $statusEmployees->setPath('');
         return view(
             'app.status_employees.index',
             compact('statusEmployees', 'search')

@@ -22,7 +22,7 @@ class CompanyHomeController extends Controller
         $companyHomes = CompanyHome::search($search)
             ->latest()
             ->paginate(5);
-
+        $companyHomes->setPath('');
         return view(
             'app.company_homes.index',
             compact('companyHomes', 'search')

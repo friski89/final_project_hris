@@ -22,7 +22,7 @@ class JabatanController extends Controller
         $jabatans = Jabatan::search($search)
             ->latest()
             ->paginate(5);
-
+        $jabatans->setPath('');
         return view('app.jabatans.index', compact('jabatans', 'search'));
     }
 

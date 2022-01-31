@@ -22,7 +22,7 @@ class JobGradeController extends Controller
         $jobGrades = JobGrade::search($search)
             ->latest()
             ->paginate(5);
-
+        $jobGrades->setPath('');
         return view('app.job_grades.index', compact('jobGrades', 'search'));
     }
 

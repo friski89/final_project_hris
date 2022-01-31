@@ -23,7 +23,7 @@ class OfficeFacilitiesController extends Controller
         $allOfficeFacilities = OfficeFacilities::search($search)
             ->latest()
             ->paginate(5);
-
+        $allOfficeFacilities->setPath('');
         return view(
             'app.all_office_facilities.index',
             compact('allOfficeFacilities', 'search')

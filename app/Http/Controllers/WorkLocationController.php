@@ -22,7 +22,7 @@ class WorkLocationController extends Controller
         $workLocations = WorkLocation::search($search)
             ->latest()
             ->paginate(5);
-
+        $workLocations->setPath('');
         return view(
             'app.work_locations.index',
             compact('workLocations', 'search')

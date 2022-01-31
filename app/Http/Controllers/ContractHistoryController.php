@@ -23,7 +23,7 @@ class ContractHistoryController extends Controller
         $contractHistories = ContractHistory::search($search)
             ->latest()
             ->paginate(5);
-
+        $contractHistories->setPath('');
         return view(
             'app.contract_histories.index',
             compact('contractHistories', 'search')

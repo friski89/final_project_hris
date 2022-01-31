@@ -22,7 +22,7 @@ class JobFamilyController extends Controller
         $jobFamilies = JobFamily::search($search)
             ->latest()
             ->paginate(5);
-
+        $jobFamilies->setPath('');
         return view('app.job_families.index', compact('jobFamilies', 'search'));
     }
 

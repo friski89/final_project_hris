@@ -22,7 +22,7 @@ class ProvinceController extends Controller
         $provinces = Province::search($search)
             ->latest()
             ->paginate(5);
-
+        $provinces->setPath('');
         return view('app.provinces.index', compact('provinces', 'search'));
     }
 

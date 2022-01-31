@@ -24,7 +24,7 @@ class ProfileController extends Controller
         $profiles = Profile::search($search)
             ->latest()
             ->paginate(5);
-
+        $profiles->setPath('');
         return view('app.profiles.index', compact('profiles', 'search'));
     }
 

@@ -23,6 +23,9 @@ class CityRecuiteController extends Controller
             ->latest()
             ->paginate(5);
 
+
+        
+            $cityRecuites->setPath('');
         return view(
             'app.city_recuites.index',
             compact('cityRecuites', 'search')

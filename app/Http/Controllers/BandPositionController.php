@@ -22,6 +22,7 @@ class BandPositionController extends Controller
         $bandPositions = BandPosition::search($search)
             ->latest()
             ->paginate(5);
+            $bandPositions->setPath('');
 
         return view(
             'app.band_positions.index',

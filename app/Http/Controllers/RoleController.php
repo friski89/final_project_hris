@@ -19,7 +19,7 @@ class RoleController extends Controller {
 
         $search = $request->get('search', '');
         $roles = Role::where('name', 'like', "%{$search}%")->paginate(10);
-
+        $roles->setPath('');
         return view('app.roles.index')
             ->with('roles', $roles)
             ->with('search', $search);
