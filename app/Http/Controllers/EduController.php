@@ -23,6 +23,8 @@ class EduController extends Controller
             ->latest()
             ->paginate(5);
 
+        $edus->setPath('');
+
         return view('app.edus.index', compact('edus', 'search'));
     }
 
