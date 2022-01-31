@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
             \URL::forceRootUrl(config('app.url'));   
             
-            $this->app['request']->server->set('HTTPS','on');
+            // $this->app['request']->server->set('HTTPS','on');
         }
 
         
