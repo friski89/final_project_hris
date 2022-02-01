@@ -54,6 +54,10 @@
                             <x-profile.keahlian-profesi :user="$user"/> --}}
                         @elseif ($linkID === 'data keluarga')
                             <x-profile.data-keluarga :user="$user"/>
+                        @elseif ($linkID === 'cuti')
+                            <x-profile.cuti :user="$user"/>
+                        @elseif ($linkID === 'izin')
+                            <x-profile.izin :user="$user"/>
                         @endif
                     </div>
                 </div>
@@ -99,6 +103,14 @@
         <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('data keluarga')">
             <div class="settings"><i class="icofont icofont-people"></i></div>
             <span>Data Keluarga</span>
+        </a>
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('cuti')">
+            <div class="settings"><i class="icofont icofont-bag-alt"></i></div>
+            <span>Cuti</span>
+        </a>
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('izin')">
+            <div class="settings"><i class="icofont icofont-clock-time"></i></div>
+            <span>Izin</span>
         </a>
     </div>
 </div>

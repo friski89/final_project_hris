@@ -64,6 +64,8 @@ use App\Http\Livewire\Hris\DataKeluarga\CreateDataKeluarga;
 use App\Http\Livewire\Hris\DataKeluarga\UpdateDataKeluarga;
 use App\Http\Livewire\Hris\DataKeluarga\CreateDataKeluargaUser;
 use App\Http\Livewire\Hris\DataKeluarga\UpdateDataKeluargaUser;
+use App\Http\Livewire\Hris\Cuti\CreateCuti;
+use App\Http\Livewire\Hris\Izin\CreateIzin;
 use App\Http\Livewire\Hris\DataRiwayatPendidikan\CreateDataRiwayatPendidikan;
 use App\Http\Livewire\Hris\DataRiwayatPendidikan\UpdateDataRiwayatPendidikan;
 use App\Http\Controllers\PerformanceAppraisalHistoryController;
@@ -270,6 +272,15 @@ Route::prefix('erp')
                         'skills-and-professions',
                         SkillsAndProfessionController::class
                     );
+
+                    Route::prefix('create_cuti')->group(function () {
+                        Route::get('create/{nik}', CreateCuti::class)->name('hrm.create-cuti.create');
+                    });
+
+                    Route::prefix('create_izin')->group(function () {
+                        Route::get('create/{nik}', CreateIzin::class)->name('hrm.create-izin.create');
+                    });
+
                     Route::resource('data-thps', DataThpController::class);
                     Route::get('all-office-facilities', [
                         OfficeFacilitiesController::class,

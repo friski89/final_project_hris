@@ -744,4 +744,26 @@ return [
             'name' => 'Name',
         ],
     ],
+
+    'cuti' => [
+        'name' => 'Cuti',
+        'index_title' => 'Cuti List',
+        'create_title' => 'Create Cuti',
+        'edit_title' => 'Edit Cuti',
+        'show_title' => 'Show Cuti',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
+
+    'izin' => [
+        'name' => 'Izin',
+        'index_title' => 'Izin List',
+        'create_title' => 'Create Izin',
+        'edit_title' => 'Edit Izin',
+        'show_title' => 'Show Izin',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
 ];
