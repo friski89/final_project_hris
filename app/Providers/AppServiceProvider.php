@@ -6,6 +6,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL; 
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        
         if(env('REDIRECT_HTTPS')){
             URL::forceScheme('https');
             \URL::forceRootUrl(config('app.url'));   
@@ -33,7 +35,9 @@ class AppServiceProvider extends ServiceProvider
             // $this->app['request']->server->set('HTTPS','on');
         }
 
-        
+        config(['app.locale' => 'id']);
+        Carbon::setLocale('id');
+        date_default_timezone_set('Asia/Jakarta');
 
         $project_title = '| AdMedika - HCIS';
         View::share('title', $project_title);

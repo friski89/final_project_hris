@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\AbsentController;
 use App\Http\Controllers\Api\FamilyController;
 use App\Http\Controllers\Api\MyTeamsController;
 use App\Http\Controllers\Api\DataThpController;
@@ -154,6 +155,19 @@ Route::name('api.')
             CompanyHostUsersController::class,
             'store',
         ])->name('company-hosts.users.store');
+
+
+         // Absent
+         Route::get('/absents', [AbsentController::class, 'index'])->name('absents.index');
+         Route::resource('absents', AbsentController::class);
+        //  Route::post('/absents/store', [
+        //      AbsentController::class,
+        //      'store',
+        //  ])->name('absents.store');
+        //  Route::post('/absents/update', [
+        //     AbsentController::class,
+        //     'update',
+        // ])->name('absents.update');
 
         // CompanyHost Service Histories
         Route::get('/company-hosts/{companyHost}/service-histories', [
@@ -791,4 +805,7 @@ Route::name('api.')
             DirektoratDivisionsController::class,
             'store',
         ])->name('direktorats.divisions.store');
+
+       
+
     });

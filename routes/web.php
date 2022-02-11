@@ -150,6 +150,16 @@ Route::prefix('Myprofile')->middleware('auth')->group(function () {
     Route::post('/destroy_families', [MyProfileController::class, 'destroy_family'])->name('destroy_families');
 });
 
+Route::prefix('educational-backgrounds')->middleware('auth')->group(function () {
+    Route::get('create/{nik}', CreateDataRiwayatPendidikan::class)->name('hrm.educational-backgrounds.create');
+    Route::get('{educational_background}/edit', UpdateDataRiwayatPendidikan::class)->name('hrm.educational-backgrounds.edit');
+});
+
+Route::prefix('data_keluarga')->middleware('auth')->group(function () {
+    Route::get('create', CreateDataKeluarga::class)->name('hrm.data_keluarga.create');
+    Route::get('{family}/edit', UpdateDataKeluarga::class)->name('hrm.data_keluarga.edit');
+});
+
 Route::prefix('master_data')
     ->middleware('permission:master data')
     ->group(
@@ -260,10 +270,7 @@ Route::prefix('erp')
                     });
 
                     Route::resource('families', FamilyController::class);
-                    Route::prefix('data_keluarga')->group(function () {
-                        Route::get('create', CreateDataKeluarga::class)->name('hrm.data_keluarga.create');
-                        Route::get('{family}/edit', UpdateDataKeluarga::class)->name('hrm.data_keluarga.edit');
-                    });
+                   
                     Route::prefix('data_keluarga_user')->group(function () {
                         Route::get('create/{nik}', CreateDataKeluargaUser::class)->name('hrm.data_keluarga_user.create');
                         Route::get('{family}/edit', UpdateDataKeluargaUser::class)->name('hrm.data_keluarga_user.edit');
@@ -320,10 +327,7 @@ Route::prefix('erp')
                         'educational-backgrounds',
                         EducationalBackgroundController::class
                     );
-                    Route::prefix('educational-backgrounds')->group(function () {
-                        Route::get('create/{nik}', CreateDataRiwayatPendidikan::class)->name('hrm.educational-backgrounds.create');
-                        Route::get('{educational_background}/edit', UpdateDataRiwayatPendidikan::class)->name('hrm.educational-backgrounds.edit');
-                    });
+                    
 
                     Route::resource('contract-histories', ContractHistoryController::class);
                     // Route::resource('families', FamilyController::class);

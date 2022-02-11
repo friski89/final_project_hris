@@ -22,7 +22,7 @@ class CreateDataRiwayatPendidikan extends Component
 
 
     public function createForm() {
-        try {
+        // try {
             $validatedData = Validator::make($this->state, [
                 'emp_no' => 'required',
                 'employee_name' => 'required',
@@ -47,12 +47,12 @@ class CreateDataRiwayatPendidikan extends Component
             
             $created = EducationalBackground::create($validatedData);
             
-            session()->flash('success', 'created successfully!');
+            // session()->flash('success', 'created successfully!');
             return redirect()->route('home');
-        } catch(QueryException $e) {
-            dsession()->flash('error', $e->getMessage());
-            return redirect()->route('home');
-        }
+        // } catch(QueryException $e) {
+        //     session()->flash('error', $e->getMessage());
+        //     return redirect()->route('home');
+        // }
         
     }
 
