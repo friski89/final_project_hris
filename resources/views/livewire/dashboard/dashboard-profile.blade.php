@@ -58,6 +58,8 @@
                             <x-profile.cuti :user="$user"/>
                         @elseif ($linkID === 'izin')
                             <x-profile.izin :user="$user"/>
+                        @elseif ($linkID === 'pakta integritas')
+                            <x-profile.pakta-integritas :user="$user"/>
                         @endif
                     </div>
                 </div>
@@ -111,6 +113,10 @@
         <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('izin')">
             <div class="settings"><i class="icofont icofont-clock-time"></i></div>
             <span>Izin</span>
+        </a>
+        <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('pakta integritas')">
+            <div class="settings"><i class="icofont icofont-attachment"></i></div>
+            <span>Pakta Integritas</span>
         </a>
     </div>
 </div>

@@ -50,10 +50,10 @@
                             <x-profile.riwayat-pendidikan :user="$user"/>
                         @elseif ($linkID === 'riwayat training')
                             <x-profile.riwayat-training :user="$user"/>
-                        {{-- @elseif ($linkID === 'keahlian & profesi')
-                            <x-profile.keahlian-profesi :user="$user"/> --}}
                         @elseif ($linkID === 'data keluarga')
                             <x-profile.data-keluarga :user="$user"/>
+                        @elseif ($linkID === 'pakta integritas')
+                            <x-profile.pakta-integritas :user="$user"/>
                         @endif
                     </div>
                 </div>
@@ -99,6 +99,10 @@
             <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('data keluarga')">
                 <div class="settings"><i class="icofont icofont-people"></i></div>
                 <span>Data Keluarga</span>
+            </a>
+            <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" wire:click="profileLink('pakta integritas')">
+                <div class="settings"><i class="icofont icofont-attachment"></i></div>
+                <span>Pakta Integritas</span>
             </a>
         </div>
     </div>
